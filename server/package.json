@@ -1,0 +1,49 @@
+{
+  "name": "octofarm-website",
+  "version": "1.0.0",
+  "description": "OctoFarm Website Server",
+  "author": "James Mackay (NotExpectedYet)",
+  "scripts": {
+    "dev": "nodemon app.js",
+    "prestart": "npm install",
+    "saveStartup": "pm2 save",
+    "start": "pm2 start app.js --name OctoFarm -o './logs/pm2.log' -e './logs/pm2.error.log' --time",
+    "startup": "pm2 startup",
+    "stop": "pm2 stop OctoFarm"
+  },
+  "main": "app.js",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.5",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "lodash": "^4.17.20",
+    "mongoose": "^5.10.7",
+    "node-fetch": "^2.6.1",
+    "passport": "^0.4.1",
+    "passport-headerapikey": "^1.2.2",
+    "passport-local": "^1.0.0",
+    "passport-remember-me": "0.0.1",
+    "pm2": "^4.5.0",
+    "vuetify": "^2.4.0",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4",
+    "sass": "^1.32.0",
+    "sass-loader": "^10.0.0",
+    "vue-cli-plugin-vuetify": "~2.1.0",
+    "vuetify-loader": "^1.7.0"
+  },
+  "bugs": {
+    "url": "https://github.com/NotExpectedYet/OctoFarm-Website/issues"
+  },
+  "homepage": "https://github.com/NotExpectedYet/OctoFarm-Website#readme",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NotExpectedYet/OctoFarm-Website.git"
+  }
+}
