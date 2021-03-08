@@ -6,6 +6,6 @@ module.exports = {
     name: "OctoFarm",
   },
 
-  outputDir: "public",
+  outputDir: "dist",
   assetsDir: "src/assets",
 };
