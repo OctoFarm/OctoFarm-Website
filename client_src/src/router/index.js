@@ -48,4 +48,11 @@ const router = new VueRouter({
   routes,
 });
 
+router.afterEach((to) => {
+  Vue.nextTick(() => {
+    console.log(to);
+    document.title = `OctoFarm | ${to.name}`;
+  });
+});
+
 export default router;
