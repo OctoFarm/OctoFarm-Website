@@ -584,14 +584,12 @@
       class="mb-5"
     >
       <v-row
-
         justify="center"
       >
-        <!--        Medium-Up installations-->
+        <!-- installations-->
         <v-col>
           <v-toolbar
             flat
-            dark
           >
             <v-toolbar-title>Installation Instruction</v-toolbar-title>
           </v-toolbar>
@@ -629,6 +627,7 @@
                   small
                 >
                   <v-stepper-step
+                    editable
                     :complete="current_step > steps.index"
                     :step="steps.index"
                   >
@@ -700,12 +699,17 @@
                     <v-btn
                       color="primary"
                       @click="current_step = current_step + 1"
+                      elevation="2"
+                      outlined
                     >
                       {{ steps.length }}
                       Continue
                     </v-btn>
                     <v-btn
                       text
+                      elevation="2"
+                      outlined
+                      class="ml-2"
                       @click="current_step = current_step - 1"
                       v-if="current_step !== 1"
                     >
