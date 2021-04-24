@@ -378,7 +378,7 @@ export default {
     ],
     history_map: [
       {
-        date: "24/05/2021",
+        date: "24/04/2021",
         version: "Version 1.1.13",
         release: "Push-up Party",
         features: [
