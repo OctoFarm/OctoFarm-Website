@@ -127,7 +127,7 @@
                   Operating System Recommendations
                 </v-card-title>
                 <v-card-text>
-                  OctoFarm can be installed on (but not limited to) the following systems (must be 64-bit):
+                  OctoFarm itself can be installed on (but not limited to) the following systems:
                   <v-list-item>
                     <v-list-item-icon>
                       <v-icon
@@ -596,7 +596,8 @@
             <v-toolbar-title>Installation Instruction</v-toolbar-title>
           </v-toolbar>
           <v-tabs
-            vertical
+            fixed-tabs
+            show-arrows
             dense
           >
             <v-tab

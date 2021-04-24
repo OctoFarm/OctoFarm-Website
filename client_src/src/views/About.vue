@@ -11,7 +11,6 @@
               justify="center"
             >
               <v-col
-                cols="9"
                 lg="9"
                 md="6"
                 sm="12"
@@ -19,7 +18,6 @@
                 <v-img src="~@/assets/screenshots/dashboard.png" />
               </v-col>
               <v-col
-                cols="3"
                 lg="3"
                 md="6"
                 sm="12"
@@ -77,7 +75,6 @@
                     justify="center"
                   >
                     <v-col
-                      cols="3"
                       lg="3"
                       md="6"
                       sm="12"
@@ -94,7 +91,6 @@
                       </v-card-text>
                     </v-col>
                     <v-col
-                      cols="9"
                       lg="9"
                       md="6"
                       sm="12"
@@ -109,7 +105,6 @@
                     <v-col
                       v-for="feat in area.features"
                       :key="feat.title"
-                      cols="4"
                       lg="4"
                       md="6"
                       sm="12"

@@ -6,4 +6,4 @@ async function bootstrap() {
   app.setGlobalPrefix('api'); // Set all nest endpoints under /api
   await app.listen(4000);
 }
-bootstrap();
+bootstrap().then(() => console.log('Server Started on Port: ' + 4000));

@@ -9,7 +9,6 @@
       >
         <v-col
           class="text-center pa-10"
-          cols="12"
           lg="12"
           md="12"
         >
@@ -32,7 +31,6 @@
           class="ma-5"
           v-for="spon in sponsors"
           :key="spon.name"
-          cols="6"
           xl="2"
           lg="3"
           md="4"
@@ -90,7 +88,6 @@
       >
         <v-col
           class="text-center"
-          cols="12"
           lg="12"
           md="12"
         >
@@ -114,7 +111,6 @@
           class="ma-5"
           v-for="spon in methods_of_sponsor"
           :key="spon.title"
-          cols="6"
           xl="2"
           lg="3"
           md="4"

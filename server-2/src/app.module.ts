@@ -6,7 +6,8 @@ import { join } from 'path';
 
 @Module({
   imports: [
-    ServeStaticModule.forRoot({ // New
+    ServeStaticModule.forRoot({
+      // New
       rootPath: join(__dirname, '..', '../client_src/dist'), // New
     }),
   ],
