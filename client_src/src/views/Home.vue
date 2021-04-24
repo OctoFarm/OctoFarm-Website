@@ -173,7 +173,7 @@
 export default {
   data: () => ({
     tab: null,
-    latest_version: "1.1.12",
+    latest_version: "1.1.13",
     what_octofarm: [
       {
         icon: "mdi-source-branch",

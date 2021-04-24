@@ -19,7 +19,7 @@
           </v-card-title>
           <v-card-text class="font-weight-regular">
             Due to OctoFarms code base it's very system agnostic. There are however some limitations to what systems it's database layer uses, i.e. needs to be 64-bit.
-            <br>Check the configurations options on this page for examples.
+            <br>Check the "OctoFarm Hardware" section for examples.
             <br>Your setup is not limited to these options however I will mention that OctoFarm is a server application at it's core. It requires mainly an always on device to function to it's full capabilities.
             <br><b>NOTE:</b> OctoFarm does not require internet access! but some features may / may not work without it.
           </v-card-text>
@@ -28,7 +28,7 @@
           </v-card-text>
           <v-card-text class="font-weight-thin">
             <v-timeline>
-              <v-timeline-item>NodeJS - v12.18.4 (I only support the LTS versions, currently V12)</v-timeline-item>
+              <v-timeline-item>NodeJS - v14.16.1 (I only support the LTS versions, currently V14)</v-timeline-item>
               <v-timeline-item class="text-right">
                 MongoDB - v3.6+
               </v-timeline-item>
@@ -50,7 +50,19 @@
               <v-icon left>
                 mdi-infinity
               </v-icon>
-              OctoFarm Server
+              OctoFarm Hardware
+            </v-tab>
+            <v-tab>
+              <v-icon left>
+                mdi-gamepad-variant
+              </v-icon>
+              Controlling OctoFarm
+            </v-tab>
+            <v-tab>
+              <v-icon left>
+                mdi-cellphone-arrow-down
+              </v-icon>
+              Updating OctoFarm
             </v-tab>
             <v-tab>
               <v-icon left>
@@ -70,7 +82,7 @@
               </v-icon>
               F.A.Q
             </v-tab>
-
+            <!--            OctoFarm Hardware-->
             <v-tab-item>
               <v-card flat>
                 <v-card-text>
@@ -140,27 +152,186 @@
                     </v-list-item-icon>
                     <v-list-item-content>
                       <v-list-item-title>
-                        Desktop PC / Server
-                      </v-list-item-title>
-                    </v-list-item-content>
-                  </v-list-item>
-                  <v-list-item>
-                    <v-list-item-icon>
-                      <v-icon
-                        color="primary"
-                      >
-                        mdi-apple
-                      </v-icon>
-                    </v-list-item-icon>
-                    <v-list-item-content>
-                      <v-list-item-title>
-                        Apple
+                        Microsoft Windows 10 / Server
                       </v-list-item-title>
                     </v-list-item-content>
                   </v-list-item>
                 </v-card-text>
               </v-card>
             </v-tab-item>
+            <!--            Contolling OctoFarm-->
+            <v-tab-item>
+              <v-card flat>
+                <v-card-text>
+                  You can use various commands to control OctoFarm from your systems command line (cli).
+                  Below are a list of accepted commands and what they do.
+                  These commands we're created for convenience and currently require the installation and setup of pm2.
+                  You can find more information in the Instructions below.
+                </v-card-text>
+                <v-card-title class="font-weight-thin">
+                  Command Lists (All must be run from the OctoFarm installation directory)
+                </v-card-title>
+                <v-card-text>
+                  <v-list-item>
+                    <v-list-item-content>
+                      <v-list-item-title>
+                        <code>{{ npm_start }}</code>
+                        <p class="text-wrap pt-2">
+                          This command is used to start the OctoFarm service.
+                        </p>
+                        <code>{{ npm_restart }}</code>
+                        <p class="text-wrap pt-2">
+                          This command is used to restart the OctoFarm service.
+                        </p>
+                        <code>{{ npm_stop }}</code>
+                        <p class="text-wrap pt-2">
+                          This command is used to stop the OctoFarm service.
+                        </p>
+                        <code>{{ npm_stop_delete }}</code>
+                        <p class="text-wrap pt-2">
+                          This command is used to stop and delete the OctoFarm service.
+                        </p>
+                      </v-list-item-title>
+                    </v-list-item-content>
+                  </v-list-item>
+                </v-card-text>
+              </v-card>
+            </v-tab-item>
+            <!--            Updating OctoFarm-->
+            <v-tab-item>
+              <v-card flat>
+                <v-card-text>
+                  Since v1.1.13 there are two methods to successfully updating your OctoFarms instance. One is from the command line interface,
+                  and the other is a new feature within OctoFarms web interface.
+                </v-card-text>
+                <v-card-title class="font-weight-thin">
+                  CLI Update (Pre v1.1.13)
+                </v-card-title>
+                <v-card-text>
+                  Make sure your currently in the OctoFarm installation directory before running any of the following commands. No support
+                  will be giving in rectifying this issue.
+                  <v-list-item>
+                    <v-list-item-content>
+                      <v-row>
+                        <v-col>
+                          <p class="pb-1">
+                            1. Stop the OctoFarm service
+                          </p>
+                          <code>{{ npm_stop_delete }}</code>
+                        </v-col>
+                        <v-col>
+                          <v-btn
+                            icon
+                            color="primary"
+                            v-clipboard:copy="npm_stop_delete"
+                            v-clipboard:success="onCopy"
+                            v-clipboard:error="onError"
+                          >
+                            <v-icon>mdi-content-copy</v-icon>
+                            Copy
+                          </v-btn>
+                        </v-col>
+                      </v-row>
+                      <v-list-item-content />
+                      <v-row>
+                        <v-col>
+                          <p class="pb-1">
+                            2. Git pull the latest repository.
+                          </p>
+                          <code>{{ git_pull }}</code>
+                        </v-col>
+                        <v-col>
+                          <v-btn
+                            icon
+                            color="primary"
+                            v-clipboard:copy="git_pull"
+                            v-clipboard:success="onCopy"
+                            v-clipboard:error="onError"
+                          >
+                            <v-icon>mdi-content-copy</v-icon>
+                            Copy
+                          </v-btn>
+                        </v-col>
+                      </v-row>
+                      <v-list-item-content />
+                      <v-row>
+                        <v-col>
+                          <p class="pb-1">
+                            2.1. If you have issues with git complaining about local file changes then use this command below.
+                          </p>
+                          <code>{{ git_pull_reset }}</code>
+                        </v-col>
+                        <v-col>
+                          <v-btn
+                            icon
+                            color="primary"
+                            v-clipboard:copy="git_pull_reset"
+                            v-clipboard:success="onCopy"
+                            v-clipboard:error="onError"
+                          >
+                            <v-icon>mdi-content-copy</v-icon>
+                            Copy
+                          </v-btn>
+                        </v-col>
+                      </v-row>
+                      <v-list-item-content />
+                      <v-row>
+                        <v-col>
+                          <p class="pb-1">
+                            3. Run the start-up script for OctoFarm.
+                          </p>
+                          <code>{{ npm_start }}</code>
+                        </v-col>
+                        <v-col>
+                          <v-btn
+                            icon
+                            color="primary"
+                            v-clipboard:copy="npm_start"
+                            v-clipboard:success="onCopy"
+                            v-clipboard:error="onError"
+                          >
+                            <v-icon>mdi-content-copy</v-icon>
+                            Copy
+                          </v-btn>
+                        </v-col>
+                      </v-row>
+                    </v-list-item-content>
+                  </v-list-item>
+                </v-card-text>
+                <v-card-title class="font-weight-thin">
+                  Web Interface Update (Post v1.1.13)
+                </v-card-title>
+                <v-card-text>
+                  Since 1.1.13 we brought in a few buttons to make this easier for the user. This can now be done from the web interface.
+                  <v-list-item>
+                    <v-list-item-content>
+                      <p class="pb-2">
+                        1. Navigate to the "System" page within OctoFarms web interface.
+                      </p>
+                      <p class="pb-2">
+                        2. Scroll down and click on the "Server" Button on the side bar.
+                      </p>
+                      <p class="pb-2">
+                        3. If the "Update OctoFarm" button is greyed out, then click "Check for Updates
+                      </p>
+                      <p class="pb-2">
+                        4. If there's an update available you will get a success message and the "Update OctoFarm" button will become available
+                      </p>
+                      <p class="pb-2">
+                        5. Click "Update OctoFarm" and profit!
+                      </p>
+                      <p class="pb-2">
+                        <b>Notes: </b>There may be some additional dialogs you will have to either confirm or cancel after the update check has run.
+                        These are checks in place to make sure OctoFarm doesn't do anything you don't want with your system. <i>Firstly</i> it will check if any local changes
+                        are detected. If there are it will ask if you'd like to overwrite those and procede. This will mostly be a package.json unless you've been tinkering.
+                        <i>Secondly</i> OctoFarm will make sure there are no missing packages, to continue the update you will have to OK this warning if it appears.
+                      </p>
+                    </v-list-item-content>
+                  </v-list-item>
+                </v-card-text>
+              </v-card>
+            </v-tab-item>
+            <!--            OctoPrint Setup-->
             <v-tab-item>
               <v-card flat>
                 <v-card-text>
@@ -303,6 +474,7 @@
                 </v-card-text>
               </v-card>
             </v-tab-item>
+            <!--            Remote Access -->
             <v-tab-item>
               <v-card flat>
                 <v-card-text>
@@ -314,9 +486,12 @@
                   <br>Currently until this changes (set for 2.X release) then the best method of accessing OctoFarm
                   remotely is with a VPN. There are various methods to setup a VPN detailed below, my personal favourite
                   is WireShark for it's simplicity.
-                  <br><code><b>NOTE: </b>If you choose to host OctoFarm itself behind a reverse proxy, or with an open
-                    port then you do so at your own risk. I do not recommend this setup as it's not been verified to be
-                    secure and you'll also loose the ability to send commands to your OctoPrint instances.</code>
+                  <br><b>NOTE: </b>If you choose to host OctoFarm itself behind a reverse proxy, or with an open
+                  port then you do so at your own risk. I do not recommend this setup as it's not been verified to be
+                  secure and you'll also loose the ability to send commands to your OctoPrint instances due to legacy
+                  code within the client.
+                  <br><b>NOTE: </b>It's not recommended to put the VPN server on the same host as OctoFarm if your
+                  running a Pi4 or similar system.
                 </v-card-text>
                 <v-card-title class="font-weight-thin">
                   Software
@@ -368,6 +543,7 @@
                 </v-card-text>
               </v-card>
             </v-tab-item>
+            <!--            FAQ-->
             <v-tab-item>
               <v-card flat>
                 <v-row>
@@ -377,7 +553,7 @@
                     class="pa-5"
                     col="12"
                     lg="6"
-                    xl="3"
+                    xl="4"
                     md="6"
                   >
                     <v-card
@@ -391,7 +567,7 @@
                             {{ q.question }}
                           </div>
                           <p class="font-weight-thin">
-                            {{ q.answer }}
+                            <span v-html="q.answer" />
                           </p>
                         </v-list-item-content>
                       </v-list-item>
@@ -425,8 +601,9 @@
           >
             <v-tab
               v-for="inst in installation_instructions"
-              :key="inst.icon"
+              :key="inst.system"
               class="text-left"
+              @click="current_step = 1"
             >
               <v-icon left>
                 {{ inst.icon }}
@@ -435,60 +612,107 @@
             </v-tab>
             <v-tab-item
               v-for="inst in installation_instructions"
-              :key="inst.icon"
+              :key="inst.system"
             >
-              <v-card flat>
-                <v-card-text>
-                  <v-card-title>
-                    {{ inst.title }}
-                  </v-card-title>
-                  <v-timeline dense>
-                    <v-timeline-item
-                      v-for="steps in inst.steps"
-                      :key="inst.title + steps.index"
-                      small
+              <v-stepper
+                v-model="current_step"
+                vertical
+              >
+                <h3
+                  class="pa-6"
+                  v-html="inst.title"
+                />
+                <span
+                  v-for="steps in inst.steps"
+                  :key="inst.title + steps.index"
+                  small
+                >
+                  <v-stepper-step
+                    :complete="current_step > steps.index"
+                    :step="steps.index"
+                  >
+                    {{ steps.title }}
+                    <small>{{ inst.input }}</small>
+                  </v-stepper-step>
+                  <v-stepper-content :step="steps.index">
+                    <span
+                      v-for="subSteps in steps.subSteps"
+                      :key="subSteps.code"
                     >
-                      <div>
-                        <v-checkbox
-                          class="d-inline-flex"
-                        /><h2 class="font-weight-light primary--text d-inline-flex">
-                          {{ steps.index }}. {{ steps.title }}
-                        </h2>
-                        <div v-if="steps.input.length > 0">
-                          <v-row
-                            v-for="input in steps.input"
-                            :key="input.code"
-                          >
-                            <v-col>
-                              {{ input.pre_text }}
-                              <code v-if="input.code">{{ input.code }}</code>
-                              <v-btn
-                                v-if="input.url"
-                                :href="input.url"
-                                target="_blank"
+                      <v-card
+                        class="mb-12"
+                      >
+
+                        <v-list-item two-line>
+                          <v-list-item-content>
+                            <v-list-item-title>    <v-checkbox
+                                                     class="d-inline-flex"
+                                                   />
+                              {{ subSteps.index }}. {{ subSteps.title }}</v-list-item-title>
+                            <v-list-item-title>
+                              <v-list-item-subtitle>     <v-row
+                                v-for="input in subSteps.input"
+                                :key="input.code"
                               >
-                                {{ input.pre_text }}
-                              </v-btn>
-                              <br>
-                              <small>{{ input.response }}</small>
-                            </v-col>
-                            <v-col>
-                              <v-btn
-                                v-if="input.code"
-                                v-clipboard:copy="input.code"
-                                v-clipboard:success="onCopy"
-                                v-clipboard:error="onError"
-                              >
-                                Copy
-                              </v-btn>
-                            </v-col>
-                          </v-row>
-                        </div>
-                      </div>
-                    </v-timeline-item>
-                  </v-timeline>
-                </v-card-text>
-              </v-card>
+                                <v-col cols="10">
+                                  <p v-if="input.pre_text">{{ input.pre_text }}</p>
+                                  <code
+                                    v-if="input.code"
+                                    class="text-wrap"
+                                  >{{ input.code }}</code>
+                                  <pre
+                                    v-if="input.pre"
+                                    class="text-wrap"
+                                    v-html="input.pre"
+                                  />
+                                  <a
+                                    :href="'//' + input.url"
+                                    target="_blank"
+                                  >
+                                    {{ input.url }}
+                                  </a>
+                                  <p
+                                    class="pt-3"
+                                    v-if="input.response"
+                                  >{{ input.response }}</p>
+                                </v-col>
+
+                                <v-col cols="2">
+                                  <v-btn
+                                    icon
+                                    v-if="input.code"
+                                    v-clipboard:copy="input.code"
+                                    v-clipboard:success="onCopy"
+                                    v-clipboard:error="onError"
+                                  >
+                                    <v-icon>mdi-content-copy</v-icon>
+                                    Copy
+                                  </v-btn>
+                                </v-col>
+                              </v-row></v-list-item-subtitle>
+
+                            </v-list-item-title></v-list-item-content>
+                        </v-list-item>
+
+                      </v-card>
+                    </span>
+                    <v-btn
+                      color="primary"
+                      @click="current_step = current_step + 1"
+                    >
+                      {{ steps.length }}
+                      Continue
+                    </v-btn>
+                    <v-btn
+                      text
+                      @click="current_step = current_step - 1"
+                      v-if="current_step !== 1"
+                    >
+                      Back
+                    </v-btn>
+                  </v-stepper-content>
+                </span>
+              </v-stepper>
             </v-tab-item>
           </v-tabs>
         </v-col>
@@ -529,6 +753,13 @@ export default {
     },
   },
   data: () => ({
+    current_step: 1,
+    npm_start: "npm start",
+    npm_restart: "npm restart",
+    npm_stop: "npm stop",
+    npm_stop_delete: "npm stop:delete",
+    git_pull: "git pull",
+    git_pull_reset: "git reset --hard",
     snackbar: false,
     snackbar_message: null,
     snackbar_colour: "success",
@@ -542,190 +773,182 @@ export default {
         steps: [{
           index: "1",
           title: "Install MongoDB",
-          input: [],
-        }, {
-          index: "1.1",
-          title: "Add MongoDB Repository Key",
-          input: [
+          subSteps: [
             {
-              pre_text: "",
-              code: "wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -",
-              response: "",
-            },
-          ],
-        },
-        {
-          index: "1.2",
-          title: "Add MongoDB Repository (Choose Correct Version)",
-          input: [
-            {
-              pre_text: "20.04: ",
-              code: "echo \"deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 multiverse\" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list",
-              response: "",
+              index: "1.1",
+              title: "Add MongoDB Repository Key",
+              input: [
+                {
+                  pre_text: "",
+                  code: "wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -",
+                  response: "",
+                },
+              ],
             },
             {
-              pre_text: "18.08: ",
-              code: "echo \"deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.4 multiverse\" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list",
-              response: "",
+              index: "1.2",
+              title: "Add MongoDB Repository (Choose Correct Version)",
+              input: [
+                {
+                  pre_text: "20.04: ",
+                  code: "echo \"deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 multiverse\" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list",
+                  response: "",
+                },
+                {
+                  pre_text: "18.08: ",
+                  code: "echo \"deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.4 multiverse\" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list",
+                  response: "",
+                },
+                {
+                  pre_text: "16.04: ",
+                  code: "echo \"deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/4.4 multiverse\" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list",
+                  response: "",
+                },
+              ],
             },
             {
-              pre_text: "16.04: ",
-              code: "echo \"deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/4.4 multiverse\" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list",
-              response: "",
-            },
-          ],
-        },
-        {
-          index: "1.3",
-          title: "Update APT and Install MonogDB with package manager",
-          input: [
-            {
-              pre_text: "",
-              code: "sudo apt-get update && sudo apt-get install -y mongodb-org",
-              response: "",
-            },
-          ],
-        },
-        {
-          index: "1.4",
-          title: "Enable and start mongod service, then make sure it's running...",
-          input: [
-            {
-              pre_text: "",
-              code: "sudo systemctl enable mongod",
-              response: "Enable the MongoDB Service",
+              index: "1.3",
+              title: "Update APT and Install MonogDB with package manager",
+              input: [
+                {
+                  pre_text: "",
+                  code: "sudo apt-get update && sudo apt-get install -y mongodb-org",
+                  response: "",
+                },
+              ],
             },
             {
-              pre_text: "",
-              code: "sudo systemctl start mongod",
-              response: "Start the MongoDB Service",
-            },
-            {
-              pre_text: "",
-              code: "sudo systemctl status mongod",
-              response: "Check the status of the MongoDB Service, should report active.",
+              index: "1.4",
+              title: "Enable and start mongod service, then make sure it's running...",
+              input: [
+                {
+                  pre_text: "",
+                  code: "sudo systemctl enable mongod",
+                  response: "Enable the MongoDB Service",
+                },
+                {
+                  pre_text: "",
+                  code: "sudo systemctl start mongod",
+                  response: "Start the MongoDB Service",
+                },
+                {
+                  pre_text: "",
+                  code: "sudo systemctl status mongod",
+                  response: "Check the status of the MongoDB Service, should report active.",
+                },
+              ],
             },
           ],
         },
         {
           index: "2",
-          title: "Install NodeJS LTS v12",
-          input: [
-          ],
-        },
-        {
-          index: "2.1",
-          title: "Add nodeJS version 12 Repository and install with dependencies (one liner)",
-          input: [
+          title: "Install NodeJS LTS v14",
+          subSteps: [
             {
-              pre_text: "",
-              code: "curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash - sudo apt -y install nodejs gcc g++ make",
-              response: "",
+              index: "2.1",
+              title: "Add nodeJS version 14 Repository and install with dependencies (one liner)",
+              input: [
+                {
+                  pre_text: "",
+                  code: "curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash - | sudo apt -y install nodejs gcc g++ make",
+                  response: "",
+                },
+              ],
             },
-          ],
-        },
-        {
-          index: "2.2",
-          title: "Check and make sure the nodejs version is at least v12 but less then v13",
-          input: [
             {
-              pre_text: "",
-              code: "node --version",
-              response: "Output: v12.18.3",
+              index: "2.2",
+              title: "Check and make sure the nodejs version is at least v12 but less then v13",
+              input: [
+                {
+                  pre_text: "",
+                  code: "node --version",
+                  response: "Output: v14.16.1",
+                },
+              ],
             },
           ],
         },
         {
           index: "3",
           title: "Install Git + pm2 then Download OctoFarm",
-          input: [
-          ],
-        },
-        {
-          index: "3.1",
-          title: "Install Git",
-          input: [
+          subSteps: [
             {
-              pre_text: "",
-              code: "sudo apt install git",
-              response: "",
+              index: "3.1",
+              title: "Install Git",
+              input: [
+                {
+                  pre_text: "",
+                  code: "sudo apt install git",
+                  response: "",
+                },
+              ],
             },
-          ],
-        },
-        {
-          index: "3.2",
-          title: "Install pm2",
-          input: [
             {
-              pre_text: "",
-              code: "sudo npm install pm2 -g",
-              response: "",
+              index: "3.2",
+              title: "Install pm2",
+              input: [
+                {
+                  pre_text: "",
+                  code: "sudo npm install pm2 -g",
+                  response: "",
+                },
+              ],
             },
-          ],
-        },
-        {
-          index: "3.3",
-          title: "Clone the OctoFarm repository from master (latest stable version)",
-          input: [
             {
-              pre_text: "",
-              code: "git clone https://github.com/NotExpectedYet/OctoFarm.git ~/OctoFarm",
-              response: "",
+              index: "3.3",
+              title: "Clone the OctoFarm repository from master (latest stable version)",
+              input: [
+                {
+                  pre_text: "",
+                  code: "git clone https://github.com/NotExpectedYet/OctoFarm.git ~/OctoFarm",
+                  response: "",
+                },
+              ],
             },
           ],
         },
         {
           index: "4",
           title: "Setup OctoFarm and start the service",
-          input: [
-          ],
-        },
-        {
-          index: "4.1",
-          title: "Change into the newly created OctoFarm folder",
-          input: [
+          subSteps: [
             {
-              pre_text: "",
-              code: "cd ~/OctoFarm",
-              response: "",
+              index: "4.1",
+              title: "Change into the newly created OctoFarm folder",
+              input: [
+                {
+                  pre_text: "",
+                  code: "cd ~/OctoFarm",
+                  response: "",
+                },
+              ],
             },
-          ],
-        },
-        {
-          index: "4.2",
-          title: "Install OctoFarms dependencies and start the service... This could take a few moments.",
-          input: [
             {
-              pre_text: "",
-              code: "npm start",
-              response: "",
+              index: "4.2",
+              title: "Install OctoFarms dependencies and start the service... This could take a few moments.",
+              input: [
+                {
+                  pre_text: "",
+                  code: "npm start",
+                  response: "",
+                },
+              ],
             },
           ],
         },
         {
           index: "5",
           title: "Profit! OctoFarm should now be running and available to access.",
-          input: [
+          subSteps: [
             {
-              pre_text: "Double check with your favourite web browser and continue to point 6: ",
-              code: "http://{your systems ip address}:4000",
-              response: "",
-            },
-          ],
-        },
-        {
-          index: "6",
-          title: "Setup the OctoFarm service, required to start on system boot and also use internal system functions. (must be whilst OctoFarm is running)",
-          input: [
-            {
-              pre_text: "",
-              code: "pm2 startup",
-              response: "Example: sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u pi --hp /home/pi",
-            },
-            {
-              pre_text: "",
-              code: "pm2 save",
-              response: "",
+              index: "5.1",
+              title: "Access and test your web service.",
+              input: [
+                {
+                  pre_text: "Double check with your favourite web browser and continue to point 6: ",
+                  code: "http://{your systems ip address}:4000",
+                  response: "",
+                },
+              ],
             },
           ],
         },
@@ -738,185 +961,180 @@ export default {
         steps: [{
           index: "1",
           title: "Install MongoDB",
-          input: [],
-        }, {
-          index: "1.1",
-          title: "Add MongoDB Repository Key",
-          input: [
+          subSteps: [
             {
-              pre_text: "",
-              code: "wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -",
-              response: "",
-            },
-          ],
-        },
-        {
-          index: "1.2",
-          title: "Add MongoDB Repository (Choose Correct Version)",
-          input: [
-            {
-              pre_text: "Debian 10: ",
-              code: "echo \"deb http://repo.mongodb.org/apt/debian buster/mongodb-org/4.4 main\" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list",
-              response: "",
+              index: "1.1",
+              title: "Add MongoDB Repository Key",
+              input: [
+                {
+                  pre_text: "",
+                  code: "wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -",
+                  response: "",
+                },
+              ],
             },
             {
-              pre_text: "Debian 9: ",
-              code: "echo \"deb http://repo.mongodb.org/apt/debian stretch/mongodb-org/4.4 main\" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list",
-              response: "",
-            },
-          ],
-        },
-        {
-          index: "1.3",
-          title: "Update APT and Install MonogDB with package manager",
-          input: [
-            {
-              pre_text: "",
-              code: "sudo apt-get update && sudo apt-get install -y mongodb-org",
-              response: "",
-            },
-          ],
-        },
-        {
-          index: "1.4",
-          title: "Enable and start mongod service, then make sure it's running...",
-          input: [
-            {
-              pre_text: "",
-              code: "sudo systemctl enable mongod",
-              response: "",
+              index: "1.2",
+              title: "Add MongoDB Repository (Choose Correct Version)",
+              input: [
+                {
+                  pre_text: "Debian 10: ",
+                  code: "echo \"deb http://repo.mongodb.org/apt/debian buster/mongodb-org/4.4 main\" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list",
+                  response: "",
+                },
+                {
+                  pre_text: "Debian 9: ",
+                  code: "echo \"deb http://repo.mongodb.org/apt/debian stretch/mongodb-org/4.4 main\" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list",
+                  response: "",
+                },
+              ],
             },
             {
-              pre_text: "",
-              code: "sudo systemctl start mongod",
-              response: "",
+              index: "1.3",
+              title: "Update APT and Install MonogDB with package manager",
+              input: [
+                {
+                  pre_text: "",
+                  code: "sudo apt-get update && sudo apt-get install -y mongodb-org",
+                  response: "",
+                },
+              ],
             },
             {
-              pre_text: "",
-              code: "sudo systemctl status mongod",
-              response: "",
+              index: "1.4",
+              title: "Enable and start mongod service, then make sure it's running...",
+              input: [
+                {
+                  pre_text: "",
+                  code: "sudo systemctl enable mongod",
+                  response: "",
+                },
+                {
+                  pre_text: "",
+                  code: "sudo systemctl start mongod",
+                  response: "",
+                },
+                {
+                  pre_text: "",
+                  code: "sudo systemctl status mongod",
+                  response: "",
+                },
+              ],
             },
           ],
         },
         {
           index: "2",
-          title: "Install NodeJS LTS v12",
-          input: [
-          ],
-        },
-        {
-          index: "2.1",
-          title: "Add nodeJS version 12 Repository and install with dependencies (one liner)",
-          input: [
+          title: "Install NodeJS LTS v14",
+          subSteps: [
             {
-              pre_text: "",
-              code: "curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash - sudo apt -y install nodejs gcc g++ make",
-              response: "",
+              index: "2.1",
+              title: "Add nodeJS version 14 Repository and install with dependencies (one liner)",
+              input: [
+                {
+                  pre_text: "",
+                  code: "curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash - | sudo apt -y install nodejs gcc g++ make",
+                  response: "",
+                },
+              ],
+            },
+            {
+              index: "2.2",
+              title: "Check and make sure the nodejs version is at least v12 but less then v13",
+              input: [
+                {
+                  pre_text: "",
+                  code: "node --version",
+                  response: "Output: v14.16.1",
+                },
+              ],
             },
           ],
         },
-        {
-          index: "2.2",
-          title: "Check and make sure the nodejs version is at least v12 but less then v13",
-          input: [
-            {
-              pre_text: "",
-              code: "node --version",
-              response: "Output: v12.18.3",
-            },
-          ],
-        },
+
         {
           index: "3",
           title: "Install Git + pm2 then Download OctoFarm",
-          input: [
-          ],
-        },
-        {
-          index: "3.1",
-          title: "Install Git",
-          input: [
+          subSteps: [
             {
-              pre_text: "",
-              code: "sudo apt install git",
-              response: "",
+              index: "3.1",
+              title: "Install Git",
+              input: [
+                {
+                  pre_text: "",
+                  code: "sudo apt install git",
+                  response: "",
+                },
+              ],
+            },
+            {
+              index: "3.2",
+              title: "Install pm2",
+              input: [
+                {
+                  pre_text: "",
+                  code: "sudo npm install pm2 -g",
+                  response: "",
+                },
+              ],
+            },
+            {
+              index: "3.3",
+              title: "Clone the OctoFarm repository from master (latest stable version)",
+              input: [
+                {
+                  pre_text: "",
+                  code: "git clone https://github.com/NotExpectedYet/OctoFarm.git ~/OctoFarm",
+                  response: "",
+                },
+              ],
             },
           ],
         },
-        {
-          index: "3.2",
-          title: "Install pm2",
-          input: [
-            {
-              pre_text: "",
-              code: "sudo npm install pm2 -g",
-              response: "",
-            },
-          ],
-        },
-        {
-          index: "3.3",
-          title: "Clone the OctoFarm repository from master (latest stable version)",
-          input: [
-            {
-              pre_text: "",
-              code: "git clone https://github.com/NotExpectedYet/OctoFarm.git ~/OctoFarm",
-              response: "",
-            },
-          ],
-        },
+
         {
           index: "4",
           title: "Setup OctoFarm and start the service",
-          input: [
-          ],
-        },
-        {
-          index: "4.1",
-          title: "Change into the newly created OctoFarm folder",
-          input: [
+          subSteps: [
             {
-              pre_text: "",
-              code: "cd ~/OctoFarm",
-              response: "",
+              index: "4.1",
+              title: "Change into the newly created OctoFarm folder",
+              input: [
+                {
+                  pre_text: "",
+                  code: "cd ~/OctoFarm",
+                  response: "",
+                },
+              ],
+            },
+            {
+              index: "4.2",
+              title: "Install OctoFarms dependencies and start the service... This could take a few moments.",
+              input: [
+                {
+                  pre_text: "",
+                  code: "npm start",
+                  response: "",
+                },
+              ],
             },
           ],
         },
-        {
-          index: "4.2",
-          title: "Install OctoFarms dependencies and start the service... This could take a few moments.",
-          input: [
-            {
-              pre_text: "",
-              code: "npm start",
-              response: "",
-            },
-          ],
-        },
+
         {
           index: "5",
           title: "Profit! OctoFarm should now be running and available to access.",
-          input: [
+          subSteps: [
             {
-              pre_text: "Double check with your favourite web browser and continue to point 6: ",
-              code: "http://{your systems ip address}:4000",
-              response: "",
-            },
-          ],
-        },
-        {
-          index: "6",
-          title: "Setup the OctoFarm service, required to start on system boot and also use internal system functions. (must be whilst OctoFarm is running)",
-          input: [
-            {
-              pre_text: "",
-              code: "pm2 startup",
-              response: "Example: sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u pi --hp /home/pi",
-            },
-            {
-              pre_text: "",
-              code: "pm2 save",
-              response: "",
+              index: "5.1",
+              title: "Double check with your favourite web browser and continue to point 6: ",
+              input: [
+                {
+                  pre_text: "",
+                  code: "http://{your systems ip address}:4000",
+                  response: "",
+                },
+              ],
             },
           ],
         },
@@ -928,111 +1146,159 @@ export default {
         icon: "mdi-microsoft-windows",
         steps: [{
           index: "1",
-          title: "Download and install MongoDB",
-          input: [
+          title: "Setup MongoDB",
+          subSteps: [
             {
-              pre_text: "Download MongoDB",
-              url: "https://fastdl.mongodb.org/windows/mongodb-windows-x86_64-4.4.3-signed.msia",
-              response: "",
+              index: "1.1",
+              title: "Download MongoDB",
+              input: [
+                {
+                  pre_text: "Download",
+                  url: "https://fastdl.mongodb.org/windows/mongodb-windows-x86_64-4.4.3-signed.msi",
+                  response: "",
+                },
+              ],
+            },
+            {
+              index: "1.2",
+              title: "Run the installer",
+              input: [
+                {
+                  pre_text: "Double click the downloaded 'mongodb-windows-x86_64-4.4.3-signed.msi installer', wherever your downloaded it to.",
+                  url: "",
+                  response: "",
+                },
+              ],
             },
           ],
         }, {
           index: "2",
-          title: "Download and install NodeJS",
-          input: [
+          title: "Setup NodeJS",
+          subSteps: [
             {
-              pre_text: "Download NodeJS",
-              url: "https://nodejs.org/dist/latest-v12.x/node-v12.20.1-x64.msi",
-              response: "",
+              index: "1.1",
+              title: "Download NodeJS",
+              input: [
+                {
+                  pre_text: "Download",
+                  url: "https://nodejs.org/dist/v14.16.1/node-v14.16.1-x64.msi",
+                  response: "",
+                },
+              ],
             },
-
+            {
+              index: "1.2",
+              title: "Run the installer",
+              input: [
+                {
+                  pre_text: "Double click the downloaded 'node-v14.16.1-x64.msi installer', wherever your downloaded it to.",
+                  url: "",
+                  response: "",
+                },
+              ],
+            },
           ],
         },
         {
           index: "3",
-          title: "Download and install Git",
-          input: [
+          title: "Setup Git",
+          subSteps: [
             {
-              pre_text: "Download Git",
-              url: "https://github.com/git-for-windows/git/releases/download/v2.30.1.windows.1/Git-2.30.1-64-bit.exe",
-              response: "",
+              index: "1.1",
+              title: "Download Git",
+              input: [
+                {
+                  pre_text: "Download",
+                  url: "https://github.com/git-for-windows/git/releases/download/v2.30.1.windows.1/Git-2.30.1-64-bit.exe",
+                  response: "",
+                },
+              ],
+            },
+            {
+              index: "1.1",
+              title: "Run the installer",
+              input: [
+                {
+                  pre_text: "Double click the downloaded 'Git-2.30.1-64-bit.exe', wherever your downloaded it to.",
+                  url: "",
+                  response: "",
+                },
+              ],
             },
           ],
         },
         {
           index: "4",
           title: "Install pm2",
-          input: [
+          subSteps: [
             {
-              pre_text: "Open up a command prompt instance with Administrator rights and run:",
-              code: "npm install pm2 -g",
-              response: "",
+              index: "4.1",
+              title: "Install pm2",
+              input: [
+                {
+                  pre_text: "",
+                  code: "npm install pm2 -g",
+                  response: "",
+                },
+              ],
             },
           ],
         },
         {
           index: "5",
-          title: "Clone the OctoFarm repository from master (latest stable version)",
-          input: [
+          title: "Setup OctoFarm",
+          subSteps: [
             {
-              pre_text: "Open up a second command prompt WITHOUT Administrator rights this time in the directory you'd like to install OctoFarm too.",
-              code: "git clone https://github.com/NotExpectedYet/OctoFarm.git ~/OctoFarm",
-              response: "",
+              index: "5.1",
+              title: "Find a location to install OctoFarm too. Generally 'C:/'",
+              input: [
+                {
+                  pre_text: "",
+                  code: "Open up a second command prompt WITHOUT Administrator rights this time in the directory you'd like to install OctoFarm too."
+                    + "If your in Windows Explorer at your desired location, just type 'cmd' into the navigation bar at the top, and press 'enter'"
+                    + "This will open command prompt in that location",
+                  response: "",
+                },
+              ],
+            },
+            {
+              index: "5.2",
+              title: "Download the OctoFarm repository",
+              input: [
+                {
+                  pre_text: "",
+                  code: "git clone https://github.com/NotExpectedYet/OctoFarm.git ~/OctoFarm",
+                  response: "",
+                },
+              ],
+            },
+            {
+              index: "5.3",
+              title: "Install OctoFarms system dependencies and start the service.",
+              input: [
+                {
+                  pre_text: "",
+                  code: "npm start",
+                  response: "",
+                },
+              ],
             },
           ],
         },
         {
           index: "6",
-          title: "Setup OctoFarm and start the service",
-          input: [
-          ],
-        },
-        {
-          index: "6.1",
-          title: "Change into the newly created OctoFarm folder",
-          input: [
-            {
-              pre_text: "",
-              code: "cd OctoFarm",
-              response: "",
-            },
-          ],
-        },
-        {
-          index: "6.2",
-          title: "Install OctoFarms dependencies and start the service... This could take a few moments.",
-          input: [
-            {
-              pre_text: "",
-              code: "npm start",
-              response: "",
-            },
-          ],
-        },
-        {
-          index: "7",
           title: "Profit! OctoFarm should now be running and available to access.",
-          input: [
+          subSteps: [
             {
-              pre_text: "Double check with your favourite web browser and continue to point 6: ",
-              code: "http://{your systems ip address}:4000",
-              response: "",
-            },
-          ],
-        },
-        {
-          index: "8",
-          title: "Setup the OctoFarm service, required to start on system boot and also use internal system functions. (must be whilst OctoFarm is running)",
-          input: [
-            {
-              pre_text: "",
-              code: "pm2 startup",
-              response: "Example: sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u pi --hp /home/pi",
-            },
-            {
-              pre_text: "",
-              code: "pm2 save",
-              response: "",
+              index: "6.1",
+              title: "Double check with your favourite web browser",
+              input: [
+                {
+                  pre_text: "",
+                  code: "http://{your systems ip address}:4000",
+                  response: "",
+                },
+              ],
             },
           ],
         },
@@ -1044,68 +1310,180 @@ export default {
         icon: "mdi-raspberry-pi",
         steps: [{
           index: "1",
-          title: "Download Ubuntu 64-bit",
-          input: [{
-            pre_text: "Ubuntu Download for Raspberry Pi",
-            url: "https://ubuntu.com/download/raspberry-pi",
-            response: "Make sure it's Ubuntu Server 20.04.1 LTS",
-          }],
-        }, {
-          index: "2",
-          title: "Flash the image onto your microSD Card.",
-          input: [
+          title: "Setup Ubuntu 64-bit on your Raspberry Pi",
+          subSteps: [
             {
-              pre_text: "Linux Machine",
-              url: "https://ubuntu.com/tutorials/create-an-ubuntu-image-for-a-raspberry-pi-on-ubuntu",
-              response: "",
+              index: "1.1",
+              title: "Ubuntu Download for Raspberry Pi",
+              input: [
+                {
+                  pre_text: "Download Ubuntu 64-bit 20.04 for your Raspberry Pi Hardware.",
+                  code: "https://ubuntu.com/download/raspberry-pi",
+                  response: "Make sure it's Ubuntu Server 20.04.1 LTS",
+                },
+              ],
             },
             {
-              pre_text: "Windows Machine",
-              url: "https://ubuntu.com/tutorials/create-an-ubuntu-image-for-a-raspberry-pi-on-windows",
-              response: "",
+              index: "2",
+              title: "Flash the image onto your microSD Card.",
+              input: [
+                {
+                  pre_text: "Linux Machine",
+                  url: "https://ubuntu.com/tutorials/create-an-ubuntu-image-for-a-raspberry-pi-on-ubuntu",
+                  response: "",
+                },
+                {
+                  pre_text: "Windows Machine",
+                  url: "https://ubuntu.com/tutorials/create-an-ubuntu-image-for-a-raspberry-pi-on-windows",
+                  response: "",
+                },
+                {
+                  pre_text: "OSX Machine",
+                  url: "https://ubuntu.com/tutorials/create-an-ubuntu-image-for-a-raspberry-pi-on-macos",
+                  response: "",
+                },
+              ],
             },
             {
-              pre_text: "OSX Machine",
-              url: "https://ubuntu.com/tutorials/create-an-ubuntu-image-for-a-raspberry-pi-on-macos",
-              response: "",
+              index: "3",
+              title: "Boot the ubuntu server after inserting the SD card.",
+              input: [],
+            },
+            {
+              index: "4",
+              title: "Login to the Pi command line",
+              input: [],
+            },
+            {
+              index: "5",
+              title: "Continue on with the Linux (Ubuntu) setup.",
+              input: [],
             },
           ],
-        },
-        {
-          index: "3",
-          title: "Boot the ubuntu server after inserting the SD card.",
-          input: [
-          ],
-        },
-        {
-          index: "4",
-          title: "Login to the Pi command line",
-          input: [
-          ],
-        },
-        {
-          index: "5",
-          title: "Continue on with the Linux (Ubuntu) setup.",
-          input: [
-
-          ],
-        },
-
-        ],
+        }],
       },
       {
-        system: "Updating",
-        title: "Follow the steps below to upgrade your OctoFarm install to the latest version.",
-        icon: "mdi-update",
+        system: "Docker",
+        title: "Below are some different docker-compose configuration examples you can use. This does not detail how to setup/user docker itself, it assumes you know that. "
+          + "More information can be found in our <a href='https://github.com/OctoFarm/OctoFarm/blob/development/docs/USING_DOCKER.md' target='_blank'> Using Docker</a> documentation."
+          + " Our images are all hosted on DockerHub and more information about the current tags and what-not can be found here: <a href='https://hub.docker.com/r/octofarm/octofarm/' target='_blank'>OctoFarm DockerHub</a>",
+        icon: "mdi-docker",
+        steps: [{
+          index: "1",
+          title: "docker-compose.yml examples",
+          subSteps: [
+            {
+              index: "1.1",
+              title: "Main OctoFarm Image",
+              input: [
+                {
+                  pre_text: "The main image was the first image created for OctoFarm. It includes just the OctoFarm service and requires a separate mongodb instance for the database."
+                    + "It's based from the ubuntu 64-bit image and comes with everything you need to run OctoFarm except the database portion. Users are free to setup that however they wish"
+                    + "be it an remote instance or internal locally hosted.",
+                  pre: "services:<br>"
+                    + "&nbsp;&nbsp;octofarm:<br>"
+                    + "&nbsp;&nbsp;&nbsp;&nbsp;container_name: octofarm <br>"
+                    + "&nbsp;&nbsp;&nbsp;&nbsp;image: octofarm/octofarm:latest<br>"
+                    + "&nbsp;&nbsp;&nbsp;&nbsp;restart: always<br>"
+                    + "&nbsp;&nbsp;&nbsp;&nbsp;mem_limit: 400m # Feel free to adjust! 400 MB is quite high and a safety limit.<br>"
+                    + "&nbsp;&nbsp;&nbsp;&nbsp;ports:<br>"
+                    + "&nbsp;&nbsp;&nbsp;&nbsp;- 4000:4000 # port of SYSTEM : port of CONTAINER<br>"
+                    + "&nbsp;&nbsp;&nbsp;&nbsp;environment:<br>"
+                    + "&nbsp;&nbsp;&nbsp;&nbsp;- MONGO=mongodb://MONGO_ROOTUSER_HERE:MONGO_PASSWORD_HERE@mongodb:27017/octofarm?authSource=admin<br>"
+                    + "&nbsp;&nbsp;&nbsp;&nbsp;volumes:<br>"
+                    + "&nbsp;&nbsp;&nbsp;&nbsp;# Volumes as local relative folders (validate with 'docker-compose config')<br>"
+                    + "&nbsp;&nbsp;&nbsp;&nbsp;- ./OctoFarm/logs:/app/logs<br>"
+                    + "&nbsp;&nbsp;&nbsp;&nbsp;- ./OctoFarm/scripts:/app/scripts<br>"
+                    + "&nbsp;&nbsp;&nbsp;&nbsp;- ./OctoFarm/image:/app/images<br>",
+                },
+              ],
+            },
+            {
+              index: "1.2",
+              title: "Alpine OctoFarm Image",
+              input: [
+                {
+                  pre_text: "Alpine is a recent new addition to the OctoFarm containers. It was added by a user named torresmvl and is a seriously slimmed down version of the main image."
+                    + "It also supports amd64, armhf, aarch64, i386 architectures so should run on most things. It comes with everything needed to run OctoFarm except for the database portion. "
+                   + " Users are free to setup that however they wish be it an remote instance or internal locally hosted.",
+                  pre: "services:<br>"
+                    + "&nbsp;&nbsp;octofarm:<br>"
+                    + "&nbsp;&nbsp;&nbsp;&nbsp;container_name: octofarm <br>"
+                    + "&nbsp;&nbsp;&nbsp;&nbsp;image: octofarm/octofarm:alpine-latest<br>"
+                    + "&nbsp;&nbsp;&nbsp;&nbsp;restart: always<br>"
+                    + "&nbsp;&nbsp;&nbsp;&nbsp;mem_limit: 400m # Feel free to adjust! 400 MB is quite high and a safety limit.<br>"
+                    + "&nbsp;&nbsp;&nbsp;&nbsp;ports:<br>"
+                    + "&nbsp;&nbsp;&nbsp;&nbsp;- 4000:4000 # port of SYSTEM : port of CONTAINER<br>"
+                    + "&nbsp;&nbsp;&nbsp;&nbsp;environment:<br>"
+                    + "&nbsp;&nbsp;&nbsp;&nbsp;- MONGO=mongodb://MONGO_ROOTUSER_HERE:MONGO_PASSWORD_HERE@mongodb:27017/octofarm?authSource=admin<br>"
+                    + "&nbsp;&nbsp;&nbsp;&nbsp;volumes:<br>"
+                    + "&nbsp;&nbsp;&nbsp;&nbsp;# Volumes as local relative folders (validate with 'docker-compose config')<br>"
+                    + "&nbsp;&nbsp;&nbsp;&nbsp;- ./OctoFarm/logs:/app/logs<br>"
+                    + "&nbsp;&nbsp;&nbsp;&nbsp;- ./OctoFarm/scripts:/app/scripts<br>"
+                    + "&nbsp;&nbsp;&nbsp;&nbsp;- ./OctoFarm/image:/app/images<br>",
+                },
+              ],
+            },
+            {
+              index: "1.3",
+              title: "Monolithic OctoFarm Image",
+              input: [
+                {
+                  pre_text: "Monolithic is an all in one OctoFarm image. It was added by a user named Mearman is an all in one image based off the original OctoFarm image."
+                    + "It includes the OctoFarm service and the MongoDB image so is a great one to use for people who just want an all in one container without messing with a"
+                    + " database setup.",
+                  pre: "services:<br>"
+                    + "&nbsp;&nbsp;octofarm:<br>"
+                    + "&nbsp;&nbsp;&nbsp;&nbsp;container_name: octofarm <br>"
+                    + "&nbsp;&nbsp;&nbsp;&nbsp;image: octofarm/octofarm:monolithic-latest<br>"
+                    + "&nbsp;&nbsp;&nbsp;&nbsp;restart: always<br>"
+                    + "&nbsp;&nbsp;&nbsp;&nbsp;mem_limit: 400m # Feel free to adjust! 400 MB is quite high and a safety limit.<br>"
+                    + "&nbsp;&nbsp;&nbsp;&nbsp;ports:<br>"
+                    + "&nbsp;&nbsp;&nbsp;&nbsp;- 4000:4000 # port of SYSTEM : port of CONTAINER<br>"
+                    + "&nbsp;&nbsp;&nbsp;&nbsp;environment:<br>"
+                    + "&nbsp;&nbsp;&nbsp;&nbsp;- MONGO=mongodb://MONGO_ROOTUSER_HERE:MONGO_PASSWORD_HERE@mongodb:27017/octofarm?authSource=admin<br>"
+                    + "&nbsp;&nbsp;&nbsp;&nbsp;volumes:<br>"
+                    + "&nbsp;&nbsp;&nbsp;&nbsp;# Volumes as local relative folders (validate with 'docker-compose config')<br>"
+                    + "&nbsp;&nbsp;&nbsp;&nbsp;- ./OctoFarm/logs:/app/logs<br>"
+                    + "&nbsp;&nbsp;&nbsp;&nbsp;- ./OctoFarm/scripts:/app/scripts<br>"
+                    + "&nbsp;&nbsp;&nbsp;&nbsp;- ./OctoFarm/image:/app/images<br>"
+                     + "&nbsp;&nbsp;&nbsp;&nbsp;- ./OctoFarm/data:/data/db<br>",
+                },
+              ],
+            },
+          ],
+        }],
+      },
+      {
+        system: "OctoFarm Service",
+        title: "Follow the steps below to enable OctoFarms Service",
+        icon: "mdi-run",
         steps: [
           {
             index: "1",
-            title: "Whilst in the installation directory of OctoFarm run the commands below",
-            input: [
+            title: "Setup the OctoFarm service, required to start on system boot and also use internal system functions. (must be whilst OctoFarm is running)",
+            subSteps: [
               {
-                pre_text: "",
-                code: "npm run update",
-                response: "Pull the latest information from the repository.",
+                index: "1.1",
+                title: "Generate a pm2 startup script.",
+                input: [
+                  {
+                    pre_text: "",
+                    code: "pm2 startup",
+                    response: "Example: sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u pi --hp /home/pi",
+                  },
+                ],
+              },
+              {
+                index: "1.2",
+                title: "Save the running services",
+                input: [
+                  {
+                    pre_text: "",
+                    code: "pm2 save",
+                    response: "",
+                  },
+                ],
               },
             ],
           },
@@ -1121,7 +1499,8 @@ export default {
         question: "OctoFarm won't connect to my printer?",
         answer: "There's a few things to check here. Make sure you've followed the OctoPrint setup above and restarted it after enabling CORS. "
           + "If you have multiple OctoPrint users then you need to double check you've provided the correct key+user combination. "
-          + "Look in the Printer Settings to see which user OctoFarm is connecting with. It's hard coded so you'll have to provide the key for that user.",
+          + "Look in the Printer Settings to see which user OctoFarm is connecting with. It's hard coded so you'll have to provide the key for that user. For more information: "
+          + "<a href='https://github.com/OctoFarm/OctoFarm/issues/302' target='_blank' class='text-decoration-none'>Click Here</a>",
       },
       {
         question: "Commands fail to send to OctoPrint but status updates?",

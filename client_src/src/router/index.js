@@ -27,7 +27,7 @@ const routes = [
   // },
   {
     path: "/installation",
-    name: "Installation",
+    name: "Installation & Setup",
     component: Installation,
   },
   // {

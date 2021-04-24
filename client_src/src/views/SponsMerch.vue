@@ -177,12 +177,32 @@ export default {
         url: "",
       },
       {
-        name: "Paul",
+        name: "Paul Helinski",
         url_title: "",
         url: "",
       },
       {
-        name: "Nick",
+        name: "Nick Walke",
+        url_title: "",
+        url: "",
+      },
+      {
+        name: "Alex Wiecke",
+        url_title: "",
+        url: "",
+      },
+      {
+        name: "Michael Portsmore",
+        url_title: "",
+        url: "",
+      },
+      {
+        name: "Josh Wright",
+        url_title: "",
+        url: "",
+      },
+      {
+        name: "3DCT",
         url_title: "",
         url: "",
       },

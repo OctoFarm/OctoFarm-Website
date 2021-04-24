@@ -102,7 +102,11 @@ export default Vue.extend({
         link: "https://github.com/NotExpectedYet/OctoFarm/discussions",
         icon: "mdi-github",
       },
-
+      {
+        name: "Reddit",
+        link: "https://www.reddit.com/r/OctoFarm/",
+        icon: "mdi-reddit",
+      },
     ],
   }),
 });

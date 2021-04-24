@@ -1,11 +1,21 @@
-import Vue from "vue";
-import Vuex from "vuex";
+// import axios from "axios";
 
-Vue.use(Vuex);
+// to handle state
+const state = {};
 
-const store = new Vuex.Store({
-  state: {
-    count: 0,
-  },
-});
-export default store;
+// to handle state
+const getters = {};
+
+// to handle actions
+const actions = {};
+
+// to handle mutations
+const mutations = {};
+
+// export store module
+export default {
+  state,
+  getters,
+  actions,
+  mutations,
+};

@@ -303,11 +303,6 @@ export default {
             description: "Open up the history card to drill down into more specific print meta data and also update some of the fields. Allows you to add notes to your print for future reference.",
             img_url: "history-card",
           },
-          {
-            title: "Timelapse and Snapshot Capture",
-            description: "",
-            img_url: "printemanager",
-          },
         ],
       },
       {
@@ -387,6 +382,29 @@ export default {
       },
     ],
     history_map: [
+      {
+        date: "24/05/2021",
+        version: "Version 1.1.13",
+        release: "Push-up Party",
+        features: [
+          {
+            description: "Staging release for some tasty improvements coming down the line for the packaging/running and managing of OctoFarm. Various bug fixes and finally an Automated Updater!",
+          },
+          {
+            title: "New OctoFarm .env file",
+            description: "Allows easily change your OctoFarm variables for database and port and gets rid of the age old config/db.js file.",
+          },
+          {
+            title: "OctoFarm Log Dump",
+            description: "A .zip file generator in system that allows easily packaging your OctoFarm Logs and System Information into a digestible octofarm_dump.zip file.",
+          },
+          {
+            title: "Server Update Check and Command",
+            description: "A server load now triggers OctoFarm to check for the latest releases and there's some new buttons in System to allow a user to trigger a check"
+              + " as well as the update itself.",
+          },
+        ],
+      },
       {
         date: "4/03/2021",
         version: "Version 1.1.12",
