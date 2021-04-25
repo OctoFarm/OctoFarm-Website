@@ -52,9 +52,9 @@
             <v-tabs
               fixed-tabs
               v-model="tab"
-              centered
               icons-and-text
               show-arrows
+              centered
               origin="top center 0"
             >
               <v-tab

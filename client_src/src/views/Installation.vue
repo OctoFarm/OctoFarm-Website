@@ -6,43 +6,46 @@
       <v-tabs
         dense
         fixed-tabs
+        icons-and-text
         show-arrows
+        centered
+        origin="top center 0"
       >
         <v-tab>
-          <v-icon left>
+          OctoFarm Requirements
+          <v-icon>
             mdi-infinity
           </v-icon>
-          OctoFarm Requirements
         </v-tab>
         <v-tab>
-          <v-icon left>
+          Controlling OctoFarm
+          <v-icon>
             mdi-gamepad-variant
           </v-icon>
-          Controlling OctoFarm
         </v-tab>
         <v-tab>
-          <v-icon left>
+          Updating OctoFarm
+          <v-icon>
             mdi-cellphone-arrow-down
           </v-icon>
-          Updating OctoFarm
         </v-tab>
         <v-tab>
-          <v-icon left>
+          OctoPrint Setup
+          <v-icon>
             mdi-printer-3d-nozzle
           </v-icon>
-          OctoPrint Setup
         </v-tab>
         <v-tab>
-          <v-icon left>
+          Remote Access
+          <v-icon>
             mdi-web
           </v-icon>
-          Remote Access
         </v-tab>
         <v-tab>
-          <v-icon left>
+          F.A.Q
+          <v-icon>
             mdi-comment-question-outline
           </v-icon>
-          F.A.Q
         </v-tab>
         <!--            OctoFarm Hardware-->
         <v-tab-item>
@@ -644,18 +647,21 @@
       <v-tabs
         fixed-tabs
         show-arrows
+        icons-and-text
         dense
+        centered
+        origin="top center 0"
       >
         <v-tab
           v-for="inst in installation_instructions"
           :key="inst.system"
-          class="text-left"
+          class="text-"
           @click="current_step = 1"
         >
-          <v-icon left>
+          {{ inst.system }}
+          <v-icon>
             {{ inst.icon }}
           </v-icon>
-          {{ inst.system }}
         </v-tab>
         <v-tab-item
           v-for="inst in installation_instructions"
