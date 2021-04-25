@@ -53,8 +53,9 @@
               fixed-tabs
               v-model="tab"
               centered
-              dark
               icons-and-text
+              show-arrows
+              origin="top center 0"
             >
               <v-tab
                 v-for="area in about_octofarm"
@@ -64,7 +65,9 @@
                 <v-icon>{{ area.icon }}</v-icon>
               </v-tab>
             </v-tabs>
-            <v-tabs-items v-model="tab">
+            <v-tabs-items
+              v-model="tab"
+            >
               <v-tab-item
                 v-for="area in about_octofarm"
                 :key="area.tab"

@@ -3,93 +3,99 @@
     <v-card
       class="mb-5"
     >
-      <v-row>
-        <!-- OctoFarm Setup-->
-        <v-col
-          lg="4"
-          md="6"
-          sm="12"
-          xs="12"
-          class="text-center"
-        >
-          <v-card-title
-            class="d-inline-flex"
+      <v-tabs
+        dense
+        fixed-tabs
+        show-arrows
+      >
+        <v-tab>
+          <v-icon left>
+            mdi-infinity
+          </v-icon>
+          OctoFarm Requirements
+        </v-tab>
+        <v-tab>
+          <v-icon left>
+            mdi-gamepad-variant
+          </v-icon>
+          Controlling OctoFarm
+        </v-tab>
+        <v-tab>
+          <v-icon left>
+            mdi-cellphone-arrow-down
+          </v-icon>
+          Updating OctoFarm
+        </v-tab>
+        <v-tab>
+          <v-icon left>
+            mdi-printer-3d-nozzle
+          </v-icon>
+          OctoPrint Setup
+        </v-tab>
+        <v-tab>
+          <v-icon left>
+            mdi-web
+          </v-icon>
+          Remote Access
+        </v-tab>
+        <v-tab>
+          <v-icon left>
+            mdi-comment-question-outline
+          </v-icon>
+          F.A.Q
+        </v-tab>
+        <!--            OctoFarm Hardware-->
+        <v-tab-item>
+          <v-card
+            flat
+            class="text-center"
           >
-            OctoFarm Setup
-          </v-card-title>
-          <v-card-text class="font-weight-regular">
-            Due to OctoFarms code base it's very system agnostic. There are however some limitations to what systems it's database layer uses, i.e. needs to be 64-bit.
-            <br>Check the "OctoFarm Hardware" section for examples.
-            <br>Your setup is not limited to these options however I will mention that OctoFarm is a server application at it's core. It requires mainly an always on device to function to it's full capabilities.
-            <br><b>NOTE:</b> OctoFarm does not require internet access! but some features may / may not work without it.
-          </v-card-text>
-          <v-card-text class="font-weight-regular">
-            Application Requirements
-          </v-card-text>
-          <v-card-text class="font-weight-thin">
-            <v-timeline>
-              <v-timeline-item>NodeJS - v14.16.1 (I only support the LTS versions, currently V14)</v-timeline-item>
-              <v-timeline-item class="text-right">
-                MongoDB - v3.6+
-              </v-timeline-item>
-              <v-timeline-item>OctoPrint - v1.3.9+</v-timeline-item>
-            </v-timeline>
-          </v-card-text>
-        </v-col>
-        <v-col
-          lg="8"
-          md="6"
-          sm="12"
-          xs="12"
-        >
-          <v-tabs
-            fixed-tabs
-            show-arrows
-          >
-            <v-tab>
-              <v-icon left>
-                mdi-infinity
-              </v-icon>
-              OctoFarm Hardware
-            </v-tab>
-            <v-tab>
-              <v-icon left>
-                mdi-gamepad-variant
-              </v-icon>
-              Controlling OctoFarm
-            </v-tab>
-            <v-tab>
-              <v-icon left>
-                mdi-cellphone-arrow-down
-              </v-icon>
-              Updating OctoFarm
-            </v-tab>
-            <v-tab>
-              <v-icon left>
-                mdi-printer-3d-nozzle
-              </v-icon>
-              OctoPrint Setup
-            </v-tab>
-            <v-tab>
-              <v-icon left>
-                mdi-web
-              </v-icon>
-              Remote Access
-            </v-tab>
-            <v-tab>
-              <v-icon left>
-                mdi-comment-question-outline
-              </v-icon>
-              F.A.Q
-            </v-tab>
-            <!--            OctoFarm Hardware-->
-            <v-tab-item>
-              <v-card flat>
+            <v-row>
+              <v-col
+                lg="4"
+                md="6"
+                sm="12"
+                xs="12"
+              >
+                <v-card-title
+                  class="d-inline-flex"
+                >
+                  OctoFarm Setup
+                </v-card-title>
+                <v-card-text class="font-weight-regular">
+                  Due to OctoFarms code base it's very system agnostic. However the database requires a 64-bit system.
+                  <br>OctoFarm requires mainly an always on device to function to it's full capabilities.
+                  <br><b>NOTE:</b> OctoFarm does not require internet access! but some features may / may not work without it.
+                </v-card-text>
+                <v-card-text class="font-weight-regular">
+                  Application Requirements
+                </v-card-text>
+                <v-card-text>
+                  <v-timeline>
+                    <v-timeline-item>NodeJS - v14.16.1 (I only support the LTS versions, currently V14)</v-timeline-item>
+                    <v-timeline-item class="text-right">
+                      MongoDB - v3.6+
+                    </v-timeline-item>
+                    <v-timeline-item>OctoPrint - v1.3.9+</v-timeline-item>
+                  </v-timeline>
+                </v-card-text>
+              </v-col>
+              <v-col
+                lg="8"
+                md="6"
+                sm="12"
+                xs="12"
+              >
+                <v-card-title
+                  class="d-inline-flex"
+                >
+                  Hardware and Software
+                </v-card-title>
                 <v-card-text>
                   You will need an always on piece of physical hardware to setup this configuration but everything you need for OctoFarm is all installed on a single device.
                   You can install any of the OctoFarm docker packages or use one of the installation instructions below to setup the production method.
                 </v-card-text>
-                <v-card-title class="font-weight-thin">
+                <v-card-title>
                   Hardware
                 </v-card-title>
                 <v-card-text>
@@ -123,7 +129,7 @@
                     </v-list-item-content>
                   </v-list-item>
                 </v-card-text>
-                <v-card-title class="font-weight-thin">
+                <v-card-title>
                   Operating System Recommendations
                 </v-card-title>
                 <v-card-text>
@@ -157,571 +163,611 @@
                     </v-list-item-content>
                   </v-list-item>
                 </v-card-text>
-              </v-card>
-            </v-tab-item>
-            <!--            Contolling OctoFarm-->
-            <v-tab-item>
-              <v-card flat>
-                <v-card-text>
-                  You can use various commands to control OctoFarm from your systems command line (cli).
-                  Below are a list of accepted commands and what they do.
-                  These commands we're created for convenience and currently require the installation and setup of pm2.
-                  You can find more information in the Instructions below.
-                </v-card-text>
-                <v-card-title class="font-weight-thin">
-                  Command Lists (All must be run from the OctoFarm installation directory)
-                </v-card-title>
-                <v-card-text>
-                  <v-list-item>
-                    <v-list-item-content>
-                      <v-list-item-title>
-                        <code>{{ npm_start }}</code>
-                        <p class="text-wrap pt-2">
-                          This command is used to start the OctoFarm service.
-                        </p>
-                        <code>{{ npm_restart }}</code>
-                        <p class="text-wrap pt-2">
-                          This command is used to restart the OctoFarm service.
-                        </p>
-                        <code>{{ npm_stop }}</code>
-                        <p class="text-wrap pt-2">
-                          This command is used to stop the OctoFarm service.
-                        </p>
-                        <code>{{ npm_stop_delete }}</code>
-                        <p class="text-wrap pt-2">
-                          This command is used to stop and delete the OctoFarm service.
-                        </p>
-                      </v-list-item-title>
-                    </v-list-item-content>
-                  </v-list-item>
-                </v-card-text>
-              </v-card>
-            </v-tab-item>
-            <!--            Updating OctoFarm-->
-            <v-tab-item>
-              <v-card flat>
-                <v-card-text>
-                  Since v1.1.13 there are two methods to successfully updating your OctoFarms instance. One is from the command line interface,
-                  and the other is a new feature within OctoFarms web interface.
-                </v-card-text>
-                <v-card-title class="font-weight-thin">
-                  CLI Update (Pre v1.1.13)
-                </v-card-title>
-                <v-card-text>
-                  Make sure your currently in the OctoFarm installation directory before running any of the following commands. No support
-                  will be giving in rectifying this issue.
-                  <v-list-item>
-                    <v-list-item-content>
-                      <v-row>
-                        <v-col>
-                          <p class="pb-1">
-                            1. Stop the OctoFarm service
-                          </p>
-                          <code>{{ npm_stop_delete }}</code>
-                        </v-col>
-                        <v-col>
-                          <v-btn
-                            icon
-                            color="primary"
-                            v-clipboard:copy="npm_stop_delete"
-                            v-clipboard:success="onCopy"
-                            v-clipboard:error="onError"
-                          >
-                            <v-icon>mdi-content-copy</v-icon>
-                            Copy
-                          </v-btn>
-                        </v-col>
-                      </v-row>
-                      <v-list-item-content />
-                      <v-row>
-                        <v-col>
-                          <p class="pb-1">
-                            2. Git pull the latest repository.
-                          </p>
-                          <code>{{ git_pull }}</code>
-                        </v-col>
-                        <v-col>
-                          <v-btn
-                            icon
-                            color="primary"
-                            v-clipboard:copy="git_pull"
-                            v-clipboard:success="onCopy"
-                            v-clipboard:error="onError"
-                          >
-                            <v-icon>mdi-content-copy</v-icon>
-                            Copy
-                          </v-btn>
-                        </v-col>
-                      </v-row>
-                      <v-list-item-content />
-                      <v-row>
-                        <v-col>
-                          <p class="pb-1">
-                            2.1. If you have issues with git complaining about local file changes then use this command below.
-                          </p>
-                          <code>{{ git_pull_reset }}</code>
-                        </v-col>
-                        <v-col>
-                          <v-btn
-                            icon
-                            color="primary"
-                            v-clipboard:copy="git_pull_reset"
-                            v-clipboard:success="onCopy"
-                            v-clipboard:error="onError"
-                          >
-                            <v-icon>mdi-content-copy</v-icon>
-                            Copy
-                          </v-btn>
-                        </v-col>
-                      </v-row>
-                      <v-list-item-content />
-                      <v-row>
-                        <v-col>
-                          <p class="pb-1">
-                            3. Run the start-up script for OctoFarm.
-                          </p>
-                          <code>{{ npm_start }}</code>
-                        </v-col>
-                        <v-col>
-                          <v-btn
-                            icon
-                            color="primary"
-                            v-clipboard:copy="npm_start"
-                            v-clipboard:success="onCopy"
-                            v-clipboard:error="onError"
-                          >
-                            <v-icon>mdi-content-copy</v-icon>
-                            Copy
-                          </v-btn>
-                        </v-col>
-                      </v-row>
-                    </v-list-item-content>
-                  </v-list-item>
-                </v-card-text>
-                <v-card-title class="font-weight-thin">
-                  Web Interface Update (Post v1.1.13)
-                </v-card-title>
-                <v-card-text>
-                  Since 1.1.13 we brought in a few buttons to make this easier for the user. This can now be done from the web interface.
-                  <v-list-item>
-                    <v-list-item-content>
-                      <p class="pb-2">
-                        1. Navigate to the "System" page within OctoFarms web interface.
-                      </p>
-                      <p class="pb-2">
-                        2. Scroll down and click on the "Server" Button on the side bar.
-                      </p>
-                      <p class="pb-2">
-                        3. If the "Update OctoFarm" button is greyed out, then click "Check for Updates
-                      </p>
-                      <p class="pb-2">
-                        4. If there's an update available you will get a success message and the "Update OctoFarm" button will become available
-                      </p>
-                      <p class="pb-2">
-                        5. Click "Update OctoFarm" and profit!
-                      </p>
-                      <p class="pb-2">
-                        <b>Notes: </b>There may be some additional dialogs you will have to either confirm or cancel after the update check has run.
-                        These are checks in place to make sure OctoFarm doesn't do anything you don't want with your system. <i>Firstly</i> it will check if any local changes
-                        are detected. If there are it will ask if you'd like to overwrite those and procede. This will mostly be a package.json unless you've been tinkering.
-                        <i>Secondly</i> OctoFarm will make sure there are no missing packages, to continue the update you will have to OK this warning if it appears.
-                      </p>
-                    </v-list-item-content>
-                  </v-list-item>
-                </v-card-text>
-              </v-card>
-            </v-tab-item>
-            <!--            OctoPrint Setup-->
-            <v-tab-item>
-              <v-card flat>
-                <v-card-text>
-                  OctoPrint will require a few preparations before OctoFarm can establish a connection.
-                  Follow the 3 steps below to setup your OctoPrint instances.
-                  <br>
-                  For more information into why this is so, please check this ticket on OctoFarm's
-                  github page: <a
-                    href="https://github.com/OctoFarm/OctoFarm/issues/302"
-                    target="_blank"
-                    class="text-decoration-none"
-                  >OctoPrint API keys and CORS - tips for new users</a>
-                </v-card-text>
-                <v-card-title class="font-weight-thin">
-                  1. Settings Preparations
-                </v-card-title>
-                <v-card-text>
-                  <v-row
-                    justify="center"
-                  >
+              </v-col>
+            </v-row>
+          </v-card>
+        </v-tab-item>
+        <!--            Contolling OctoFarm-->
+        <v-tab-item>
+          <v-card
+            flat
+            class="text-center"
+          >
+            <v-card-title class="d-inline-flex">
+              OctoFarm CLI Commands
+            </v-card-title>
+            <v-card-text>
+              You can use various commands to control OctoFarm from your systems command line (cli).
+              Below are a list of accepted commands and what they do.
+              These commands we're created for convenience and currently require the installation and setup of pm2.
+              You can find more information in the Instructions below.
+            </v-card-text>
+            <v-card-title class="d-inline-flex">
+              Command Lists (All must be run from the OctoFarm installation directory)
+            </v-card-title>
+            <v-card-text>
+              <v-list-item>
+                <v-list-item-content>
+                  <v-list-item-title>
+                    <code>{{ npm_start }}</code>
+                    <p class="text-wrap pt-2">
+                      This command is used to start the OctoFarm service.
+                    </p>
+                    <code>{{ npm_restart }}</code>
+                    <p class="text-wrap pt-2">
+                      This command is used to restart the OctoFarm service.
+                    </p>
+                    <code>{{ npm_stop }}</code>
+                    <p class="text-wrap pt-2">
+                      This command is used to stop the OctoFarm service.
+                    </p>
+                    <code>{{ npm_stop_delete }}</code>
+                    <p class="text-wrap pt-2">
+                      This command is used to stop and delete the OctoFarm service.
+                    </p>
+                  </v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </v-card-text>
+          </v-card>
+        </v-tab-item>
+        <!--            Updating OctoFarm-->
+        <v-tab-item>
+          <v-card
+            flat
+            class="text-center"
+          >
+            <v-card-title class="d-inline-flex">
+              How to Update your OctoFarm Install
+            </v-card-title>
+            <v-card-text>
+              Since v1.1.13 there are two methods to successfully updating your OctoFarms instance. One is from the command line interface,
+              and the other is a new feature within OctoFarms web interface.
+            </v-card-text>
+            <v-card-title class="d-inline-flex">
+              CLI Update (Pre v1.1.13)
+            </v-card-title>
+            <v-card-text>
+              Make sure your currently in the OctoFarm installation directory before running any of the following commands. No support
+              will be giving in rectifying this issue.
+              <v-list-item>
+                <v-list-item-content>
+                  <v-row>
                     <v-col
-                      cols="3"
-                      lg="3"
                       md="6"
                       sm="12"
-                      xs="12"
-                      class="text-center"
                     >
-                      Due to OctoFarm residing on a different host to your OctoPrint instance you will need to enable CORS to stop the system failing any attempts to communicate with the API.
+                      <p class="pb-1">
+                        1. Stop the OctoFarm service
+                      </p>
+                      <code>{{ npm_stop_delete }}</code>
                     </v-col>
                     <v-col
-                      cols="9"
-                      lg="9"
                       md="6"
                       sm="12"
-                      xs="12"
                     >
-                      <v-img
-                        width="75%"
-                        src="~@/assets/octoprintSetup/userCORSOctoPrint.png"
-                      />
+                      <v-btn
+                        icon
+                        color="primary"
+                        v-clipboard:copy="npm_stop_delete"
+                        v-clipboard:success="onCopy"
+                        v-clipboard:error="onError"
+                      >
+                        <v-icon>mdi-content-copy</v-icon>
+                        Copy
+                      </v-btn>
                     </v-col>
                   </v-row>
-                </v-card-text>
-                <v-card-title
-                  class="font-weight-thin"
+                  <v-list-item-content />
+                  <v-row>
+                    <v-col
+                      md="6"
+                      sm="12"
+                    >
+                      <p class="pb-1">
+                        2. Git pull the latest repository.
+                      </p>
+                      <code>{{ git_pull }}</code>
+                    </v-col>
+                    <v-col
+                      md="6"
+                      sm="12"
+                    >
+                      <v-btn
+                        icon
+                        color="primary"
+                        v-clipboard:copy="git_pull"
+                        v-clipboard:success="onCopy"
+                        v-clipboard:error="onError"
+                      >
+                        <v-icon>mdi-content-copy</v-icon>
+                        Copy
+                      </v-btn>
+                    </v-col>
+                  </v-row>
+                  <v-list-item-content />
+                  <v-row>
+                    <v-col
+                      md="6"
+                      sm="12"
+                    >
+                      <p class="pb-1">
+                        2.1. If you have issues with git complaining about local file changes then use this command below.
+                      </p>
+                      <code>{{ git_pull_reset }}</code>
+                    </v-col>
+                    <v-col
+                      md="6"
+                      sm="12"
+                    >
+                      <v-btn
+                        icon
+                        color="primary"
+                        v-clipboard:copy="git_pull_reset"
+                        v-clipboard:success="onCopy"
+                        v-clipboard:error="onError"
+                      >
+                        <v-icon>mdi-content-copy</v-icon>
+                        Copy
+                      </v-btn>
+                    </v-col>
+                  </v-row>
+                  <v-list-item-content />
+                  <v-row>
+                    <v-col
+                      md="6"
+                      sm="12"
+                    >
+                      <p class="pb-1">
+                        3. Run the start-up script for OctoFarm.
+                      </p>
+                      <code>{{ npm_start }}</code>
+                    </v-col>
+                    <v-col
+                      md="6"
+                      sm="12"
+                    >
+                      <v-btn
+                        icon
+                        color="primary"
+                        v-clipboard:copy="npm_start"
+                        v-clipboard:success="onCopy"
+                        v-clipboard:error="onError"
+                      >
+                        <v-icon>mdi-content-copy</v-icon>
+                        Copy
+                      </v-btn>
+                    </v-col>
+                  </v-row>
+                </v-list-item-content>
+              </v-list-item>
+            </v-card-text>
+            <v-card-title class="d-inline-flex">
+              Web Interface Update (Post v1.1.13)
+            </v-card-title>
+            <v-card-text>
+              Since 1.1.13 we brought in a few buttons to make this easier for the user. This can now be done from the web interface.
+              <v-list-item>
+                <v-list-item-content>
+                  <p class="pb-2">
+                    1. Navigate to the "System" page within OctoFarms web interface.
+                  </p>
+                  <p class="pb-2">
+                    2. Scroll down and click on the "Server" Button on the side bar.
+                  </p>
+                  <p class="pb-2">
+                    3. If the "Update OctoFarm" button is greyed out, then click "Check for Updates
+                  </p>
+                  <p class="pb-2">
+                    4. If there's an update available you will get a success message and the "Update OctoFarm" button will become available
+                  </p>
+                  <p class="pb-2">
+                    5. Click "Update OctoFarm" and profit!
+                  </p>
+                  <p class="pb-2">
+                    <b>Notes: </b>There may be some additional dialogs you will have to either confirm or cancel after the update check has run.
+                    These are checks in place to make sure OctoFarm doesn't do anything you don't want with your system. <i>Firstly</i> it will check if any local changes
+                    are detected. If there are it will ask if you'd like to overwrite those and procede. This will mostly be a package.json unless you've been tinkering.
+                    <i>Secondly</i> OctoFarm will make sure there are no missing packages, to continue the update you will have to OK this warning if it appears.
+                  </p>
+                </v-list-item-content>
+              </v-list-item>
+            </v-card-text>
+          </v-card>
+        </v-tab-item>
+        <!--            OctoPrint Setup-->
+        <v-tab-item>
+          <v-card
+            flat
+            class="text-center"
+          >
+            <v-card-title class="d-inline-flex">
+              How to setup your OctoPrints
+            </v-card-title>
+            <v-card-text>
+              OctoPrint will require a few preparations before OctoFarm can establish a connection.
+              Follow the 3 steps below to setup your OctoPrint instances.
+              <br>
+              For more information into why this is so, please check this ticket on OctoFarm's
+              github page: <a
+                href="https://github.com/OctoFarm/OctoFarm/issues/302"
+                target="_blank"
+                class="text-decoration-none"
+              >OctoPrint API keys and CORS - tips for new users</a>
+            </v-card-text>
+            <v-card-text>
+              <v-row
+                justify="center"
+              >
+                <v-col
+                  lg="3"
+                  md="6"
+                  sm="12"
+                  xs="12"
+                  class="text-center"
                 >
-                  2. User Preparations
-                </v-card-title>
-                <v-card-text>
-                  <v-row
+                  <v-card-title class="d-inline-flex">
+                    1. Settings Preparations
+                  </v-card-title>
+                  <v-card-text class="d-inline-flex">
+                    Due to OctoFarm residing on a different host to your OctoPrint instance you will need to enable CORS to stop the system failing any attempts to communicate with the API.
+                  </v-card-text>
+                </v-col>
+                <v-col
+                  lg="9"
+                  md="6"
+                  sm="12"
+                  xs="12"
+                >
+                  <v-img
+                    class="d-inline-flex"
+                    width="75%"
+                    src="~@/assets/octoprintSetup/userCORSOctoPrint.png"
+                  />
+                </v-col>
+              </v-row>
+            </v-card-text>
+            <v-card-text>
+              <v-row
 
-                    justify="center"
-                  >
-                    <v-col
-                      cols="3"
-                      lg="3"
-                      md="6"
-                      sm="12"
-                      class="text-center"
-                    >
-                      OctoFarm uses websockets to communicate in real time with the OctoPrint instance and to enable this we need to use the OctoPrint user account. OctoFarm (to attempt to save time adding printers), will make a guess and grab the first Admin user it finds.<br>
-                      If you have more than a single user on your OctoPrint instance then you need to make sure to generate the API key from the User OctoFarm uses to connect. It should be the first admin user in the screenshot provided.
-                      <b>NOTE:</b> It is a hard requirement that OctoFarm connects with Admin permissions. This is to enable the user to update OctoPrint system settings from OctoFarm itself, if your user is not an Admin on OctoPrint, it may fail to connect / produce unintended consequences.
-                    </v-col>
-                    <v-col
-                      cols="9"
-                      lg="9"
-                      md="6"
-                      sm="12"
-                    >
-                      <v-img
-                        width="75%"
-                        src="~@/assets/octoprintSetup/userSetupOctoPrint.png"
-                      />
-                    </v-col>
-                  </v-row>
-                </v-card-text>
-                <v-card-title class="font-weight-thin">
-                  3. API Preparations
-                </v-card-title>
-                <v-card-text>
-                  <v-row
-                    justify="center"
-                  >
-                    <v-col
-                      cols="3"
-                      lg="3"
-                      md="6"
-                      sm="12"
-                      class="text-center"
-                    >
-                      Since OctoPrint Version 1.4.2 the websocket connection will no longer work with the global API key. (OctoPrint seems to be moving away from this key all together).
-                      It is required now to either generate a Application key or OctoFarm or use a generated key that's specific to the User account. OctoFarm works with either so go with the one that most fits your setup.
-                      <br><b>NOTE:</b> Make a note of the generated key and your OctoPrint's IP / Host name as you will require this to input into OctoFarm.
-                    </v-col>
-                    <v-col
-                      cols="9"
-                      lg="9"
-                      md="6"
-                      sm="12"
-                    >
-                      <small class="ma-10">Both of these keys below can be created in the "User Settings" menu on OctoPrint.</small>
-                      <v-img
-                        width="25%"
-                        class="ma-5 d-inline-flex"
-                        src="~@/assets/octoprintSetup/userSettingsOctoPrint.png"
-                      />
+                justify="center"
+              >
+                <v-col
+                  cols="3"
+                  lg="3"
+                  md="6"
+                  sm="12"
+                  class="text-center"
+                >
+                  <v-card-title class="d-inline-flex">
+                    2. User Preparations
+                  </v-card-title>
+                  <v-card-text>
+                    OctoFarm uses websockets to communicate in real time with the OctoPrint instance and to enable this we need to use the OctoPrint user account. OctoFarm (to attempt to save time adding printers), will make a guess and grab the first Admin user it finds.<br>
+                    If you have more than a single user on your OctoPrint instance then you need to make sure to generate the API key from the User OctoFarm uses to connect. It should be the first admin user in the screenshot provided.
+                    <b>NOTE:</b> It is a hard requirement that OctoFarm connects with Admin permissions. This is to enable the user to update OctoPrint system settings from OctoFarm itself, if your user is not an Admin on OctoPrint, it may fail to connect / produce unintended consequences.
+                  </v-card-text>
+                </v-col>
+                <v-col
+                  cols="9"
+                  lg="9"
+                  md="6"
+                  sm="12"
+                >
+                  <v-img
+                    width="75%"
+                    class="d-inline-flex"
+                    src="~@/assets/octoprintSetup/userSetupOctoPrint.png"
+                  />
+                </v-col>
+              </v-row>
+            </v-card-text>
+            <v-card-text>
+              <v-row
+                justify="center"
+              >
+                <v-col
+                  cols="3"
+                  lg="3"
+                  md="6"
+                  sm="12"
+                  class="text-center"
+                >
+                  <v-card-title class="d-inline-flex">
+                    3. API Preparations
+                  </v-card-title>
+                  <v-card-text>
+                    Since OctoPrint Version 1.4.2 the websocket connection will no longer work with the global API key. (OctoPrint seems to be moving away from this key all together).
+                    It is required now to either generate a Application key or OctoFarm or use a generated key that's specific to the User account. OctoFarm works with either so go with the one that most fits your setup.
+                    <br><b>NOTE:</b> Make a note of the generated key and your OctoPrint's IP / Host name as you will require this to input into OctoFarm.
+                  </v-card-text>
+                </v-col>
+                <v-col
+                  cols="9"
+                  lg="9"
+                  md="6"
+                  sm="12"
+                >
+                  <small class="ma-10">Both of these keys below can be created in the "User Settings" menu on OctoPrint.</small>
+                  <v-img
+                    width="25%"
+                    class="ma-5 d-inline-flex"
+                    src="~@/assets/octoprintSetup/userSettingsOctoPrint.png"
+                  />
 
-                      <v-expansion-panels>
-                        <v-expansion-panel>
-                          <v-expansion-panel-header>
-                            Application API Key Generation
-                          </v-expansion-panel-header>
-                          <v-expansion-panel-content>
-                            Application keys are the recommended way of allowing access as instructed by OctoPrint. An application key allows you to keep track of which Applications you have allowed access to your instance.
-                            <v-img
-                              width="75%"
-                              class="ma-5"
-                              src="~@/assets/octoprintSetup/userApplicationKeyOctoPrint.png"
-                            />
-                          </v-expansion-panel-content>
-                        </v-expansion-panel>
-                        <v-expansion-panel>
-                          <v-expansion-panel-header>
-                            User API Key Generation
-                          </v-expansion-panel-header>
-                          <v-expansion-panel-content>
-                            User keys are specifically tied to your user account and whilst they work I personally recommend using an Application key as it's much simpler to manage.
-                            <v-img
-                              width="75%"
-                              class="ma-5"
-                              src="~@/assets/octoprintSetup/userAPIKEYOctoPrint.png"
-                            />
-                          </v-expansion-panel-content>
-                        </v-expansion-panel>
-                      </v-expansion-panels>
-                    </v-col>
-                  </v-row>
-                </v-card-text>
-              </v-card>
-            </v-tab-item>
-            <!--            Remote Access -->
-            <v-tab-item>
-              <v-card flat>
-                <v-card-text>
-                  Due to some legacy code from when OctoFarm was a single page html file it is currently
-                  impossible to host your OctoFarm instance on the internet without also hosting your OctoPrint
-                  instances with it. <br>That is not recommended at all as it would leave your OctoPrint instance on the
-                  internet. <br>There is the same caveat for your web camera's as well, as they would require been
-                  directly accessible via the internet due to no internal routing happening with these requests.
-                  <br>Currently until this changes (set for 2.X release) then the best method of accessing OctoFarm
-                  remotely is with a VPN. There are various methods to setup a VPN detailed below, my personal favourite
-                  is WireShark for it's simplicity.
-                  <br><b>NOTE: </b>If you choose to host OctoFarm itself behind a reverse proxy, or with an open
-                  port then you do so at your own risk. I do not recommend this setup as it's not been verified to be
-                  secure and you'll also loose the ability to send commands to your OctoPrint instances due to legacy
-                  code within the client.
-                  <br><b>NOTE: </b>It's not recommended to put the VPN server on the same host as OctoFarm if your
-                  running a Pi4 or similar system.
-                </v-card-text>
-                <v-card-title class="font-weight-thin">
-                  Software
-                </v-card-title>
-                <v-card-text>
-                  Below are just a few recommendations of the many available VPN solutions.
-                  <v-list-item>
-                    <v-list-item-icon>
-                      <v-icon
-                        color="primary"
-                      >
-                        mdi-vpn
-                      </v-icon>
-                    </v-list-item-icon>
-                    <v-list-item-content>
-                      <v-list-item-title>
-                        OpenVPN
-                      </v-list-item-title>
-                    </v-list-item-content>
-                  </v-list-item>
-                  <v-list-item>
-                    <v-list-item-icon>
-                      <v-icon
-                        color="primary"
-                      >
-                        mdi-vpn
-                      </v-icon>
-                    </v-list-item-icon>
-                    <v-list-item-content>
-                      <v-list-item-title>
-                        WireShark
-                      </v-list-item-title>
-                    </v-list-item-content>
-                  </v-list-item>
-                  <v-list-item>
-                    <v-list-item-icon>
-                      <v-icon
-                        color="primary"
-                      >
-                        mdi-vpn
-                      </v-icon>
-                    </v-list-item-icon>
-                    <v-list-item-content>
-                      <v-list-item-title>
-                        PiVPN
-                      </v-list-item-title>
-                    </v-list-item-content>
-                  </v-list-item>
-                </v-card-text>
-              </v-card>
-            </v-tab-item>
-            <!--            FAQ-->
-            <v-tab-item>
-              <v-card flat>
-                <v-row>
-                  <v-col
-                    v-for="q in frequent_questions"
-                    :key="q.question"
-                    class="pa-5"
-                    col="12"
-                    lg="6"
-                    xl="4"
-                    md="6"
+                  <v-expansion-panels>
+                    <v-expansion-panel>
+                      <v-expansion-panel-header>
+                        Application API Key Generation
+                      </v-expansion-panel-header>
+                      <v-expansion-panel-content>
+                        Application keys are the recommended way of allowing access as instructed by OctoPrint. An application key allows you to keep track of which Applications you have allowed access to your instance.
+                        <v-img
+                          width="75%"
+                          class="ma-5 d-inline-flex"
+                          src="~@/assets/octoprintSetup/userApplicationKeyOctoPrint.png"
+                        />
+                      </v-expansion-panel-content>
+                    </v-expansion-panel>
+                    <v-expansion-panel>
+                      <v-expansion-panel-header>
+                        User API Key Generation
+                      </v-expansion-panel-header>
+                      <v-expansion-panel-content>
+                        User keys are specifically tied to your user account and whilst they work I personally recommend using an Application key as it's much simpler to manage.
+                        <v-img
+                          width="75%"
+                          class="ma-5 d-inline-flex"
+                          src="~@/assets/octoprintSetup/userAPIKEYOctoPrint.png"
+                        />
+                      </v-expansion-panel-content>
+                    </v-expansion-panel>
+                  </v-expansion-panels>
+                </v-col>
+              </v-row>
+            </v-card-text>
+          </v-card>
+        </v-tab-item>
+        <!--            Remote Access -->
+        <v-tab-item>
+          <v-card
+            flat
+            class="text-center"
+          >
+            <v-card-title class="d-inline-flex">
+              Current Remote Access Methods
+            </v-card-title>
+            <v-card-text>
+              Due to some legacy code from when OctoFarm was a single page html file it is currently
+              impossible to host your OctoFarm instance on the internet without also hosting your OctoPrint
+              instances with it. <br>That is not recommended at all as it would leave your OctoPrint instance on the
+              internet. <br>There is the same caveat for your web camera's as well, as they would require been
+              directly accessible via the internet due to no internal routing happening with these requests.
+              <br>Currently until this changes (set for 2.X release) then the best method of accessing OctoFarm
+              remotely is with a VPN. There are various methods to setup a VPN detailed below, my personal favourite
+              is WireShark for it's simplicity.
+              <br><b>NOTE: </b>If you choose to host OctoFarm itself behind a reverse proxy, or with an open
+              port then you do so at your own risk. I do not recommend this setup as it's not been verified to be
+              secure and you'll also loose the ability to send commands to your OctoPrint instances due to legacy
+              code within the client.
+              <br><b>NOTE: </b>It's not recommended to put the VPN server on the same host as OctoFarm if your
+              running a Pi4 or similar system.
+            </v-card-text>
+            <v-card-title class="d-inline-flex">
+              Software
+            </v-card-title>
+            <v-card-text>
+              Below are just a few recommendations of the many available VPN solutions.
+              <v-list-item>
+                <v-list-item-icon>
+                  <v-icon
+                    color="primary"
                   >
-                    <v-card
-                      class="mx-auto"
-                      outlined
-                    >
-                      <v-list-item three-line>
-                        <v-list-item-content>
-                          <div class="overline mb-4">
-                            <v-icon>mdi-progress-question</v-icon>
-                            {{ q.question }}
-                          </div>
-                          <p class="font-weight-thin">
-                            <span v-html="q.answer" />
-                          </p>
-                        </v-list-item-content>
-                      </v-list-item>
-                    </v-card>
-                  </v-col>
-                </v-row>
-              </v-card>
-            </v-tab-item>
-          </v-tabs>
-        </v-col>
-      </v-row>
+                    mdi-vpn
+                  </v-icon>
+                </v-list-item-icon>
+                <v-list-item-content>
+                  <v-list-item-title>
+                    OpenVPN
+                  </v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+              <v-list-item>
+                <v-list-item-icon>
+                  <v-icon
+                    color="primary"
+                  >
+                    mdi-vpn
+                  </v-icon>
+                </v-list-item-icon>
+                <v-list-item-content>
+                  <v-list-item-title>
+                    WireShark
+                  </v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+              <v-list-item>
+                <v-list-item-icon>
+                  <v-icon
+                    color="primary"
+                  >
+                    mdi-vpn
+                  </v-icon>
+                </v-list-item-icon>
+                <v-list-item-content>
+                  <v-list-item-title>
+                    PiVPN
+                  </v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </v-card-text>
+          </v-card>
+        </v-tab-item>
+        <!--            FAQ-->
+        <v-tab-item>
+          <v-card flat>
+            <v-row>
+              <v-col
+                v-for="q in frequent_questions"
+                :key="q.question"
+                class="pa-5"
+                col="12"
+                lg="6"
+                xl="4"
+                md="6"
+              >
+                <v-card
+                  class="mx-auto"
+                  outlined
+                >
+                  <v-list-item three-line>
+                    <v-list-item-content>
+                      <div class="overline mb-4">
+                        <v-icon>mdi-progress-question</v-icon>
+                        {{ q.question }}
+                      </div>
+                      <p>
+                        <span v-html="q.answer" />
+                      </p>
+                    </v-list-item-content>
+                  </v-list-item>
+                </v-card>
+              </v-col>
+            </v-row>
+          </v-card>
+        </v-tab-item>
+      </v-tabs>
     </v-card>
     <v-card
       class="mb-5"
     >
-      <v-row
-        justify="center"
+      <v-tabs
+        fixed-tabs
+        show-arrows
+        dense
       >
-        <!-- installations-->
-        <v-col>
-          <v-toolbar
-            flat
+        <v-tab
+          v-for="inst in installation_instructions"
+          :key="inst.system"
+          class="text-left"
+          @click="current_step = 1"
+        >
+          <v-icon left>
+            {{ inst.icon }}
+          </v-icon>
+          {{ inst.system }}
+        </v-tab>
+        <v-tab-item
+          v-for="inst in installation_instructions"
+          :key="inst.system"
+        >
+          <v-stepper
+            v-model="current_step"
+            vertical
           >
-            <v-toolbar-title>Installation Instruction</v-toolbar-title>
-          </v-toolbar>
-          <v-tabs
-            fixed-tabs
-            show-arrows
-            dense
-          >
-            <v-tab
-              v-for="inst in installation_instructions"
-              :key="inst.system"
-              class="text-left"
-              @click="current_step = 1"
+            <h3
+              class="pa-6"
+              v-html="inst.title"
+            />
+            <span
+              v-for="steps in inst.steps"
+              :key="inst.title + steps.index"
+              small
             >
-              <v-icon left>
-                {{ inst.icon }}
-              </v-icon>
-              {{ inst.system }}
-            </v-tab>
-            <v-tab-item
-              v-for="inst in installation_instructions"
-              :key="inst.system"
-            >
-              <v-stepper
-                v-model="current_step"
-                vertical
+              <v-stepper-step
+                editable
+                :complete="current_step > steps.index"
+                :step="steps.index"
               >
-                <h3
-                  class="pa-6"
-                  v-html="inst.title"
-                />
+                {{ steps.title }}
+                <small>{{ inst.input }}</small>
+              </v-stepper-step>
+              <v-stepper-content :step="steps.index">
                 <span
-                  v-for="steps in inst.steps"
-                  :key="inst.title + steps.index"
-                  small
+                  v-for="subSteps in steps.subSteps"
+                  :key="subSteps.code"
                 >
-                  <v-stepper-step
-                    editable
-                    :complete="current_step > steps.index"
-                    :step="steps.index"
+                  <v-card
+                    class="mb-12"
                   >
-                    {{ steps.title }}
-                    <small>{{ inst.input }}</small>
-                  </v-stepper-step>
-                  <v-stepper-content :step="steps.index">
-                    <span
-                      v-for="subSteps in steps.subSteps"
-                      :key="subSteps.code"
-                    >
-                      <v-card
-                        class="mb-12"
-                      >
 
-                        <v-list-item two-line>
-                          <v-list-item-content>
-                            <v-list-item-title>    <v-checkbox
-                                                     class="d-inline-flex"
-                                                   />
-                              {{ subSteps.index }}. {{ subSteps.title }}</v-list-item-title>
-                            <v-list-item-title>
-                              <v-list-item-subtitle>     <v-row
-                                v-for="input in subSteps.input"
-                                :key="input.code"
+                    <v-list-item two-line>
+                      <v-list-item-content>
+                        <v-list-item-title>    <v-checkbox
+                                                 class="d-inline-flex"
+                                               />
+                          {{ subSteps.index }}. {{ subSteps.title }}</v-list-item-title>
+                        <v-list-item-title>
+                          <v-list-item-subtitle>     <v-row
+                            v-for="input in subSteps.input"
+                            :key="input.code"
+                          >
+                            <v-col cols="10">
+                              <p v-if="input.pre_text">{{ input.pre_text }}</p>
+                              <code
+                                v-if="input.code"
+                                class="text-wrap"
+                              >{{ input.code }}</code>
+                              <pre
+                                v-if="input.pre"
+                                class="text-wrap"
+                                v-html="input.pre"
+                              />
+                              <a
+                                :href="'//' + input.url"
+                                target="_blank"
                               >
-                                <v-col cols="10">
-                                  <p v-if="input.pre_text">{{ input.pre_text }}</p>
-                                  <code
-                                    v-if="input.code"
-                                    class="text-wrap"
-                                  >{{ input.code }}</code>
-                                  <pre
-                                    v-if="input.pre"
-                                    class="text-wrap"
-                                    v-html="input.pre"
-                                  />
-                                  <a
-                                    :href="'//' + input.url"
-                                    target="_blank"
-                                  >
-                                    {{ input.url }}
-                                  </a>
-                                  <p
-                                    class="pt-3"
-                                    v-if="input.response"
-                                  >{{ input.response }}</p>
-                                </v-col>
+                                {{ input.url }}
+                              </a>
+                              <p
+                                class="pt-3"
+                                v-if="input.response"
+                              >{{ input.response }}</p>
+                            </v-col>
 
-                                <v-col cols="2">
-                                  <v-btn
-                                    icon
-                                    v-if="input.code"
-                                    v-clipboard:copy="input.code"
-                                    v-clipboard:success="onCopy"
-                                    v-clipboard:error="onError"
-                                  >
-                                    <v-icon>mdi-content-copy</v-icon>
-                                    Copy
-                                  </v-btn>
-                                </v-col>
-                              </v-row></v-list-item-subtitle>
+                            <v-col cols="2">
+                              <v-btn
+                                icon
+                                v-if="input.code"
+                                v-clipboard:copy="input.code"
+                                v-clipboard:success="onCopy"
+                                v-clipboard:error="onError"
+                              >
+                                <v-icon>mdi-content-copy</v-icon>
+                                Copy
+                              </v-btn>
+                            </v-col>
+                          </v-row></v-list-item-subtitle>
 
-                            </v-list-item-title></v-list-item-content>
-                        </v-list-item>
+                        </v-list-item-title></v-list-item-content>
+                    </v-list-item>
 
-                      </v-card>
-                    </span>
-                    <v-btn
-                      color="primary"
-                      @click="current_step = current_step + 1"
-                      elevation="2"
-                      outlined
-                    >
-                      {{ steps.length }}
-                      Continue
-                    </v-btn>
-                    <v-btn
-                      text
-                      elevation="2"
-                      outlined
-                      class="ml-2"
-                      @click="current_step = current_step - 1"
-                      v-if="current_step !== 1"
-                    >
-                      Back
-                    </v-btn>
-                  </v-stepper-content>
+                  </v-card>
                 </span>
-              </v-stepper>
-            </v-tab-item>
-          </v-tabs>
-        </v-col>
-      </v-row>
+                <v-btn
+                  color="primary"
+                  @click="current_step = current_step + 1"
+                  elevation="2"
+                  outlined
+                >
+                  {{ steps.length }}
+                  Continue
+                </v-btn>
+                <v-btn
+                  text
+                  elevation="2"
+                  outlined
+                  class="ml-2"
+                  @click="current_step = current_step - 1"
+                  v-if="current_step !== 1"
+                >
+                  Back
+                </v-btn>
+              </v-stepper-content>
+            </span>
+          </v-stepper>
+        </v-tab-item>
+      </v-tabs>
     </v-card>
     <v-snackbar
       v-model="snackbar"
@@ -741,6 +787,64 @@
       </template>
     </v-snackbar>
   </v-container>
+<!--  -->
+<!--    <v-card-->
+<!--      class="mb-5"-->
+<!--    >-->
+<!--      <v-row>-->
+<!--        &lt;!&ndash; OctoFarm Setup&ndash;&gt;-->
+<!--        <v-col-->
+<!--          lg="4"-->
+<!--          md="6"-->
+<!--          sm="12"-->
+<!--          xs="12"-->
+<!--          class="text-center"-->
+<!--        >-->
+<!--          <v-card-title-->
+<!--            class="d-inline-flex"-->
+<!--          >-->
+<!--            OctoFarm Setup-->
+<!--          </v-card-title>-->
+<!--          <v-card-text class="font-weight-regular">-->
+<!--            Due to OctoFarms code base it's very system agnostic. There are however some limitations to what systems it's database layer uses, i.e. needs to be 64-bit.-->
+<!--            <br>Check the "OctoFarm Hardware" section for examples.-->
+<!--            <br>Your setup is not limited to these options however I will mention that OctoFarm is a server application at it's core. It requires mainly an always on device to function to it's full capabilities.-->
+<!--            <br><b>NOTE:</b> OctoFarm does not require internet access! but some features may / may not work without it.-->
+<!--          </v-card-text>-->
+<!--          <v-card-text class="font-weight-regular">-->
+<!--            Application Requirements-->
+<!--          </v-card-text>-->
+<!--          <v-card-text >-->
+<!--            <v-timeline>-->
+<!--              <v-timeline-item>NodeJS - v14.16.1 (I only support the LTS versions, currently V14)</v-timeline-item>-->
+<!--              <v-timeline-item class="text-right">-->
+<!--                MongoDB - v3.6+-->
+<!--              </v-timeline-item>-->
+<!--              <v-timeline-item>OctoPrint - v1.3.9+</v-timeline-item>-->
+<!--            </v-timeline>-->
+<!--          </v-card-text>-->
+<!--        </v-col>-->
+<!--        <v-col-->
+<!--          lg="8"-->
+<!--          md="6"-->
+<!--          sm="12"-->
+<!--          xs="12"-->
+<!--        />-->
+<!--      </v-row>-->
+<!--    </v-card>-->
+<!--    <v-card-->
+<!--      class="mb-5"-->
+<!--    >-->
+<!--      <v-row-->
+<!--        justify="center"-->
+<!--      >-->
+<!--        &lt;!&ndash; installations&ndash;&gt;-->
+<!--        <v-col>-->
+<!--          <v-toolbar-->
+<!--            flat-->
+<!--          >-->
+<!--            <v-toolbar-title>Installation Instruction</v-toolbar-title>-->
+<!--          </v-toolbar>-->
 </template>
 
 <script>
@@ -759,10 +863,10 @@ export default {
   },
   data: () => ({
     current_step: 1,
-    npm_start: "npm start",
-    npm_restart: "npm restart",
-    npm_stop: "npm stop",
-    npm_stop_delete: "npm stop:delete",
+    npm_start: "npm run start",
+    npm_restart: "npm run restart",
+    npm_stop: "npm run stop",
+    npm_stop_delete: "npm run stop:delete",
     git_pull: "git pull",
     git_pull_reset: "git reset --hard",
     snackbar: false,
