@@ -50,7 +50,6 @@ const router = new VueRouter({
 
 router.afterEach((to) => {
   Vue.nextTick(() => {
-    console.log(to);
     document.title = `OctoFarm | ${to.name}`;
   });
 });
