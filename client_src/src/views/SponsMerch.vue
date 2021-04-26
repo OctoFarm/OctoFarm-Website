@@ -123,7 +123,9 @@
             <v-toolbar
               class="secondary"
             >
-              {{ spon.title }}
+              <v-app-bar-nav-icon> <v-icon>{{ spon.icon }}</v-icon> </v-app-bar-nav-icon>
+
+              <v-toolbar-title>{{ spon.title }}</v-toolbar-title>
             </v-toolbar>
             <v-list-item>
               <v-list-item-content>{{ spon.text }}</v-list-item-content>
@@ -209,7 +211,7 @@ export default {
         text: "Paypal is available as a donation option if you'd like to give something back to the developer James. There are no benefits for you apart from making James very happy, not happy because of the money... but happy because he can spend it on steak!\n",
         text2: "All funding from this source will go towards James himself, he will more than likely be using it to buy steak and fuel his coding exploits that way. It is certainly most appreciated! A massive big thank you to everyone who donates.",
         btn_colour: "blue",
-        icon: "",
+        icon: "mdi-credit-card",
         btn_text: "Dontate",
         url: "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QGBJML3E7268L&source=url",
       },
@@ -218,7 +220,7 @@ export default {
         text: "My Patreon page is mainly for making a long term set of donations to the project. £10+ you get access to the \"secret\" discord channel, and also early door previews and code samples.\n",
         text2: "All funding from this source is put back directly into the project. Whether this be forwarding that donation on to Gina at Octoprint (Whom without this project wouldn't exist!) or other projects used in this project, or to pay for web services and printing equipment.",
         btn_colour: "red",
-        icon: "",
+        icon: "mdi-patreon",
         btn_text: "Donate",
         url: "https://www.patreon.com/NotExpectedYet",
       },
@@ -227,9 +229,27 @@ export default {
         text: "As mentioned above I code this application around my full time job. If any persons or company would like to sponsor me to work on this full time then please contact me using the button below.\n",
         text2: "I have massive plans for the development future of this application and having a full time sponsor would allow me to push updates much more frequently and continue supporting the wonderful OctoPrint and now OctoFarm communities.",
         btn_colour: "secondary",
-        icon: "mailto:info@notexpectedyet.com",
+        icon: "mdi-heart",
         btn_text: "Contact",
-        url: "",
+        url: "mailto:info@notexpectedyet.com",
+      },
+      {
+        title: "Merchandise (UK)",
+        text: "Get yourself some cool merchandise whilst giving a kick back to the project!.\n",
+        text2: "All donations from this source get put directly back into the project.",
+        btn_colour: "secondary",
+        icon: "mdi-hanger",
+        btn_text: "Store",
+        url: "https://shop.spreadshirt.co.uk/octofarm-merchandise/all",
+      },
+      {
+        title: "Merchandise (USA)",
+        text: "Get yourself some cool merchandise whilst giving a kick back to the project!.\n",
+        text2: "All donations from this source get put directly back into the project.",
+        btn_colour: "secondary",
+        icon: "mdi-hanger",
+        btn_text: "Store",
+        url: "https://shop.spreadshirt.com/octofarm-merchandise/all",
       },
     ],
   }),

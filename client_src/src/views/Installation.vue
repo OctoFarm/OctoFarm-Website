@@ -346,7 +346,8 @@
               </v-list-item>
             </v-card-text>
             <v-card-title class="d-inline-flex">
-              Web Interface Update (Post v1.1.13)
+              Web Interface Update (Post v1.1.13)<br>
+              For Docker please see below.
             </v-card-title>
             <v-card-text>
               Since 1.1.13 we brought in a few buttons to make this easier for the user. This can now be done from the web interface.
@@ -375,6 +376,49 @@
                   </p>
                 </v-list-item-content>
               </v-list-item>
+            </v-card-text>
+            <v-card-title class="d-inline-flex">
+              Updating Docker
+            </v-card-title>
+            <v-card-text>
+              Currently the auto update feature is disabled in docker. We are looking to improve this going forward but for now you can follow the steps below.
+              <v-list-item>
+                <v-list-item-content>
+                  <v-col
+                    md="6"
+                    sm="12"
+                  >
+                    <p class="pb-1">
+                      Inside the folder where your docker-compose.yml file resides, run the following command.
+                    </p>
+                    <code>{{ docker_update }}</code>
+                  </v-col>
+                  <v-col
+                    md="6"
+                    sm="12"
+                  >
+                    <v-btn
+                      icon
+                      color="primary"
+                      v-clipboard:copy="docker_update"
+                      v-clipboard:success="onCopy"
+                      v-clipboard:error="onError"
+                    >
+                      <v-icon>mdi-content-copy</v-icon>
+                      Copy
+                    </v-btn>
+                  </v-col>
+                </v-list-item-content>
+              </v-list-item>
+            </v-card-text>
+            <v-card-title class="d-inline-flex">
+              Updating Docker On UnRaid
+            </v-card-title>
+            <v-card-text>
+              UnRaid's docker management system will periodically check for updates to the image. You should see a "Apply Update", in your version column next to the OctoFarm container,
+              notice on the docker management screen when it's found one. If you don't see the notice you can use the "Check for updates" button at the bottom of the screen and it will
+              search for all the latest versions of your container.
+              <v-list-item />
             </v-card-text>
           </v-card>
         </v-tab-item>
@@ -875,6 +919,7 @@ export default {
     npm_stop_delete: "npm run stop:delete",
     git_pull: "git pull",
     git_pull_reset: "git reset --hard",
+    docker_update: "docker-compose up -d --no-deps --build",
     snackbar: false,
     snackbar_message: null,
     snackbar_colour: "success",
