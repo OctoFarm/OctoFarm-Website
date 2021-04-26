@@ -27,26 +27,35 @@
         <v-btn
           icon
           color="primary"
-          href="https://github.com/OctoFarm/OctoFarm"
+          href="https://status.octofarm.net"
           target="_blank"
         >
-          <v-icon>mdi-github</v-icon>
+          <v-icon>mdi-server</v-icon>
         </v-btn>
-        <v-btn
-          icon
-          color="primary"
-          href="https://www.youtube.com/c/OctoFarm"
-          target="_blank"
-        >
-          <v-icon>mdi-youtube</v-icon>
-        </v-btn>
-      </div>
-      <v-app-bar-nav-icon
-        @click.stop="drawer = !drawer"
-        class="hidden-md-and-up"
-        right
-      />
-    </v-app-bar>
+        <div class="text-center d-inline-flex">
+          <v-btn
+            icon
+            color="primary"
+            href="https://github.com/OctoFarm/OctoFarm"
+            target="_blank"
+          >
+            <v-icon>mdi-github</v-icon>
+          </v-btn>
+          <v-btn
+            icon
+            color="primary"
+            href="https://www.youtube.com/c/OctoFarm"
+            target="_blank"
+          >
+            <v-icon>mdi-youtube</v-icon>
+          </v-btn>
+        </div>
+        <v-app-bar-nav-icon
+          @click.stop="drawer = !drawer"
+          class="hidden-md-and-up"
+          right
+        />
+      </div></v-app-bar>
     <v-navigation-drawer
       v-model="drawer"
       absolute
