@@ -5,6 +5,7 @@ import About from "../views/About.vue";
 // import Blog from "../views/Blog.vue";
 import SponsMerch from "../views/SponsMerch.vue";
 import Installation from "../views/Installation.vue";
+import TryItOut from "../views/TryItOut.vue";
 // import Wiki from "../views/Wiki.vue";
 
 Vue.use(VueRouter);
@@ -39,6 +40,11 @@ const routes = [
     path: "/sponsorship",
     name: "Sponsorship",
     component: SponsMerch,
+  },
+  {
+    path: "/try",
+    name: "Try It!",
+    component: TryItOut,
   },
 ];
 
