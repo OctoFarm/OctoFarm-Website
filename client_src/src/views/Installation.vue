@@ -381,7 +381,7 @@
               Updating Docker
             </v-card-title>
             <v-card-text>
-              Currently the auto update feature is disabled in docker. We are looking to improve this going forward but for now you can follow the steps below.
+              Currently the auto update feature is disabled in docker. We are looking to improve this going forward but for now you can follow the steps below to update your container
               <v-list-item>
                 <v-list-item-content>
                   <v-col
