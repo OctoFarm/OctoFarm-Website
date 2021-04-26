@@ -1010,14 +1010,14 @@ export default {
               input: [
                 {
                   pre_text: "",
-                  code: "curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash - | sudo apt -y install nodejs gcc g++ make",
+                  code: "curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash - | sudo apt update | sudo apt -y install nodejs gcc g++ make",
                   response: "",
                 },
               ],
             },
             {
               index: "2.2",
-              title: "Check and make sure the nodejs version is at least v12 but less then v13",
+              title: "Check and make sure the nodejs version is at least v14",
               input: [
                 {
                   pre_text: "",
@@ -1193,14 +1193,14 @@ export default {
               input: [
                 {
                   pre_text: "",
-                  code: "curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash - | sudo apt -y install nodejs gcc g++ make",
+                  code: "curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash - | sudo apt update | sudo apt -y install nodejs gcc g++ make",
                   response: "",
                 },
               ],
             },
             {
               index: "2.2",
-              title: "Check and make sure the nodejs version is at least v12 but less then v13",
+              title: "Check and make sure the nodejs version is at least v14",
               input: [
                 {
                   pre_text: "",
