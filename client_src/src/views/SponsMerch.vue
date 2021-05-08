@@ -199,6 +199,11 @@ export default {
         url_title: "",
         url: "",
       },
+      {
+        name: "Feldherr",
+        url_title: "",
+        url: "",
+      },
     ],
     methods_of_sponsor: [
       {
