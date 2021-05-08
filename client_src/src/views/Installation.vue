@@ -592,7 +592,7 @@
               directly accessible via the internet due to no internal routing happening with these requests.
               <br>Currently until this changes (set for 2.X release) then the best method of accessing OctoFarm
               remotely is with a VPN. There are various methods to setup a VPN detailed below, my personal favourite
-              is WireShark for it's simplicity.
+              is WireGuard for it's simplicity.
               <br><b>NOTE: </b>If you choose to host OctoFarm itself behind a reverse proxy, or with an open
               port then you do so at your own risk. I do not recommend this setup as it's not been verified to be
               secure and you'll also loose the ability to send commands to your OctoPrint instances due to legacy
