@@ -629,7 +629,7 @@
                 </v-list-item-icon>
                 <v-list-item-content>
                   <v-list-item-title>
-                    WireShark
+                    WireGuard
                   </v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
