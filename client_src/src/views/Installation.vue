@@ -1060,7 +1060,7 @@ export default {
               input: [
                 {
                   pre_text: "",
-                  code: "git clone https://github.com/NotExpectedYet/OctoFarm.git ~/OctoFarm",
+                  code: "git clone --depth 1 --branch 1.1.13-hotfix https://github.com/OctoFarm/OctoFarm.git",
                   response: "",
                 },
               ],
@@ -1244,7 +1244,7 @@ export default {
               input: [
                 {
                   pre_text: "",
-                  code: "git clone https://github.com/NotExpectedYet/OctoFarm.git ~/OctoFarm",
+                  code: "git clone --depth 1 --branch 1.1.13-hotfix https://github.com/OctoFarm/OctoFarm.git",
                   response: "",
                 },
               ],
@@ -1314,7 +1314,7 @@ export default {
               input: [
                 {
                   pre_text: "Download",
-                  url: "https://fastdl.mongodb.org/windows/mongodb-windows-x86_64-4.4.3-signed.msi",
+                  url: "fastdl.mongodb.org/windows/mongodb-windows-x86_64-4.4.3-signed.msi",
                   response: "",
                 },
               ],
@@ -1341,7 +1341,7 @@ export default {
               input: [
                 {
                   pre_text: "Download",
-                  url: "https://nodejs.org/dist/v14.16.1/node-v14.16.1-x64.msi",
+                  url: "nodejs.org/dist/v14.16.1/node-v14.16.1-x64.msi",
                   response: "",
                 },
               ],
@@ -1369,7 +1369,7 @@ export default {
               input: [
                 {
                   pre_text: "Download",
-                  url: "https://github.com/git-for-windows/git/releases/download/v2.30.1.windows.1/Git-2.30.1-64-bit.exe",
+                  url: "github.com/git-for-windows/git/releases/download/v2.30.1.windows.1/Git-2.30.1-64-bit.exe",
                   response: "",
                 },
               ],
@@ -1427,7 +1427,7 @@ export default {
               input: [
                 {
                   pre_text: "",
-                  code: "git clone https://github.com/NotExpectedYet/OctoFarm.git ~/OctoFarm",
+                  code: "git clone --depth 1 --branch 1.1.13-hotfix https://github.com/OctoFarm/OctoFarm.git",
                   response: "",
                 },
               ],
