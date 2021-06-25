@@ -748,7 +748,7 @@
                                                />
                           {{ subSteps.index }}. {{ subSteps.title }}</v-list-item-title>
                         <v-list-item-title>
-                          <v-list-item-subtitle>     <v-row
+                          <v-list-item-subtitle class="text-wrap">     <v-row
                             v-for="input in subSteps.input"
                             :key="input.code"
                           >
