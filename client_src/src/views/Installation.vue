@@ -1600,8 +1600,6 @@ export default {
                     + "&nbsp;&nbsp;&nbsp;&nbsp;mem_limit: 400m # Feel free to adjust! 400 MB is quite high and a safety limit.<br>"
                     + "&nbsp;&nbsp;&nbsp;&nbsp;ports:<br>"
                     + "&nbsp;&nbsp;&nbsp;&nbsp;- 4000:4000 # port of SYSTEM : port of CONTAINER<br>"
-                    + "&nbsp;&nbsp;&nbsp;&nbsp;environment:<br>"
-                    + "&nbsp;&nbsp;&nbsp;&nbsp;- MONGO=mongodb://MONGO_ROOTUSER_HERE:MONGO_PASSWORD_HERE@mongodb:27017/octofarm?authSource=admin<br>"
                     + "&nbsp;&nbsp;&nbsp;&nbsp;volumes:<br>"
                     + "&nbsp;&nbsp;&nbsp;&nbsp;# Volumes as local relative folders (validate with 'docker-compose config')<br>"
                     + "&nbsp;&nbsp;&nbsp;&nbsp;- ./OctoFarm/logs:/app/logs<br>"
