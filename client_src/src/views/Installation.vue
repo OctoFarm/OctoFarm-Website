@@ -1543,16 +1543,21 @@ export default {
             },
             {
               index: "1.3",
+              title: "Configure your WiFi by editing 'farmpi-wpa-supplicant.txt' on the root of the flashed card when using it like a thumb drive, or use an UTP cable",
+              input: [],
+            },
+            {
+              index: "1.4",
               title: "Boot FarmPi after flashing the SD Card.",
               input: [],
             },
             {
-              index: "4",
+              index: "1.5",
               title: "If your network PC supports bonjour you can find your instance at http://farmpi.local or the ip address that your router gave the device.",
               input: [],
             },
             {
-              index: "5",
+              index: "1.6",
               title: "More configuration options can be found on Maurice Kevenaar GitHub but you will be able to start adding printers to your FarmPi instance on it's web interface.",
               input: [],
             },
