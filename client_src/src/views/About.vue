@@ -35,11 +35,13 @@
                   over your farm and a web interface to manage whenever you want.
                 </v-card-text>
                 <v-card-text class="font-weight-thin">
-                  OctoFarm is being actively developed by James Mackay, founder
-                  of NotExpectedYet. OctoFarms development is currently a passion project
+                  OctoFarm was originally created by James Mackay a complete a passion project
                   and is worked on around his 9-5 job, GSD and Wife so if you've like to
                   give something back to James for his work the please check out the
                   Sponsorship page.
+                </v-card-text>
+                <v-card-text class="font-weight-thin">
+                  OctoFarm is now Co-Authored by David Zwart who joined to help further the project.
                 </v-card-text>
               </v-col>
             </v-row>
