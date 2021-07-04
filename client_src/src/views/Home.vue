@@ -36,10 +36,22 @@
           <h3 class="subheading font-weight-regular">
             Web server and client combo for managing and monitoring multiple Octoprint instances.
           </h3>
-
           <h4 class="font-weight-light mt-3">
-            Created and maintained by James Mackay from NotExpectedYet
+            Originally created by James Mackay from NotExpectedYet
           </h4>
+          <h4 class="font-weight-light mt-3">
+            Co-Authored with the help of David Zwart
+          </h4>
+          <h3 class="subheading font-weight-regular mt-3">
+            OctoFarm now has a pre-built image for RaspberryPi called FarmPi build by Maurice Kevenaar!
+          </h3>
+          <v-btn
+            depressed
+            color="primary"
+            href="https://github.com/mkevenaar/FarmPi"
+          >
+            More Info
+          </v-btn>
         </v-col>
       </v-row>
     </v-parallax>
