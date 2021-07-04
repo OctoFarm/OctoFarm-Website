@@ -43,7 +43,7 @@
             Co-Authored with the help of David Zwart
           </h4>
           <h3 class="subheading font-weight-regular mt-3">
-            OctoFarm now has a pre-built image for RaspberryPi called FarmPi!
+            OctoFarm now has a pre-built image for RaspberryPi called FarmPi build by Maurice Kevenaar!
           </h3>
           <v-btn
             depressed
