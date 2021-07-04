@@ -1510,7 +1510,7 @@ export default {
               input: [
                 {
                   pre_text: "Mkevenaar Github Release page.",
-                  url: "https://github.com/mkevenaar/FarmPi/releases",
+                  url: "https://github.com/mkevenaar/FarmPi/releases/latest",
                   response: "",
                 },
                 {
