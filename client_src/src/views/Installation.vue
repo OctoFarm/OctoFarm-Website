@@ -1514,7 +1514,7 @@ export default {
                   response: "",
                 },
                 {
-                  pre_text: "FarmPi's Official Repository Mirror",
+                  pre_text: "FarmPi's Official Mirror",
                   url: "https://farmpi.octofarm.net/",
                   response: "",
                 },
