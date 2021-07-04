@@ -1553,7 +1553,7 @@ export default {
             },
             {
               index: "5",
-              title: "More configuration options can be found on Mkevenaar's github but you will be able to start adding printers to your FarmPi instance on it's web interface.",
+              title: "More configuration options can be found on Maurice Kevenaar GitHub but you will be able to start adding printers to your FarmPi instance on it's web interface.",
               input: [],
             },
           ],
