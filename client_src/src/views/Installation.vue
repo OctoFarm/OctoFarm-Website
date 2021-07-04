@@ -1468,7 +1468,7 @@ export default {
         system: "RaspberryPi",
         title: "OctoFarm comes wrapped in a nice pre-built image for the RaspberryPi running on Ubuntu 64-bit. Similar to OctoPrint's OctoPi, "
           + "FarmPi comes with all you need to get up and running with OctoFarm. You have the option to use FarmPi, or manually install OctoFarm itself. "
-          + "Both instructions are below. <br> FarmPi was created by <a href='https://github.com/mkevenaar'/>@Mkevenaar</a> and all credit for it's creation"
+          + "Both instructions are below. <br> FarmPi was created by <a href='https://github.com/mkevenaar'/>Maurice Kevenaar</a> and all credit for it's creation"
           + " goes to him. You can find the FarmPi github repo here: <a href='https://github.com/mkevenaar/FarmPi'> FarmPi </a>. <br>"
           + " <h2> Supported Printer Count </h2>"
           + "This is a guess, these figures are due to change as feedback is received on the image."
