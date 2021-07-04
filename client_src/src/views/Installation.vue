@@ -1471,7 +1471,7 @@ export default {
           + "Both instructions are below. <br> FarmPi was created by <a href='https://github.com/mkevenaar'/>Maurice Kevenaar</a> and all credit for it's creation"
           + " goes to him. You can find the FarmPi github repo here: <a href='https://github.com/mkevenaar/FarmPi'> FarmPi </a>. <br>"
           + " <h2> Supported Printer Count </h2>"
-          + "This is a guess, these figures are due to change as feedback is received on the image."
+          + "This is a guesstimate, these figures are due to change as feedback is received on the image."
           + ""
           + " <table>"
           + "  <tr>"
