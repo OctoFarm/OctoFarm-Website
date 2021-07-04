@@ -1506,7 +1506,7 @@ export default {
           subSteps: [
             {
               index: "1.1",
-              title: "Download the FarmPi image from github or the official FarmPi backup repository. Always make sure your getting the latest version.",
+              title: "Download the FarmPi image from github or the official FarmPi mirror. Always make sure you're getting the latest version.",
               input: [
                 {
                   pre_text: "Mkevenaar Github Release page.",
