@@ -1509,7 +1509,7 @@ export default {
               title: "Download the FarmPi image from github or the official FarmPi mirror. Always make sure you're getting the latest version.",
               input: [
                 {
-                  pre_text: "Mkevenaar Github Release page.",
+                  pre_text: "Maurice Kevenaar's GitHub Release page.",
                   url: "https://github.com/mkevenaar/FarmPi/releases/latest",
                   response: "",
                 },
