@@ -748,7 +748,7 @@
                                                />
                           {{ subSteps.index }}. {{ subSteps.title }}</v-list-item-title>
                         <v-list-item-title>
-                          <v-list-item-subtitle>     <v-row
+                          <v-list-item-subtitle class="text-wrap">     <v-row
                             v-for="input in subSteps.input"
                             :key="input.code"
                           >
@@ -1060,7 +1060,7 @@ export default {
               input: [
                 {
                   pre_text: "",
-                  code: "git clone https://github.com/NotExpectedYet/OctoFarm.git ~/OctoFarm",
+                  code: "git clone --depth 1 --branch 1.1.13-hotfix https://github.com/OctoFarm/OctoFarm.git",
                   response: "",
                 },
               ],
@@ -1244,7 +1244,7 @@ export default {
               input: [
                 {
                   pre_text: "",
-                  code: "git clone https://github.com/NotExpectedYet/OctoFarm.git ~/OctoFarm",
+                  code: "git clone --depth 1 --branch 1.1.13-hotfix https://github.com/OctoFarm/OctoFarm.git",
                   response: "",
                 },
               ],
@@ -1314,7 +1314,7 @@ export default {
               input: [
                 {
                   pre_text: "Download",
-                  url: "https://fastdl.mongodb.org/windows/mongodb-windows-x86_64-4.4.3-signed.msi",
+                  url: "fastdl.mongodb.org/windows/mongodb-windows-x86_64-4.4.3-signed.msi",
                   response: "",
                 },
               ],
@@ -1341,7 +1341,7 @@ export default {
               input: [
                 {
                   pre_text: "Download",
-                  url: "https://nodejs.org/dist/v14.16.1/node-v14.16.1-x64.msi",
+                  url: "nodejs.org/dist/v14.16.1/node-v14.16.1-x64.msi",
                   response: "",
                 },
               ],
@@ -1369,7 +1369,7 @@ export default {
               input: [
                 {
                   pre_text: "Download",
-                  url: "https://github.com/git-for-windows/git/releases/download/v2.30.1.windows.1/Git-2.30.1-64-bit.exe",
+                  url: "github.com/git-for-windows/git/releases/download/v2.30.1.windows.1/Git-2.30.1-64-bit.exe",
                   response: "",
                 },
               ],
@@ -1427,7 +1427,7 @@ export default {
               input: [
                 {
                   pre_text: "",
-                  code: "git clone https://github.com/NotExpectedYet/OctoFarm.git ~/OctoFarm",
+                  code: "git clone --depth 1 --branch 1.1.13-hotfix https://github.com/OctoFarm/OctoFarm.git",
                   response: "",
                 },
               ],
@@ -1466,25 +1466,62 @@ export default {
       },
       {
         system: "RaspberryPi",
-        title: "Due to MongoDB requiring a 64-bit arch the only way currently to install OctoFarm would be to use the Ubuntu 64-bit image for the Pi. Follow the steps below to  setup on a Raspberry Pi 3/4",
+        title: "OctoFarm comes wrapped in a nice pre-built image for the RaspberryPi running on Ubuntu 64-bit. Similar to OctoPrint's OctoPi, "
+          + "FarmPi comes with all you need to get up and running with OctoFarm. You have the option to use FarmPi, or manually install OctoFarm itself. "
+          + "Both instructions are below. <br> FarmPi was created by <a href='https://github.com/mkevenaar'/>Maurice Kevenaar</a> and all credit for it's creation"
+          + " goes to him. You can find the FarmPi github repo here: <a href='https://github.com/mkevenaar/FarmPi'> FarmPi </a>. <br>"
+          + " <h2> Supported Printer Count </h2>"
+          + "This is a guesstimate, these figures are due to change as feedback is received on the image."
+          + ""
+          + " <table>"
+          + "  <tr>"
+          + "    <th style='border: 1px solid white;' class='pa-1'> RaspberryPi </th>\n"
+          + "    <th style='border: 1px solid white;'  class='pa-1'> # of Printers </th>\n"
+          + "  </tr>"
+          + "  <tr>"
+          + "    <td style='border: 1px solid white;'  class='pa-1'>3A+</td>\n"
+          + "    <td style='border: 1px solid white;'  class='pa-1'>5</td>\n"
+          + "  </tr>"
+          + "  <tr>"
+          + "    <td style='border: 1px solid white;'  class='pa-1'>3B / 3B+</td>\n"
+          + "    <td style='border: 1px solid white;'  class='pa-1'>10</td>\n"
+          + "  </tr>"
+          + "  <tr>"
+          + "    <td style='border: 1px solid white;'  class='pa-1'>4B - 2GB</td>\n"
+          + "    <td style='border: 1px solid white;'  class='pa-1'>20</td>\n"
+          + "  </tr>"
+          + "  <tr>"
+          + "    <td style='border: 1px solid white;'  class='pa-1'>4B - 4GB</td>\n"
+          + "    <td style='border: 1px solid white;'  class='pa-1'>40</td>\n"
+          + "  </tr>"
+          + "  <tr>"
+          + "    <td style='border: 1px solid white;'  class='pa-1'>4B - 8GB</td>\n"
+          + "    <td style='border: 1px solid white;'  class='pa-1'>80</td>\n"
+          + "  </tr>"
+          + "</table> ",
         icon: "mdi-raspberry-pi",
         steps: [{
           index: "1",
-          title: "Setup Ubuntu 64-bit on your Raspberry Pi",
+          title: "FarmPi pre-built image installation.",
           subSteps: [
             {
               index: "1.1",
-              title: "Ubuntu Download for Raspberry Pi",
+              title: "Download the FarmPi image from github or the official FarmPi mirror. Always make sure you're getting the latest version.",
               input: [
                 {
-                  pre_text: "Download Ubuntu 64-bit 20.04 for your Raspberry Pi Hardware.",
-                  code: "https://ubuntu.com/download/raspberry-pi",
-                  response: "Make sure it's Ubuntu Server 20.04.1 LTS",
+                  pre_text: "Maurice Kevenaar's GitHub Release page.",
+                  url: "https://github.com/mkevenaar/FarmPi/releases/latest",
+                  response: "",
+                },
+                {
+                  pre_text: "FarmPi's Official Mirror",
+                  url: "https://farmpi.octofarm.net/",
+                  response: "",
                 },
               ],
             },
             {
-              index: "2",
+              index: "1.2",
               title: "Flash the image onto your microSD Card.",
               input: [
                 {
@@ -1505,7 +1542,64 @@ export default {
               ],
             },
             {
-              index: "3",
+              index: "1.3",
+              title: "Configure your WiFi by editing 'farmpi-wpa-supplicant.txt' on the root of the flashed card when using it like a thumb drive, or use an UTP cable",
+              input: [],
+            },
+            {
+              index: "1.4",
+              title: "Boot FarmPi after flashing the SD Card.",
+              input: [],
+            },
+            {
+              index: "1.5",
+              title: "If your network PC supports bonjour you can find your instance at http://farmpi.local or the ip address that your router gave the device.",
+              input: [],
+            },
+            {
+              index: "1.6",
+              title: "More configuration options can be found on Maurice Kevenaar GitHub but you will be able to start adding printers to your FarmPi instance on it's web interface.",
+              input: [],
+            },
+          ],
+        }, {
+          index: "2",
+          title: "Manual Installation on Raspberry Pi with Ubuntu 64-bit.",
+          subSteps: [
+            {
+              index: "2.1",
+              title: "Ubuntu Download for Raspberry Pi",
+              input: [
+                {
+                  pre_text: "Download Ubuntu 64-bit 20.04 for your Raspberry Pi Hardware.",
+                  code: "https://ubuntu.com/download/raspberry-pi",
+                  response: "Make sure it's Ubuntu Server 20.04.1 LTS",
+                },
+              ],
+            },
+            {
+              index: "2.2",
+              title: "Flash the image onto your microSD Card.",
+              input: [
+                {
+                  pre_text: "Linux Machine",
+                  url: "https://ubuntu.com/tutorials/create-an-ubuntu-image-for-a-raspberry-pi-on-ubuntu",
+                  response: "",
+                },
+                {
+                  pre_text: "Windows Machine",
+                  url: "https://ubuntu.com/tutorials/create-an-ubuntu-image-for-a-raspberry-pi-on-windows",
+                  response: "",
+                },
+                {
+                  pre_text: "OSX Machine",
+                  url: "https://ubuntu.com/tutorials/create-an-ubuntu-image-for-a-raspberry-pi-on-macos",
+                  response: "",
+                },
+              ],
+            },
+            {
+              index: "2.3",
               title: "Boot the ubuntu server after inserting the SD card.",
               input: [],
             },
@@ -1600,8 +1694,6 @@ export default {
                     + "&nbsp;&nbsp;&nbsp;&nbsp;mem_limit: 400m # Feel free to adjust! 400 MB is quite high and a safety limit.<br>"
                     + "&nbsp;&nbsp;&nbsp;&nbsp;ports:<br>"
                     + "&nbsp;&nbsp;&nbsp;&nbsp;- 4000:4000 # port of SYSTEM : port of CONTAINER<br>"
-                    + "&nbsp;&nbsp;&nbsp;&nbsp;environment:<br>"
-                    + "&nbsp;&nbsp;&nbsp;&nbsp;- MONGO=mongodb://MONGO_ROOTUSER_HERE:MONGO_PASSWORD_HERE@mongodb:27017/octofarm?authSource=admin<br>"
                     + "&nbsp;&nbsp;&nbsp;&nbsp;volumes:<br>"
                     + "&nbsp;&nbsp;&nbsp;&nbsp;# Volumes as local relative folders (validate with 'docker-compose config')<br>"
                     + "&nbsp;&nbsp;&nbsp;&nbsp;- ./OctoFarm/logs:/app/logs<br>"

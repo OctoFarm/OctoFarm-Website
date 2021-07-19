@@ -35,11 +35,13 @@
                   over your farm and a web interface to manage whenever you want.
                 </v-card-text>
                 <v-card-text class="font-weight-thin">
-                  OctoFarm is being actively developed by James Mackay, founder
-                  of NotExpectedYet. OctoFarms development is currently a passion project
+                  OctoFarm was originally created by James Mackay a complete a passion project
                   and is worked on around his 9-5 job, GSD and Wife so if you've like to
                   give something back to James for his work the please check out the
                   Sponsorship page.
+                </v-card-text>
+                <v-card-text class="font-weight-thin">
+                  OctoFarm is now Co-Authored by David Zwart who joined to help further the project.
                 </v-card-text>
               </v-col>
             </v-row>
@@ -132,28 +134,31 @@
         </v-container>
         <v-container class="pa-0 mt-5">
           <v-card
-            class="mb-5 text-center"
+            class="mb-5"
           >
-            <v-card-title>OctoFarms History</v-card-title>
+            <v-card-title class="mb-5 justify-center">
+              OctoFarms History
+            </v-card-title>
             <v-card-text>
-              <v-timeline>
+              <v-timeline
+                align-top
+                dense
+              >
                 <v-timeline-item
                   v-for="(map, i) in history_map"
                   :key="i"
                   :color="map.color"
                   small
                 >
-                  <template v-slot:opposite>
-                    <span
-                      :class="`headline font-weight-bold primary--text`"
-                      v-html="map.version"
-                    /><br>
+                  <span
+                    :class="`headline font-weight-bold primary--text`"
+                    v-html="map.version"
+                  /><br>
 
-                    <span
-                      :class="`headline font-weight-bold secondary--text`"
-                      v-html="`Released: ${map.date}`"
-                    />
-                  </template>
+                  <span
+                    :class="`headline font-weight-bold secondary--text`"
+                    v-html="`Released: ${map.date}`"
+                  />
                   <v-list
                     v-for="feat in map.features"
                     :key="feat.title"
