@@ -4,7 +4,6 @@ import Home from "../views/Home.vue";
 import About from "../views/About.vue";
 // import Blog from "../views/Blog.vue";
 import SponsMerch from "../views/SponsMerch.vue";
-import Installation from "../views/Installation.vue";
 import TryItOut from "../views/TryItOut.vue";
 // import Wiki from "../views/Wiki.vue";
 
@@ -27,9 +26,11 @@ const routes = [
   //   component: Blog,
   // },
   {
-    path: "/installation",
-    name: "Setup & Installation",
-    component: Installation,
+    path: "/documentation",
+    name: "Documentation",
+    beforeEnter() {
+      window.location.href = "https://docs.octofarm.net";
+    },
   },
   // {
   //   path: "/wiki",
