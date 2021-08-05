@@ -17,35 +17,42 @@
           md="12"
         >
           <h1
-            style="text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;"
+            style="text-shadow: 1px 0 0 #331D5BFF, 0 -1px 0 #331D5BFF, 0 1px 0 #331D5BFF, -1px 0 0 #331D5BFF;"
             class="display-4 font-weight-thin mb-4 d-inline-flex"
           >
             Octo
           </h1>
           <h1
-            style="text-shadow: 1px 0 0 #673ab7, 0 -1px 0 #673ab7, 0 1px 0 #673ab7, -1px 0 0 #673ab7;"
+            style="text-shadow: 1px 0 0 #331D5BFF, 0 -1px 0 #331D5BFF, 0 1px 0 #331D5BFF, -1px 0 0 #331D5BFF;"
             class="display-4 font-weight-bold mb-4 d-inline-flex"
           >
             Farm
           </h1>
           <h3
-            style="text-shadow: 1px 0 0 #673ab7, 0 -1px 0 #673ab7, 0 1px 0 #673ab7, -1px 0 0 #673ab7;"
+            style="text-shadow: 1px 0 0 #331D5BFF, 0 -1px 0 #331D5BFF, 0 1px 0 #331D5BFF, -1px 0 0 #331D5BFF;"
             class="subheading font-weight-regular"
           >
             Web server and client combo for managing and monitoring multiple Octoprint instances.
           </h3>
           <h4
-            style="text-shadow: 1px 0 0 #673ab7, 0 -1px 0 #673ab7, 0 1px 0 #673ab7, -1px 0 0 #673ab7;"
+            style="text-shadow: 1px 0 0 #331D5BFF, 0 -1px 0 #331D5BFF, 0 1px 0 #331D5BFF, -1px 0 0 #331D5BFF;"
             class="font-weight-light mt-3"
           >
             Originally created by James Mackay from NotExpectedYet
           </h4>
           <h4
-            style="text-shadow: 1px 0 0 #673ab7, 0 -1px 0 #673ab7, 0 1px 0 #673ab7, -1px 0 0 #673ab7;"
+            style="text-shadow: 1px 0 0 #331D5BFF, 0 -1px 0 #331D5BFF, 0 1px 0 #331D5BFF, -1px 0 0 #331D5BFF;"
             class="font-weight-light mt-3"
           >
             Co-Authored with the help of David Zwart
           </h4>
+          <v-btn
+            class="mt-5"
+            color="secondary"
+            href="https://docs.octofarm.net/getting-started/"
+          >
+            Getting Started
+          </v-btn>
         </v-col>
       </v-row>
     </v-parallax>
@@ -86,7 +93,10 @@
                   class="ma-2"
                   elevation="2"
                 >
-                  <v-row align="center pl-2">
+                  <v-row
+                    align="center"
+                    class="pl-2"
+                  >
                     <v-col class="grow">
                       <v-icon :color="news.color">
                         {{ news.icon }}
@@ -102,7 +112,10 @@
                       </v-btn>
                     </v-col>
                   </v-row>
-                  <v-row align="center pl-2">
+                  <v-row
+                    align="center"
+                    class="pl-2"
+                  >
                     <v-col>
                       {{ news.message }}
                     </v-col>
@@ -248,7 +261,7 @@ export default {
       {
         icon: "mdi-test-tube",
         title: "Version 1.2-RC1",
-        color: "warning",
+        color: "primary",
         message: "We are looking for testers for this new version that brings in bugfixes, code cleanup and optimizations to the OctoFarm stack!",
         link: "https://github.com/OctoFarm/OctoFarm/releases/tag/1.2.0-rc1",
         linkText: "Version 1.2-RC1",
@@ -256,7 +269,7 @@ export default {
       {
         icon: "mdi-raspberry-pi",
         title: "FarmPi Released!!",
-        color: "success",
+        color: "primary",
         message: "OctoFarm now has a pre-built image for RaspberryPi called FarmPi build by a wonderful user Maurice Kevenaar!",
         link: "https://github.com/mkevenaar/FarmPi",
         linkText: "More info!",
@@ -264,7 +277,7 @@ export default {
       {
         icon: "mdi-source-branch-check",
         title: "Version 1.1.13-hotfix",
-        color: "info",
+        color: "primary",
         message: "A little hotfix version to make some vast improvements to the updater mechanism and as always some tasty bug fixes",
         link: "https://github.com/OctoFarm/OctoFarm/releases/tag/1.1.13-hotfix",
         linkText: "1.1.13-hotfix",
