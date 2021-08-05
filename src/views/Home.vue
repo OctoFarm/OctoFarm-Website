@@ -22,17 +22,6 @@
           <h1 class="display-4 font-weight-bold mb-4 d-inline-flex">
             Farm
           </h1>
-
-          <h3 class="display-1 mb-10">
-            Latest Version: <v-chip
-              class="ma-2"
-              color="primary"
-              outlined
-            >
-              {{ latest_version }}
-            </v-chip>
-          </h3>
-
           <h3 class="subheading font-weight-regular">
             Web server and client combo for managing and monitoring multiple Octoprint instances.
           </h3>
@@ -42,19 +31,74 @@
           <h4 class="font-weight-light mt-3">
             Co-Authored with the help of David Zwart
           </h4>
-          <h3 class="subheading font-weight-regular mt-3">
-            OctoFarm now has a pre-built image for RaspberryPi called FarmPi build by Maurice Kevenaar!
-          </h3>
-          <v-btn
-            depressed
-            color="primary"
-            href="https://github.com/mkevenaar/FarmPi"
-          >
-            More Info
-          </v-btn>
         </v-col>
       </v-row>
     </v-parallax>
+    <v-row>
+      <v-col>
+        <v-container class="pa-0">
+          <v-card class="mb-5">
+            <v-row
+              align="center"
+              justify="center"
+            >
+              <v-col
+                class="text-center"
+                cols="12"
+                lg="12"
+                md="12"
+              >
+                <v-card-title class="d-inline-flex">
+                  Latest News
+                </v-card-title>
+                <v-card-text class="mb-0">
+                  Recent happenings in the OctoFarm world.
+                </v-card-text>
+              </v-col>
+            </v-row>
+            <v-row no-gutters>
+              <v-col
+                v-for="news in latestNews"
+                :key="news.title"
+                sm="6"
+                md="4"
+                lg="3"
+              >
+                <v-alert
+                  border="left"
+                  colored-border
+                  :color="news.color"
+                  class="ma-2"
+                  elevation="2"
+                >
+                  <v-row align="center pl-2">
+                    <v-col class="grow">
+                      <v-icon :color="news.color">
+                        {{ news.icon }}
+                      </v-icon> {{ news.title }}
+                    </v-col>
+                    <v-col class="shrink">
+                      <v-btn
+                        x-small
+                        block
+                        :color="news.color"
+                      >
+                        {{ news.linkText }}
+                      </v-btn>
+                    </v-col>
+                  </v-row>
+                  <v-row align="center pl-2">
+                    <v-col>
+                      {{ news.message }}
+                    </v-col>
+                  </v-row>
+                </v-alert>
+              </v-col>
+            </v-row>
+          </v-card>
+        </v-container>
+      </v-col>
+    </v-row>
     <v-row>
       <v-col>
         <v-container class="pa-0">
@@ -185,7 +229,32 @@
 export default {
   data: () => ({
     tab: null,
-    latest_version: "1.1.13",
+    latestNews: [
+      {
+        icon: "mdi-test-tube",
+        title: "Version 1.2-RC1",
+        color: "warning",
+        message: "We are looking for testers for this new version that brings in bugfixes, code cleanup and optimizations to the OctoFarm stack!",
+        link: "https://github.com/OctoFarm/OctoFarm/releases/tag/1.2.0-rc1",
+        linkText: "Version 1.2-RC1",
+      },
+      {
+        icon: "mdi-raspberry-pi",
+        title: "FarmPi Released!!",
+        color: "success",
+        message: "OctoFarm now has a pre-built image for RaspberryPi called FarmPi build by a wonderful user Maurice Kevenaar!",
+        link: "https://github.com/mkevenaar/FarmPi",
+        linkText: "More info!",
+      },
+      {
+        icon: "mdi-source-branch-check",
+        title: "Version 1.1.13-hotfix",
+        color: "info",
+        message: "A little hotfix version to make some vast improvements to the updater mechanism and as always some tasty bug fixes",
+        link: "https://github.com/OctoFarm/OctoFarm/releases/tag/1.1.13-hotfix",
+        linkText: "1.1.13-hotfix",
+      },
+    ],
     what_octofarm: [
       {
         icon: "mdi-source-branch",
