@@ -59,71 +59,51 @@
     <v-row>
       <v-col>
         <v-container class="pa-0">
-          <v-card class="mb-5">
-            <v-row
-              align="center"
-              justify="center"
+          <v-row no-gutters>
+            <v-col
+              v-for="news in latestNews"
+              :key="news.title"
+              sm="6"
+              md="4"
+              lg="3"
             >
-              <v-col
-                class="text-center"
-                cols="12"
-                lg="12"
-                md="12"
+              <v-alert
+                border="left"
+                colored-border
+                color="secondary"
+                class="ma-2"
+                elevation="2"
               >
-                <v-card-title class="d-inline-flex">
-                  Latest News
-                </v-card-title>
-                <v-card-text class="mb-0">
-                  Recent happenings in the OctoFarm world.
-                </v-card-text>
-              </v-col>
-            </v-row>
-            <v-row no-gutters>
-              <v-col
-                v-for="news in latestNews"
-                :key="news.title"
-                sm="6"
-                md="4"
-                lg="3"
-              >
-                <v-alert
-                  border="left"
-                  colored-border
-                  :color="news.color"
-                  class="ma-2"
-                  elevation="2"
+                <v-row
+                  align="center"
+                  class="pl-2"
                 >
-                  <v-row
-                    align="center"
-                    class="pl-2"
-                  >
-                    <v-col class="grow">
-                      <v-icon :color="news.color">
-                        {{ news.icon }}
-                      </v-icon> {{ news.title }}
-                    </v-col>
-                    <v-col class="shrink">
-                      <v-btn
-                        small
-                        block
-                        :color="news.color"
-                      >
-                        {{ news.linkText }}
-                      </v-btn>
-                    </v-col>
-                  </v-row>
-                  <v-row
-                    align="center"
-                    class="pl-2"
-                  >
-                    <v-col>
-                      {{ news.message }}
-                    </v-col>
-                  </v-row>
-                </v-alert>
-              </v-col>
-            </v-row>
-          </v-card>
+                  <v-col class="grow">
+                    <v-icon color="primary">
+                      {{ news.icon }}
+                    </v-icon> {{ news.title }}
+                  </v-col>
+                  <v-col class="shrink">
+                    <v-btn
+                      small
+                      block
+                      color="primary"
+                    >
+                      {{ news.linkText }}
+                    </v-btn>
+                  </v-col>
+                </v-row>
+                <v-row
+                  align="center"
+                  class="pl-2"
+                >
+                  <v-col>
+                    {{ news.message }}
+                  </v-col>
+                </v-row>
+              </v-alert>
+            </v-col>
+          </v-row>
         </v-container>
       </v-col>
     </v-row>
