@@ -2,10 +2,8 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import About from "../views/About.vue";
-// import Blog from "../views/Blog.vue";
-import SponsMerch from "../views/SponsMerch.vue";
+import Sponsorship from "../views/Sponsorship.vue";
 import TryItOut from "../views/TryItOut.vue";
-// import Wiki from "../views/Wiki.vue";
 
 Vue.use(VueRouter);
 
@@ -40,7 +38,14 @@ const routes = [
   {
     path: "/sponsorship",
     name: "Sponsorship",
-    component: SponsMerch,
+    component: Sponsorship,
+  },
+  {
+    path: "/merchandise",
+    name: "Merchandise",
+    beforeEnter() {
+      window.location.href = "https://shop.spreadshirt.co.uk/octofarm-merchandise/all";
+    },
   },
   {
     path: "/try",
