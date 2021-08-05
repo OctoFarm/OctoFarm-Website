@@ -11,12 +11,12 @@ const routes = [
   {
     path: "/",
     name: "Home",
-    component: Home,
+    component: () => import(Home),
   },
   {
     path: "/about",
     name: "About",
-    component: About,
+    component: () => import(About),
   },
   // {
   //   path: "/blog",
@@ -33,15 +33,10 @@ const routes = [
       );
     },
   },
-  // {
-  //   path: "/wiki",
-  //   name: "Wiki",
-  //   component: Wiki,
-  // },
   {
     path: "/sponsorship",
     name: "Sponsorship",
-    component: Sponsorship,
+    component: () => import(Sponsorship),
   },
   {
     path: "/merchandise",
@@ -56,7 +51,7 @@ const routes = [
   {
     path: "/try",
     name: "Try It!",
-    component: TryItOut,
+    component: () => import(TryItOut),
   },
 ];
 
