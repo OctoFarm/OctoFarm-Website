@@ -1,9 +1,5 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
-import About from "../views/About.vue";
-import Sponsorship from "../views/Sponsorship.vue";
-import TryItOut from "../views/TryItOut.vue";
 
 Vue.use(VueRouter);
 
@@ -11,12 +7,12 @@ const routes = [
   {
     path: "/",
     name: "Home",
-    component: () => import(Home),
+    component: () => import("../views/Home.vue"),
   },
   {
     path: "/about",
     name: "About",
-    component: () => import(About),
+    component: () => import("../views/About.vue"),
   },
   // {
   //   path: "/blog",
@@ -36,7 +32,7 @@ const routes = [
   {
     path: "/sponsorship",
     name: "Sponsorship",
-    component: () => import(Sponsorship),
+    component: () => import("../views/Sponsorship.vue"),
   },
   {
     path: "/merchandise",
@@ -51,7 +47,7 @@ const routes = [
   {
     path: "/try",
     name: "Try It!",
-    component: () => import(TryItOut),
+    component: () => import("../views/TryItOut.vue"),
   },
 ];
 
