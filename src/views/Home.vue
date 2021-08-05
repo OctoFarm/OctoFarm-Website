@@ -16,19 +16,34 @@
           lg="12"
           md="12"
         >
-          <h1 class="display-4 font-weight-thin mb-4 d-inline-flex">
+          <h1
+            style="text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;"
+            class="display-4 font-weight-thin mb-4 d-inline-flex"
+          >
             Octo
           </h1>
-          <h1 class="display-4 font-weight-bold mb-4 d-inline-flex">
+          <h1
+            style="text-shadow: 1px 0 0 #673ab7, 0 -1px 0 #673ab7, 0 1px 0 #673ab7, -1px 0 0 #673ab7;"
+            class="display-4 font-weight-bold mb-4 d-inline-flex"
+          >
             Farm
           </h1>
-          <h3 class="subheading font-weight-regular">
+          <h3
+            style="text-shadow: 1px 0 0 #673ab7, 0 -1px 0 #673ab7, 0 1px 0 #673ab7, -1px 0 0 #673ab7;"
+            class="subheading font-weight-regular"
+          >
             Web server and client combo for managing and monitoring multiple Octoprint instances.
           </h3>
-          <h4 class="font-weight-light mt-3">
+          <h4
+            style="text-shadow: 1px 0 0 #673ab7, 0 -1px 0 #673ab7, 0 1px 0 #673ab7, -1px 0 0 #673ab7;"
+            class="font-weight-light mt-3"
+          >
             Originally created by James Mackay from NotExpectedYet
           </h4>
-          <h4 class="font-weight-light mt-3">
+          <h4
+            style="text-shadow: 1px 0 0 #673ab7, 0 -1px 0 #673ab7, 0 1px 0 #673ab7, -1px 0 0 #673ab7;"
+            class="font-weight-light mt-3"
+          >
             Co-Authored with the help of David Zwart
           </h4>
         </v-col>
@@ -79,7 +94,7 @@
                     </v-col>
                     <v-col class="shrink">
                       <v-btn
-                        x-small
+                        small
                         block
                         :color="news.color"
                       >

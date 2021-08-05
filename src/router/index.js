@@ -27,7 +27,10 @@ const routes = [
     path: "/documentation",
     name: "Documentation",
     beforeEnter() {
-      window.location.href = "https://docs.octofarm.net";
+      window.open(
+        "https://docs.octofarm.net",
+        "_blank",
+      );
     },
   },
   // {
@@ -44,7 +47,10 @@ const routes = [
     path: "/merchandise",
     name: "Merchandise",
     beforeEnter() {
-      window.location.href = "https://shop.spreadshirt.co.uk/octofarm-merchandise/all";
+      window.open(
+        "https://shop.spreadshirt.co.uk/octofarm-merchandise/all",
+        "_blank",
+      );
     },
   },
   {
