@@ -4,51 +4,6 @@
       <v-col>
         <v-container class="pa-0 mt-5">
           <v-card
-            class="mb-5"
-          >
-            <v-row
-              align="center"
-              justify="center"
-            >
-              <v-col
-                lg="9"
-                md="6"
-                sm="12"
-              >
-                <v-img src="~@/assets/screenshots/dashboard.png" />
-              </v-col>
-              <v-col
-                lg="3"
-                md="6"
-                sm="12"
-                class="text-center"
-              >
-                <v-card-title class="d-inline-flex">
-                  About OctoFarm
-                </v-card-title>
-                <v-card-text class="font-weight-thin">
-                  OctoFarm was created to fill a need anyone using OctoPrint
-                  with multiple printers will have run into...
-                  How do I manage all this from one place!?
-                  That's where OctoFarm steps in, due to it's server
-                  based architecture it allows for constant monitoring
-                  over your farm and a web interface to manage whenever you want.
-                </v-card-text>
-                <v-card-text class="font-weight-thin">
-                  OctoFarm was originally created by James Mackay a complete a passion project
-                  and is worked on around his 9-5 job, GSD and Wife so if you've like to
-                  give something back to James for his work the please check out the
-                  Sponsorship page.
-                </v-card-text>
-                <v-card-text class="font-weight-thin">
-                  OctoFarm is now Co-Authored by David Zwart who joined to help further the project.
-                </v-card-text>
-              </v-col>
-            </v-row>
-          </v-card>
-        </v-container>
-        <v-container class="pa-0 mt-5">
-          <v-card
             class="mb-5 text-center"
           >
             <v-tabs
@@ -74,7 +29,10 @@
                 v-for="area in about_octofarm"
                 :key="area.tab"
               >
-                <v-card flat>
+                <v-card
+                  class="ma-15"
+                  flat
+                >
                   <v-row
                     align="center"
                     justify="center"
@@ -83,7 +41,6 @@
                       lg="3"
                       md="6"
                       sm="12"
-                      class="text-center"
                     >
                       <v-card-title class="d-inline-flex">
                         {{ area.title }}
@@ -208,6 +165,20 @@ export default {
   data: () => ({
     tab: null,
     about_octofarm: [
+      {
+        tab: "zero",
+        title: "About",
+        icon: "mdi-information",
+        description_1: "OctoFarm was created to fill a need anyone using OctoPrint with multiple printers will have run into... "
+          + "How do I manage all this from one place!?\n That's where OctoFarm steps in, due to it's server based architecture it "
+          + "allows for constant monitoring over your farm and a web interface to manage whenever you want.",
+        description_2: "OctoFarm was originally created by James Mackay a complete a passion project and is worked on around his "
+          + "9-5 job, GSD and Wife so if you've like to give something back to James for his work the please check out the sponsorship page.",
+        image_url: "dashboard",
+        features: [
+
+        ],
+      },
       {
         tab: "one",
         title: "Printer Manager",
