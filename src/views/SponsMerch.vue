@@ -180,16 +180,6 @@ export default {
         url: "",
       },
       {
-        name: "Alex Wiecke",
-        url_title: "",
-        url: "",
-      },
-      {
-        name: "Michael Portsmore",
-        url_title: "",
-        url: "",
-      },
-      {
         name: "Josh Wright",
         url_title: "",
         url: "",
