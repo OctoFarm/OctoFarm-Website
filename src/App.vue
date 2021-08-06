@@ -20,6 +20,15 @@
 import Vue from "vue";
 import Toolbar from "@/components/Toolbar.vue";
 import Footer from "@/components/Footer.vue";
+import Plausible from "plausible-tracker";
+
+const plausible = Plausible({
+  domain: "octofarm.net",
+  hashMode: false,
+  trackLocalhost: false,
+});
+
+plausible.enableAutoPageviews();
 
 export default Vue.extend({
   name: "App",
