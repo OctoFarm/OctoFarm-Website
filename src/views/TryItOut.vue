@@ -43,15 +43,6 @@
                 sm="12"
                 class="text-center"
               >
-                <v-card-title class="d-inline-flex">
-                  Current Caveats
-                </v-card-title>
-                <v-card-text class="font-weight-thin">
-                  All of the interfaces will load, but they currently load with 0 user permissions. This results in an empty "Printers" page, and also reduced settings amount.
-                  You sadly won't see any pictures displayed from the Thumbnail Plugin I setup as there is no routing setup to the OctoPrint instances. You can certainly get a
-                  feel for OctoFarms interface though so I still feel it's worth having a check out before you install. <br> We will hopefully be improving this testing instance
-                  going forward.
-                </v-card-text>
                 <v-card-text class="font-weight-thin">
                   <v-btn
                     color="primary"
