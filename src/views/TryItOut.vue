@@ -6,15 +6,6 @@
           <v-card
             class="mb-5"
           >
-            <v-alert
-              class="ma-5"
-              border="right"
-              colored-border
-              type="error"
-              elevation="2"
-            >
-              This is currently disabled whilst the server undergoes some changes. Hopefully will be back soon enough.
-            </v-alert>
             <v-row
               align="center"
               justify="center"
@@ -66,7 +57,6 @@
                     color="primary"
                     href="https://testing.octofarm.net"
                     target="_blank"
-                    disabled
                   >
                     OctoFarm Test Instance
                   </v-btn><br>
