@@ -29,6 +29,7 @@ const plausible = Plausible({
 });
 
 plausible.enableAutoPageviews();
+plausible.enableAutoOutboundTracking();
 
 export default Vue.extend({
   name: "App",

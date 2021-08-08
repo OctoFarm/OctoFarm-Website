@@ -16,9 +16,28 @@
                 <v-card-title class="d-inline-flex">
                   Try out OctoFarm!
                 </v-card-title>
-                <v-card-text class="font-weight-thin">
+                <v-card-text>
                   There is an online version available of OctoFarm for anyone to try out.
                   Just visit the address below and login with the details provided.
+                </v-card-text>
+                <v-card-text>
+                  The account below will log you in with OctoFarms user permissions. You may use every page apart from some parts of "Printers" and "System".
+                  You can start and stop prints, upload files and do pretty much everything you would normally be allowed to do on an OctoFarm install.
+                  All data will be reset to default values on a daily timer.
+                </v-card-text>
+                <v-card-text>
+                  <v-btn
+                    color="primary"
+                    href="https://testing.octofarm.net"
+                    target="_blank"
+                    @click="testingEvent()"
+                  >
+                    OctoFarm Test Instance
+                  </v-btn>
+                </v-card-text>
+                <v-card-text>
+                  <b>Username: </b><p>Test</p>
+                  <b>Password: </b><p>test_user_123</p>
                 </v-card-text>
               </v-col>
             </v-row>
@@ -31,29 +50,9 @@
               justify="center"
             >
               <v-col
-                lg="9"
-                md="6"
                 sm="12"
               >
                 <v-img src="~@/assets/screenshots/dashboard.png" />
-              </v-col>
-              <v-col
-                lg="3"
-                md="6"
-                sm="12"
-                class="text-center"
-              >
-                <v-card-text class="font-weight-thin">
-                  <v-btn
-                    color="primary"
-                    href="https://testing.octofarm.net"
-                    target="_blank"
-                  >
-                    OctoFarm Test Instance
-                  </v-btn><br>
-                  <b>Username: </b><p>Test</p>
-                  <b>Password: </b><p>test_user_123</p>
-                </v-card-text>
               </v-col>
             </v-row>
           </v-card>
@@ -64,12 +63,19 @@
 </template>
 
 <script>
+import Plausible from "plausible-tracker";
+
+const { trackEvent } = Plausible();
+
 export default {
-  name: "About",
+  name: "TryItOut",
   data: () => ({
 
   }),
   methods: {
+    testingEvent() {
+      trackEvent("Testing_Access");
+    },
   },
 };
 </script>
