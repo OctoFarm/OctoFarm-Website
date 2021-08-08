@@ -5,6 +5,33 @@
   >
     <v-row>
       <v-col>
+        <v-row class="mt-2">
+          <v-col
+            v-for="(stat, i) in $store.state.statistics.plausibleStats.plausibleStats"
+            :key="i"
+          >
+            <v-card
+              elevation="2"
+              class="pa-1"
+            >
+              {{ stat.site }}: <v-icon>mdi-eye-outline</v-icon> {{ stat.pageViews }} <v-icon>mdi-account</v-icon> {{ stat.visitors }}
+            </v-card>
+          </v-col>
+          <v-col>
+            <v-card
+              elevation="2"
+              class="pa-1"
+            >
+              Docker:
+              <v-icon>mdi-download-network</v-icon> {{ $store.state.statistics.dockerHubInformation.octofarm_pulls }},
+              <v-icon>mdi-star</v-icon> {{ $store.state.statistics.dockerHubInformation.octofarm_stars }}
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col>
         <v-row
           align="center"
           justify="center"
@@ -63,40 +90,7 @@
           {{ icon.name }}
         </v-btn>
       </v-col>
-      <v-col>
-        <h3 class="white--text">
-          Statistics
-        </h3>
-        <v-row class="mt-2">
-          <v-col
-            v-for="(stat, i) in $store.state.statistics.plausibleStats.plausibleStats"
-            :key="i"
-            sm="12"
-            md="6"
-          >
-            <v-card
-              elevation="2"
-              class="pa-1"
-            >
-              {{ stat.site }}<br> <b>Views:</b> {{ stat.pageViews }}, <b>Visitors:</b> {{ stat.visitors }}
-            </v-card>
-          </v-col>
-        </v-row>
-        <v-row>
-          <v-col>
-            <v-card
-              elevation="2"
-              class="pa-1"
-            >
-              Docker<br>
-              <b>Pulls:</b> {{ $store.state.statistics.dockerHubInformation.octofarm_pulls }},
-              <b>Stars:</b> {{ $store.state.statistics.dockerHubInformation.octofarm_stars }}
-            </v-card>
-          </v-col>
-        </v-row>
-      </v-col>
     </v-row>
-
     <v-card-text class="white--text">
       © {{ new Date().getFullYear() }} Copyright — <strong>NotExpectedYet</strong>
       - <strong>OctoFarm</strong>
