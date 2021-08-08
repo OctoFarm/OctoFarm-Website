@@ -63,7 +63,7 @@
             <v-col
               v-for="news in latestNews"
               :key="news.title"
-              sm="6"
+              sm="12"
               md="4"
               lg="3"
             >
