@@ -89,7 +89,7 @@
               class="pa-1"
             >
               Docker<br>
-              <b>Pulls:</b> {{ $store.state.statistics.dockerHubInformation.octofarm_pulls }}
+              <b>Pulls:</b> {{ $store.state.statistics.dockerHubInformation.octofarm_pulls }},
               <b>Stars:</b> {{ $store.state.statistics.dockerHubInformation.octofarm_stars }}
             </v-card>
           </v-col>
