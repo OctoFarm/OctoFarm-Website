@@ -52,6 +52,13 @@
             href="https://docs.octofarm.net/getting-started/"
           >
             Getting Started
+          </v-btn><br>
+          <v-btn
+            class="mt-5"
+            color="secondary"
+            href="https://github.com/OctoFarm/OctoFarm/releases"
+          >
+            Latest Release: {{ $store.state.statistics.githubInformation.octoFarmVersion }}
           </v-btn>
         </v-col>
       </v-row>

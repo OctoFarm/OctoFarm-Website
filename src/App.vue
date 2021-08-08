@@ -35,37 +35,10 @@ export default Vue.extend({
   name: "App",
   components: { Toolbar, Footer },
   data: () => ({
-    social_media: [
-      {
-        name: "Facebook",
-        link: "https://www.facebook.com/OctoFarm",
-        icon: "mdi-facebook",
-      },
-      {
-        name: "Youtube",
-        link: "https://www.youtube.com/channel/UClQWO3lxmQRreJVpjTrxELA",
-        icon: "mdi-youtube",
-      },
-    ],
-    community: [
-      {
-        name: "Facebook",
-        link: "https://www.facebook.com/OctoFarm",
-        icon: "mdi-facebook",
-      },
-      {
-        name: "Discord",
-        link: "https://discord.gg/vjabMUn",
-        icon: "mdi-discord",
-      },
-      {
-        name: "Github Discussions",
-        link: "https://github.com/NotExpectedYet/OctoFarm/discussions",
-        icon: "mdi-github",
-      },
-
-    ],
   }),
+  created() {
+    this.$store.dispatch("getStatistics");
+  },
 });
 </script>
 <style>
