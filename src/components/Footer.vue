@@ -7,7 +7,7 @@
       <v-col>
         <v-row class="mt-2">
           <v-col
-            v-for="(stat, i) in $store.state.statistics.plausibleStats.plausibleStats"
+            v-for="(stat, i) in plausibleStats"
             :key="i"
           >
             <v-card
@@ -23,8 +23,8 @@
               class="pa-1"
             >
               Docker:
-              <v-icon>mdi-download-network</v-icon> {{ $store.state.statistics.dockerHubInformation.octofarm_pulls }},
-              <v-icon>mdi-star</v-icon> {{ $store.state.statistics.dockerHubInformation.octofarm_stars }}
+              <v-icon>mdi-download-network</v-icon> {{ dockerStats.octofarm_pulls }},
+              <v-icon>mdi-star</v-icon> {{ dockerStats.octofarm_stars }}
             </v-card>
           </v-col>
         </v-row>
@@ -104,6 +104,20 @@ import Vue from "vue";
 export default Vue.extend({
   name: "Footer",
   components: { },
+  computed: {
+    plausibleStats() {
+      if (this.$store.state?.statistics?.plausibleStats?.plausibleStats) {
+        return this.$store.state?.statistics?.plausibleStats?.plausibleStats;
+      }
+      return [];
+    },
+    dockerStats() {
+      if (this.$store.state?.statistics?.dockerHubInformation) {
+        return this.$store.state.statistics.dockerHubInformation;
+      }
+      return { octofarm_pulls: 0, octofarm_stars: 0 };
+    },
+  },
   data: () => ({
     social_media: [
       {
