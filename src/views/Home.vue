@@ -71,8 +71,6 @@
               v-for="news in latestNews"
               :key="news.title"
               sm="12"
-              md="4"
-              lg="3"
             >
               <v-alert
                 border="left"
