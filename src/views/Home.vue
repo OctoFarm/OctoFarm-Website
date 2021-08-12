@@ -70,9 +70,11 @@
             <v-col
               v-for="news in latestNews"
               :key="news.title"
+              xs="12"
               sm="12"
               md="4"
               lg="3"
+              xl="3"
             >
               <v-alert
                 border="left"

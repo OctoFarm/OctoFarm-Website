@@ -1,5 +1,29 @@
 <template>
   <v-container>
+    <v-row
+      align="center"
+      justify="center"
+      class="mt-5"
+    >
+      <v-col
+        class="text-center"
+        lg="12"
+        md="12"
+      >
+        <v-card class="px-15">
+          <v-card-title class="d-inline-flex">
+            Become a Sponsor / Donate
+          </v-card-title>
+
+          <v-card-text>
+            This project is built by an English bloke in his spare time, around a 9-5 job, to boot.
+            If OctoFarm has helped you out at all then I'd be grateful if you could donate towards
+            the project. It keeps me going and heck, who doesn't dream of been able to work on their
+            passion project daily.
+          </v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
     <v-row>
       <v-col
         sm="12"
@@ -17,14 +41,11 @@
               md="12"
             >
               <v-card-title class="d-inline-flex">
-                Become a Sponsor / Donate
+                How to Sponsor / Donate to OctoFarm
               </v-card-title>
 
               <v-card-text>
-                This project is built by an English bloke in his spare time, around a 9-5 job, to boot.
-                If OctoFarm has helped you out at all then I'd be grateful if you could donate towards
-                the project. It keeps me going and heck, who doesn't dream of been able to work on their
-                passion project daily.
+                There are few ways to donate towards the development of OctoFarm. Some have perks and benefits, others do not.
               </v-card-text>
             </v-col>
           </v-row>
@@ -37,6 +58,7 @@
               v-for="spon in methods_of_sponsor"
               :key="spon.title"
               sm="12"
+              md="6"
             >
               <v-card
                 class="mx-auto"
@@ -44,7 +66,7 @@
                 outlined
               >
                 <v-toolbar
-                  class="secondary"
+                  :class="spon.btn_colour"
                 >
                   <v-app-bar-nav-icon> <v-icon>{{ spon.icon }}</v-icon> </v-app-bar-nav-icon>
 
@@ -106,7 +128,7 @@
             justify="center"
           >
             <v-col
-              v-for="spon in sponsors"
+              v-for="spon in $store.state.statistics.patreons.websitePledges"
               :key="spon.name"
               xl="3"
               lg="6"
@@ -116,46 +138,20 @@
                 outlined
                 class="ma-2 text-center"
               >
-                <v-list-item three-line>
+                <v-list-item two-line>
                   <v-list-item-content>
-                    <v-icon
-                      tile
-                      size="50"
-                      color="yellow"
+                    <v-avatar
+                      class="profile"
+                      color="grey"
+                      size="100"
                     >
-                      mdi-trophy
-                    </v-icon>
+                      <v-img :src="spon.thumb" />
+                    </v-avatar>
                     <v-list-item-title class="headline mb-1">
                       {{ spon.name }}
                     </v-list-item-title>
                   </v-list-item-content>
                 </v-list-item>
-
-                <v-card-actions>
-                  <v-btn
-                    block
-                    small
-                    outlined
-                    rounded
-                    text
-                    v-if="spon.url !== ''"
-                    :href="spon.url"
-                    target="_blank"
-                  >
-                    {{ spon.url_title }}
-                  </v-btn>
-                  <v-btn
-                    block
-                    small
-                    outlined
-                    rounded
-                    text
-                    v-else
-                    href="mailto:info@notexpectedyet.com"
-                  >
-                    Contact to add
-                  </v-btn>
-                </v-card-actions>
               </v-card>
             </v-col>
           </v-row>
@@ -218,8 +214,9 @@ export default {
       },
       {
         title: "Patreon",
-        text: "My Patreon page is mainly for making a long term set of donations to the project. £10+ you get access to the \"secret\" discord channel, and also early door previews and code samples.\n",
-        text2: "All funding from this source is put back directly into the project. Whether this be forwarding that donation on to Gina at Octoprint (Whom without this project wouldn't exist!) or other projects used in this project, or to pay for web services and printing equipment.",
+        text: "My Patreon page is mainly for making a long term set of donations to the project. £10+ you get access to the \"secret\" discord channel and your name inside the application as an official sponsor!\n",
+        text2: "All funding from this source is put back directly into the project. Whether this be forwarding that donation on to Gina at Octoprint (Whom without this project wouldn't exist!) or other projects used in this project, or to pay for web services and printing equipment. \n"
+        + "\n Now Offering Merchandise!",
         btn_colour: "red",
         icon: "mdi-patreon",
         btn_text: "Donate",
