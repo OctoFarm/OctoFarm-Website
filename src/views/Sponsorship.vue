@@ -216,7 +216,7 @@ export default {
         title: "Patreon",
         text: "My Patreon page is mainly for making a long term set of donations to the project. £10+ you get access to the \"secret\" discord channel and your name inside the application as an official sponsor!\n",
         text2: "All funding from this source is put back directly into the project. Whether this be forwarding that donation on to Gina at Octoprint (Whom without this project wouldn't exist!) or other projects used in this project, or to pay for web services and printing equipment. \n"
-        + "\n Now Offering Merchandise!",
+        + "\n Each level of patreon now comes with free merchandise!",
         btn_colour: "red",
         icon: "mdi-patreon",
         btn_text: "Donate",
