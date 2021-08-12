@@ -92,6 +92,9 @@
       </v-col>
     </v-row>
     <v-card-text class="white--text">
+      All tracking information on this website is done with <a href="https://plausible.io/">Plausible</a> or various relevant service API's.
+    </v-card-text>
+    <v-card-text class="white--text">
       © {{ new Date().getFullYear() }} Copyright — <strong>NotExpectedYet</strong>
       - <strong>OctoFarm</strong>
     </v-card-text>
