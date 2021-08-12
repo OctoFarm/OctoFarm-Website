@@ -58,7 +58,7 @@
             color="secondary"
             href="https://github.com/OctoFarm/OctoFarm/releases"
           >
-            Latest Release: {{ $store.state.statistics.githubInformation.octoFarmVersion }}
+            Latest Release: {{ octofarmLatestVersion }}
           </v-btn>
         </v-col>
       </v-row>
@@ -244,6 +244,14 @@
 
 <script>
 export default {
+  computed: {
+    octofarmLatestVersion() {
+      if (this.$store.state?.statistics?.githubInformation?.octoFarmVersion) {
+        return this.$store.state.statistics.githubInformation.octoFarmVersion;
+      }
+      return "1.1.13-hotfix";
+    },
+  },
   data: () => ({
     tab: null,
     latestNews: [
