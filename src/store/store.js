@@ -1,12 +1,18 @@
 import axios from "axios";
 import Vuex from "vuex";
 import Vue from "vue";
+import GhostContentAPI from "@tryghost/content-api";
 
 // load Vuex
 Vue.use(Vuex);
 
 const state = {
   statistics: {},
+  ghostApi: new GhostContentAPI({
+    url: "https://blog.octofarm.net",
+    key: process.env.VUE_APP_GHOST_CONTENT_API_KEY,
+    version: "v3",
+  }),
 };
 
 // to handle state
