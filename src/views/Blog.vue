@@ -3,13 +3,13 @@
     <v-row>
       <v-col
         sm="12"
-        md="8"
+        md="10"
       >
         <Feed :posts="posts" />
       </v-col>
       <v-col
         sm="12"
-        md="4"
+        md="2"
       >
         <Nav :tag-list="tagList" />
       </v-col>
