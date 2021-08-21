@@ -15,7 +15,6 @@
         dense
         class="ml-2"
       >
-
         <v-tab
           class="hidden-sm-and-down"
           v-for="(nav, i) in navigation"
@@ -90,7 +89,7 @@ export default {
   }),
   beforeMount() {
     // Pull in navigation from routes and load into DOM
-    this.navigation = this.$router.options.routes;
+    this.navigation = this.$router.options.routes.filter((x) => x.name);
   },
 };
 </script>

@@ -1,40 +1,55 @@
 <template>
   <v-container>
     <v-row>
-      <v-col lg="4">
-        SIDEBAR
+      <v-col
+        sm="12"
+        md="8"
+      >
+        <Feed :posts="posts" />
       </v-col>
-      <v-col lg="8">
-        CONTENT
+      <v-col
+        sm="12"
+        md="4"
+      >
+        <Nav :tag-list="tagList" />
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col>
+        <Pagination
+          :pages.sync="pages.length"
+          :page-number.sync="pageNumber"
+        />
       </v-col>
     </v-row>
   </v-container>
 </template>
 
 <script>
+import Pagination from "@/components/Blog/Pagination.vue";
+import Feed from "@/components/Blog/Feed.vue";
+import Nav from "@/components/Blog/Nav.vue";
+
+import { getLatestBlogPostsList, getPagesList, getTagsList } from "@/utils/ghost-api.utils";
 
 export default {
+  components: { Pagination, Feed, Nav },
+  async beforeMount() {
+    // this.pages = await this.getPagesList({});
+    this.posts = await this.getLatestBlogPostsList({ page: this.pageNumber, include: "tags,authors" });
+    this.tagList = await this.getTagsList();
+  },
   data: () => ({
     tab: null,
-    newPosts: [],
+    posts: [],
+    pages: ["1"],
+    pageNumber: 1,
+    tagList: [],
   }),
-  created() {
-    this.getPost();
-    this.getPages();
-  },
   methods: {
-    getPost() {
-      this.$store.state.ghostApi.posts
-        .browse({ page: 2, include: "tags,authors" })
-        .then((posts) => {
-          posts.forEach((post) => {
-            console.log(post);
-          });
-        })
-        .catch((err) => {
-          console.error(err);
-        });
-    },
+    getLatestBlogPostsList,
+    getPagesList,
+    getTagsList,
   },
 };
 </script>

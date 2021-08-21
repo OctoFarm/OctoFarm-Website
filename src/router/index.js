@@ -7,17 +7,21 @@ const routes = [
   {
     path: "/",
     name: "Home",
-    component: () => import("../views/Home.vue"),
+    component: () => import(/* webpackChunkName: "page" */"../views/Home.vue"),
   },
   {
     path: "/about",
     name: "About",
-    component: () => import("../views/About.vue"),
+    component: () => import(/* webpackChunkName: "page" */"../views/About.vue"),
   },
   {
-    path: "/blog",
+    path: "/blog/",
     name: "Blog",
-    component: () => import("../views/Blog.vue"),
+    component: () => import(/* webpackChunkName: "page" */"../views/Blog.vue"),
+  },
+  {
+    path: "/blog/:post_id",
+    component: () => import(/* webpackChunkName: "page" */ "../components/Blog/Post.vue"),
   },
   {
     path: "/documentation",
@@ -32,7 +36,7 @@ const routes = [
   {
     path: "/sponsorship",
     name: "Sponsorship",
-    component: () => import("../views/Sponsorship.vue"),
+    component: () => import(/* webpackChunkName: "page" */"../views/Sponsorship.vue"),
   },
   {
     path: "/merchandise",
@@ -47,7 +51,7 @@ const routes = [
   {
     path: "/try",
     name: "Try It!",
-    component: () => import("../views/TryItOut.vue"),
+    component: () => import(/* webpackChunkName: "page" */"../views/TryItOut.vue"),
   },
 ];
 
@@ -59,7 +63,7 @@ const router = new VueRouter({
 
 router.afterEach((to) => {
   Vue.nextTick(() => {
-    document.title = `OctoFarm | ${to.name}`;
+    document.title = `OctoFarm | ${to.name ? to.name : "Blog"}`;
   });
 });
 

@@ -95,7 +95,7 @@
                       small
                       block
                       color="primary"
-                      :href="rewriteBlogUrl(news.url)"
+                      :to="rewriteBlogUrl(news.slug)"
                     >
                       More Info!
                     </v-btn>
@@ -243,11 +243,12 @@
 </template>
 
 <script>
-import rewriteBlogUrl from "@/utils/url.utils";
+import { rewriteBlogUrl } from "@/utils/helpers.utils";
+import { getLatestBlogPostsList } from "@/utils/ghost-api.utils";
 
 export default {
-  created() {
-    this.getLatestBlogPosts();
+  async beforeMount() {
+    this.latestNews = await this.getLatestBlogPostsList({ limit: 4, include: "authors" });
   },
   computed: {
     octofarmLatestVersion() {
@@ -258,19 +259,7 @@ export default {
     },
   },
   methods: {
-    getLatestBlogPosts() {
-      this.$store.state.ghostApi.posts
-        .browse({ limit: 4, include: "authors" })
-        .then((posts) => {
-          posts.forEach((post) => {
-            console.log(post);
-            this.latestNews = posts;
-          });
-        })
-        .catch((err) => {
-          console.error(err);
-        });
-    },
+    getLatestBlogPostsList,
     rewriteBlogUrl,
   },
   data: () => ({
