@@ -40,12 +40,6 @@
           >
             Originally created by James Mackay from NotExpectedYet
           </h4>
-          <h4
-            style="text-shadow: 1px 0 0 #331D5BFF, 0 -1px 0 #331D5BFF, 0 1px 0 #331D5BFF, -1px 0 0 #331D5BFF;"
-            class="font-weight-light mt-3"
-          >
-            Co-Authored with the help of David Zwart
-          </h4>
           <v-btn
             class="mt-5"
             color="secondary"
