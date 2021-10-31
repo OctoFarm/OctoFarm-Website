@@ -26,10 +26,14 @@
                   All data will be reset to default values on a daily timer.
                 </v-card-text>
                 <v-card-text>
+                <h4>Currently down due to server issues, will work to get it back up ASAP!</h4>
+                </v-card-text>
+                <v-card-text>
                   <v-btn
                     color="primary"
                     href="https://testing.octofarm.net"
                     target="_blank"
+                    disabled
                     @click="testingEvent()"
                   >
                     OctoFarm Test Instance
