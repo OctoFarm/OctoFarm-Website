@@ -147,7 +147,7 @@
             justify="center"
           >
             <v-col
-              v-for="spon in $store.state.statistics.patreons.websitePledges"
+              v-for="spon in patreonSponsors"
               :key="spon.name"
               sm="12"
               md="12"
@@ -182,6 +182,14 @@
 
 <script>
 export default {
+  computed: {
+    patreonSponsors() {
+      if (this.$store?.state?.statistics?.patreons?.websitePledges) {
+        return this.$store?.state?.statistics?.patreons?.websitePledges;
+      }
+      return [{ name: "Failed to load", thumb: "" }];
+    },
+  },
   data: () => ({
     tab: null,
     methods_of_sponsor: [

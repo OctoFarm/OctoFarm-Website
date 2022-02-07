@@ -82,17 +82,16 @@
                   class="pl-2"
                 >
                   <v-col class="grow">
-                    <v-icon color="primary">
-                      {{ news.icon }}
-                    </v-icon> {{ news.title }}
+                    {{ news.title }}
                   </v-col>
                   <v-col class="shrink">
                     <v-btn
                       small
                       block
                       color="primary"
+                      :to="rewriteBlogUrl(news.slug)"
                     >
-                      {{ news.linkText }}
+                      More Info!
                     </v-btn>
                   </v-col>
                 </v-row>
@@ -101,7 +100,7 @@
                   class="pl-2"
                 >
                   <v-col>
-                    {{ news.message }}
+                    {{ news.excerpt }}
                   </v-col>
                 </v-row>
               </v-alert>
@@ -110,6 +109,7 @@
         </v-container>
       </v-col>
     </v-row>
+
     <v-row>
       <v-col>
         <v-container class="pa-0">
@@ -237,7 +237,13 @@
 </template>
 
 <script>
+import { rewriteBlogUrl } from "@/utils/helpers.utils";
+import { getLatestBlogPostsList } from "@/utils/ghost-api.utils";
+
 export default {
+  async beforeMount() {
+    this.latestNews = await this.getLatestBlogPostsList({ limit: 4, include: "authors" });
+  },
   computed: {
     octofarmLatestVersion() {
       if (this.$store.state?.statistics?.githubInformation?.octoFarmVersion) {
@@ -246,34 +252,13 @@ export default {
       return "1.1.13-hotfix";
     },
   },
+  methods: {
+    getLatestBlogPostsList,
+    rewriteBlogUrl,
+  },
   data: () => ({
     tab: null,
-    latestNews: [
-      {
-        icon: "mdi-test-tube",
-        title: "Version 1.2-RC1",
-        color: "primary",
-        message: "We are looking for testers for this new version that brings in bugfixes, code cleanup and optimizations to the OctoFarm stack!",
-        link: "https://github.com/OctoFarm/OctoFarm/releases/tag/1.2.0-rc1",
-        linkText: "Version 1.2-RC1",
-      },
-      {
-        icon: "mdi-raspberry-pi",
-        title: "FarmPi Released!!",
-        color: "primary",
-        message: "OctoFarm now has a pre-built image for RaspberryPi called FarmPi build by a wonderful user Maurice Kevenaar!",
-        link: "https://github.com/mkevenaar/FarmPi",
-        linkText: "More info!",
-      },
-      {
-        icon: "mdi-source-branch-check",
-        title: "Version 1.1.13-hotfix",
-        color: "primary",
-        message: "A little hotfix version to make some vast improvements to the updater mechanism and as always some tasty bug fixes",
-        link: "https://github.com/OctoFarm/OctoFarm/releases/tag/1.1.13-hotfix",
-        linkText: "1.1.13-hotfix",
-      },
-    ],
+    latestNews: [],
     what_octofarm: [
       {
         icon: "mdi-source-branch",

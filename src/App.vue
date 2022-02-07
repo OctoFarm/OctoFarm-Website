@@ -8,7 +8,6 @@
         fluid
         class="pa-0"
       >
-        <!-- If using vue-router -->
         <router-view />
       </v-container>
     </v-main>
