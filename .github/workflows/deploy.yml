@@ -15,6 +15,8 @@ jobs:
         with:
           node-version: '14.x'
       - run: npm ci
+      - run: touch .env
+      - run: echo VUE_APP_GHOST_CONTENT_API_KEY =${{ secrets.VUE_APP_GHOST_CONTENT_API_KEY }} >> .env
       - run: npm run build
 
       - name: Init new repo in dist folder and commit generated files
@@ -26,8 +28,6 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git commit -m ':wrench: deploy'
-        env:
-          VUE_APP_GHOST_CONTENT_API_KEY: ${{ secrets.VUE_APP_GHOST_CONTENT_API_KEY }}
       - name: Force push to destination branch
         uses: ad-m/github-push-action@v0.5.0
         with:
