@@ -1,4 +1,5 @@
 import Vue from "vue";
+import lineClamp from "vue-line-clamp";
 // Plugins
 import VueClipboard from "vue-clipboard2";
 
@@ -13,6 +14,10 @@ Vue.config.productionTip = false;
 
 // Plugin declaration
 Vue.use(VueClipboard);
+
+Vue.use(lineClamp, {
+  textOverflow: "-",
+});
 
 new Vue({
   router,

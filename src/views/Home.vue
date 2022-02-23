@@ -81,7 +81,7 @@
                   align="center"
                   class="pl-2"
                 >
-                  <v-col class="grow">
+                  <v-col class="grow text-truncate">
                     {{ news.title }}
                   </v-col>
                   <v-col class="shrink">
@@ -100,7 +100,12 @@
                   class="pl-2"
                 >
                   <v-col>
-                    {{ news.excerpt }}
+                    <p
+                      class="text-wrap"
+                      v-line-clamp:20="2"
+                    >
+                      {{ news.excerpt }}
+                    </p>
                   </v-col>
                 </v-row>
               </v-alert>
