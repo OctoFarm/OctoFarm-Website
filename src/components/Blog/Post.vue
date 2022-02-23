@@ -284,6 +284,8 @@ li {
 .kg-image {
   margin-right: auto;
   margin-left: auto;
+  width:100%;
+  height:100%;
 }
 
 .kg-embed-card {
