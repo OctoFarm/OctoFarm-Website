@@ -32,13 +32,13 @@
             style="text-shadow: 1px 0 0 #331D5BFF, 0 -1px 0 #331D5BFF, 0 1px 0 #331D5BFF, -1px 0 0 #331D5BFF;"
             class="subheading font-weight-regular"
           >
-            Web server and client combo for managing and monitoring multiple Octoprint instances.
+            OctoFarm is a single pane of glass that combines multiple OctoPrint instances into a single interface.
           </h3>
           <h4
             style="text-shadow: 1px 0 0 #331D5BFF, 0 -1px 0 #331D5BFF, 0 1px 0 #331D5BFF, -1px 0 0 #331D5BFF;"
             class="font-weight-light mt-3"
           >
-            Originally created by James Mackay from NotExpectedYet
+            A free and open source makers farm management software originally created by James Mackay
           </h4>
           <v-btn
             class="mt-5"
@@ -118,7 +118,7 @@
     <v-row>
       <v-col>
         <v-container class="pa-0">
-          <v-card class="mb-5">
+          <v-card class="mb-5 pa-10">
             <v-row
               align="center"
               justify="center"
@@ -134,11 +134,10 @@
                 </v-card-title>
 
                 <v-card-text>
-                  OctoFarm is a web server and client combo for unifying multiple
-                  instances of Octoprint.
-                  You can manage and monitor as many instances as you want from
-                  a single interface giving
-                  you full control over your 3D printer farm.
+                  OctoFarm is a single pane of glass that combines multiple OctoPrint instances into a single interface.
+                  It utilises the OctoPrint API and websocket systems to allow you to monitor and manage all of your 3d printer farm.
+                  OctoFarm brings together a large feature set from OctoPrint and also many of it's own rolled on top that help makers running and
+                  OctoPrint 3D printer farm to get full control from a single place. Check out the About page for more information on area's and features.
                 </v-card-text>
               </v-col>
             </v-row>
@@ -192,14 +191,13 @@
                 md="12"
               >
                 <v-card-title class="d-inline-flex">
-                  Coming Soon to OctoFarm!
+                  The Future of OctoFarm
                 </v-card-title>
 
                 <v-card-text>
                   OctoFarm is being actively developed all the time and
-                  new features are always on the horizon. Version 1.2
-                  is currently in the works and will bring a whole host
-                  of improvements to the platform.
+                  new features are always on the horizon. <br>
+                  Some of those plans are listed below and already in the works.
                 </v-card-text>
               </v-col>
             </v-row>
@@ -268,32 +266,34 @@ export default {
       {
         icon: "mdi-source-branch",
         title: "100% FREE AND OPEN SOURCE",
-        message: "All source code is available to check out and you get the entire feature set for free!",
+        message: "All source code is available to check out and you get the entire feature set for free! Data is stored locally and the only reason OctoFarm"
+          + " needs to connect to the internet is updates and supplemental data. OctoFarm does not collect ANY data on it's users.",
       },
       {
         icon: "mdi-monitor-dashboard",
         title: "MANAGEMENT",
-        message: "Manage and control every aspect of your OctoPrint run farm.",
+        message: "Administrator users can manage just about ever aspect of their OctoPrint installations from OctoFarm. It allows plugin and octoprint updating as well as installation, disabling and uninstalling of them on mass. Printers can also be edited, added and removed in the same manor.",
       },
       {
         icon: "mdi-eye-circle",
         title: "MONITORING",
-        message: "Keep an eye your entire farm from a selection of views.",
+        message: "Keep an eye your entire farm from a selection of views that can be disabled or enabled if you don't use them yourself. Octofarm also allows for bulk setting up of printers to bring them all online at once, then fire off multiple prints to them to get a big b"
+          + "atch job started all in one go!",
       },
       {
         icon: "mdi-history",
         title: "HISTORY",
-        message: "Keep track of historical successful, failed or cancelled prints.",
+        message: "Keep a complete log of everything that goes on in your farm, from errors to completed and successful prints. OctoFarm also allows you to capture a finished print webcam image, printer thumbnails support through OctoPrint plugins and also timelapse capture.",
       },
       {
         icon: "mdi-file-document-multiple-outline",
         title: "FILE MANAGER",
-        message: "Quickly switch and manage all your printers file lists.",
+        message: "Quickly switch and manage all your printers file lists across your farm. You can upload to multiple printers at once, and keep your files clean with various date based house keeping functionality.",
       },
       {
         icon: "mdi-movie-roll",
         title: "FILAMENT MANAGER",
-        message: "Keep track of your spool inventory and assign to print jobs.",
+        message: "Keep track of your spool inventory and assign to print jobs in a very flexible manor. Only care about filament type and not individual spools? OctoFarm allows for this and much more granular management of your spools",
       },
     ],
     soon_octofarm: [
