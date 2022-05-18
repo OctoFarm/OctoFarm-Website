@@ -71,7 +71,7 @@
                             v-for="(url, i) in area.image_url"
                             :key="i"
                           >
-                            <v-img
+                            <expandable-image
                               v-if="url.length !== 0"
                               :aspect-ratio="16/9"
                               :src="get_img_url(url)"
@@ -94,7 +94,7 @@
                       sm="12"
                       class="text-center"
                     >
-                      <v-img
+                      <expandable-image
                         v-if="feat.img_url.length !== 0"
                         :aspect-ratio="16/9"
                         :src="get_img_url(feat.img_url)"
@@ -196,12 +196,12 @@ export default {
         description_1: "OctoFarm was created to fill a need anyone using OctoPrint with multiple printers will have run into... "
           + "How do I manage all this from one place!?\n That's where OctoFarm steps in, due to it's server based architecture it "
           + "allows for constant monitoring over your farm and a web interface to manage whenever you want.",
-        description_2: "OctoFarm was originally created by James Mackay a complete a passion project and is worked on around his "
+        description_2: "OctoFarm was originally created by James Mackay, a complete a passion project, and is worked on around his "
           + "9-5 job, GSD and Wife so if you've like to give something back to James for his work the please check out the sponsorship page.",
         image_url: ["Dashboard", "PrinterManager", "SystemView"],
         features: [
           {
-            title: "Under Active Developement",
+            title: "Active Developement",
             description: "OctoFarm is currently under active development and will hopefully be for a while. Whilst I'm a one man band and can't get to every "
               + "feature request or lofty enterprise system people want I will endeavour to keep the development rolling whenever I get spare time to work on the project."
              + " OctoFarm has become my baby, and my gift back to the makers community that I've enjoyed been a part of for over 6 years now and whilst I'm still constantly"
@@ -209,8 +209,8 @@ export default {
             img_url: "ActiveDevelopment",
           },
           {
-            title: "I Do Listen",
-            description: "I do listen to peoples requests, just some of them may take more time than I'm able to commit at the moment. Regardless, if I think a feature is worth the"
+            title: "I Listen",
+            description: "I listen to peoples requests, just some of them may take more time than I'm able to commit at the moment. Regardless, if I think a feature is worth the"
               + " effort I will lay the ground work as I work on other features. The absolute best way to discuss your wants is by opening a github discussion, I'm happy to flesh"
             + " out your feature request further and tell you what work needs doing before it can be a reality. I DO NOT give timescales... Take a look at the history on there for"
             + " better idea, you can filter by 'Implemented' to see what's been done from community requests.",
@@ -231,23 +231,23 @@ export default {
         icon: "mdi-printer-3d",
         description_1: "Take full control of your OctoPrint farm with various single and bulk printer management functions. You can add/edit/remove/disable"
         + "/update and even change relevant settings of your OctoPrint instances.",
-        description_2: "Get a deeper look over your printer farm with various logs, alerts and other management functionalities.",
-        image_url: ["PrinterManager", "PrinterManagerLogs"],
+        description_2: "Get a deeper look over your OctoPrint based farm with various logs, alerts and other management functionalities giving you a full current and historical overview of what is happening.",
+        image_url: ["PrinterManager", "PrinterManagerLogs", "PrinterManagerBulkManage", "PrinterManagerOctoPrintManage", "PrinterManagerPrinterManage"],
         features: [
           {
             title: "Connection Overview",
             description: "The connection overview will give administrators a quick window into how their network is handling all of those pesky websocket connections and api calls. "
-              + "It will keep a count of connection errors / retries on the connections and is linked to the Health Checks feature so you can be alerted of any problems with OctoFarm or the Network.",
+              + "It keeps track of the speed of responses, and connection retries/error counts.",
             img_url: "PrinterManagerConnectionOverview",
           },
           {
             title: "Farm Overview",
-            description: "The farm overview is for administrators to get a quick window into the current state of printers and OP instances on their farms. ",
+            description: "The farm overview is for administrators to get a quick window into the current state of printers and OP instances on their farms. It will display current versions, OctoPi/OctoPrint states if available and a success/activity rate for each printer.",
             img_url: "PrinterManagerFarmOverView",
           },
           {
             title: "Health Checks",
-            description: "Bring a whole section of your farm online and ready to print with the click of a button. Currently allows you to connect/disconnect (OctoPrint -> Printer) and also Re-Scan (refresh OctoFarm -> OctoPrint connection) your OctoPrint instances.",
+            description: "The health checks sections are there to make sure your OctoPrint and OctoFarm configurations are in-sync. It will attempt to point out errors in configurations and even detect some connection issues and then alert you on the main screen.",
             img_url: "PrinterManagerHealthChecks",
           },
         ],
@@ -256,19 +256,19 @@ export default {
         tab: "two",
         title: "Dashboard",
         icon: "mdi-desktop-mac-dashboard",
-        description_1: "A customisable overview of your entire farm with a wide selection of elements to choose from.",
-        description_2: "Quickly see your farms current print statistics, printer states and even your farms environment history all on a single page. Great for a large screen display.",
-        image_url: [""],
+        description_1: "A customisable overview of your entire farm with a wide selection of panels to choose from. Best displayed on the big screen to gain deep insights into how your farm is currently progressing",
+        description_2: "Quickly see your farms current print statistics, printer states, job status and even farm temperatures at a glance.",
+        image_url: ["DashboardMore", "Dashboard"],
         features: [
           {
             title: "Customise your view",
-            description: "Customise your view",
-            img_url: "",
+            description: "Customise your view by dragging and dropping any element wherever you want or resizing it to better fill up space.",
+            img_url: "DashboardMovePanel",
           },
           {
             title: "Disable/Enable Elements\n",
-            description: "Choose which elements you feel are most important for your dashboard by disabling the ones you don't need.",
-            img_url: "",
+            description: "Choose which elements you feel are most important for your dashboard by disabling the ones you don't need. These settings are per user too so each user can have their own settings.",
+            img_url: "DashboardSettings",
           },
         ],
       },
@@ -276,29 +276,39 @@ export default {
         tab: "three",
         title: "Monitoring",
         icon: "mdi-eye-circle",
-        description_1: "Keep an eye on your entire farm at once whilst retaining controls over each individual printer.",
-        description_2: "Choose between various views to better suit your individual farm needs. No camera's on your farm? No problem, OctoFarm reacts to your OctoPrint camera settings so you don't waste resources on what's not needed.",
-        image_url: [""],
+        description_1: "Monitor and Control your entire farm from a single interface with a selection of sorting/filtering and bulk control actions.",
+        description_2: "Choose between various views to better suit your individual farm needs. Each view can be enabled and disabled in system settings so you can keep what suits your farm the best.",
+        image_url: ["MonitoringJobInfoModal", "MonitoringFilesModal", "MonitoringControlModal", "MonitoringTerminalModal"],
         features: [
           {
             title: "List View",
-            description: "This view will display all your printers in an organised list, perfect for those camera-less farms.",
-            img_url: "",
+            description: "A tabled view of your printers, great for those farms without cameras and more printers on the screen. Full control and information available.",
+            img_url: "MonitoringListView",
           },
           {
             title: "Camera View",
-            description: "This view is a camera monitoring station for your printers. You can customise the camera rows and view many streams at once.",
-            img_url: "",
+            description: "Your personal NVR style view with configurable columns with camera's as the main focus. Full control and limited information available.",
+            img_url: "MonitoringCameraView",
           },
           {
             title: "Panel View",
-            description: "This view is a kind of combination of the previous two views. It will show your camera if available and give you more refined controls over prints.",
-            img_url: "",
+            description: "A card style view where it combines the camera's and more information on print state. Full control and information available.",
+            img_url: "MonitoringPanelView",
+          },
+          {
+            title: "Group View",
+            description: "Organises printers by their OctoFarm group with configurable columns for each group. Grouped control and limited information available.",
+            img_url: "MonitoringGroupView",
+          },
+          {
+            title: "Super List View",
+            description: "A super view of sorts, combines the camera/panel and list views all into one single view. Full control and information available.",
+            img_url: "MonitoringSuperList",
           },
           {
             title: "Current Operations View",
-            description: "",
-            img_url: "",
+            description: "Current print status view for what's happening now. Very limited control and information available.",
+            img_url: "MonitoringCurrentOperations",
           },
         ],
       },
@@ -306,24 +316,24 @@ export default {
         tab: "four",
         title: "History",
         icon: "mdi-history",
-        description_1: "A running log of every successful/cancelled/failed print across your entire farm.",
+        description_1: "A detailed running log of every successful/cancelled/failed print across your entire farm. Captures various stats about the print job, times, filament usage and more!",
         description_2: "Drill down into individual prints or see statistics of a group of them using the available filters. You can also log notes and if available history will capture your file image from the Prusa/SuperSlicer/Cura stl preview plugins.",
-        image_url: [""],
+        image_url: ["HistoryView", "HistoryViewCostAndUsage", "HistoryViewGraphs", "HistoryViewPrinterStats"],
         features: [
           {
             title: "Filters",
             description: "Drill down and see updated statistics with the available history filters. Find a specific file, prints that used a certain spool or even drill down by folder which can be used to keep a group of prints together.",
-            img_url: "",
+            img_url: "HistoryFilters",
           },
           {
             title: "Statistics",
-            description: "Get an idea of your most printed file, most used spool or even automatically calculate your prints cost per hour.",
-            img_url: "",
+            description: "Deep usage statistics across your farm spanning back as long as you want... Monthly success rates, usages, print times and more!",
+            img_url: "HistoryViewGraphs",
           },
           {
             title: "History Card",
             description: "Open up the history card to drill down into more specific print meta data and also update some of the fields. Allows you to add notes to your print for future reference.",
-            img_url: "",
+            img_url: "HistoryCard",
           },
         ],
       },
@@ -331,24 +341,24 @@ export default {
         tab: "five",
         title: "File Manager",
         icon: "mdi-file-code-outline",
-        description_1: "Quickly switch between your OctoPrint file lists on every printer on your farm.",
-        description_2: "Full management capabilities as well as drag/drop upload triggers, Multiple file Uploads to multiple printers at once and more.",
-        image_url: [""],
+        description_1: "Quickly switch and manage every file list on your farm. Pulls all the current files and folders from each online OctoPrint instance.",
+        description_2: "Full management capabilities Upload, Move, Delete and even start the print. There are also various house keeping functionality to keep your systems clean of old files.",
+        image_url: ["FileManager", "FileManagerStats"],
         features: [
           {
-            title: "Printer Switching",
-            description: "Quickly change between all the printers file lists on your farm and manage the files on each of these instances.",
-            img_url: "",
+            title: "Upload Queue",
+            description: "View a list and progress of each file currently uploading and where it's going.",
+            img_url: "FileManagerFileQueue",
           },
           {
-            title: "File Actions",
-            description: "Manage your files with the file actions Sync, Start, Select, Move, Download and Delete all all currently available for each file. You can also Upload, Upload and Print, Create folders on your OctoPrint instance.",
-            img_url: "",
+            title: "Gcode Scripts",
+            description: "Create a custom set of Gcode scripts that you can fire to an instance or multiple on various screens of OctoFarm",
+            img_url: "FileManagerGcodeScript",
           },
           {
             title: "Multi-Upload / Print",
-            description: "Got a large set of files that you need on a few different printers? Fire off multiple files to multiple printers with a few clicks. Uploading a single file? You have the options to print after upload is complete.",
-            img_url: "",
+            description: "Bulk upload a large amount of files, to existing or new folders on OctoPrint to as many printers as you want.",
+            img_url: "FileManagerMultiUpload",
           },
         ],
       },
@@ -356,24 +366,24 @@ export default {
         tab: "six",
         title: "Filament Manager",
         icon: "mdi-movie-roll",
-        description_1: "Keep a track of all your manufacturers and spools and assign them to printers so they are logged and tracked by OctoFarm.",
-        description_2: "Enhance your spool tracking with Filament Manager Plugin support on OctoPrint. Enabling this and syncing your OctoFarm instance with it will bring a whole host of extra information like cost/weight.",
-        image_url: [""],
+        description_1: "Keep a track of all your manufacturers and spools and assign them to printers so they are logged and tracked by OctoFarm. Only care about types of filament? That's fine, you can setup this with whatever granular level you like!",
+        description_2: "Track costs and weight with history better by using length and density calculations, assign spools to printers and manage all of your inventory with graphs and overview screens.",
+        image_url: ["FilamentManager"],
         features: [
           {
             title: "Profiles Information",
-            description: "OctoFarm splits your spools by Profiles. Profiles include the constants that are the same across every roll. Manufacturer, Material, Density and Diameter.",
-            img_url: "",
+            description: "OctoFarm splits your filament by Profiles and Spools. Profiles include the constants that are the same across every roll. Manufacturer, Material, Density and Diameter.",
+            img_url: "FilamentManagerProfiles",
           },
           {
             title: "Spool Information",
-            description: "Spools are your individual spool, you can be as pedantic with this as you like. Track each individual one or just track it by colour / material type. Weight is only available whilst using the Filament Manager Plugin.",
-            img_url: "",
+            description: "Spools are your individual spool, you can be as pedantic with this as you like. Track each individual one or just track it by colour / material type.",
+            img_url: "FilamentManagerSpools",
           },
           {
-            title: "Statistics",
-            description: "Get an overview of your filament statistics. See how much of a specific type you've got with the available filters for your spools.",
-            img_url: "",
+            title: "Materials List",
+            description: "Pre-defined material lists with included densities that can be selected when setting up your profiles. Custom pre-heat temperatures coming soon!",
+            img_url: "FilamentManagerMaterialsList",
           },
         ],
       },
@@ -381,7 +391,7 @@ export default {
         tab: "seven",
         title: "System",
         icon: "mdi-cog",
-        description_1: "Editable options to further tweak your OctoFarm instance.",
+        description_1: "System, Client Settings, Alerts, Database management and Information about OctoFarm's system processes.",
         description_2: "Includes client/server settings, setup Alerts for specific triggers in your farm, Basic management of OctoFarms database, Download OctoFarms logs and view system information about your instance.",
         image_url: [""],
         features: [
@@ -407,7 +417,7 @@ export default {
       {
         date: "21/05/2022",
         version: "Version 1.2.0",
-        release: "Hat's off to all my patreons!",
+        release: "Strong and Stable",
         features: [
           {
             description: "This version has taken just over a year and you can find out more about that in blog posts I've made... It's aimed at a payback to anyone"

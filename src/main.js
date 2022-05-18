@@ -4,6 +4,7 @@ import lineClamp from "vue-line-clamp";
 import VueClipboard from "vue-clipboard2";
 
 // Vue
+import VueExpandableImage from "vue-expandable-image";
 import App from "./App.vue";
 import "./registerServiceWorker";
 import router from "./router";
@@ -14,6 +15,8 @@ Vue.config.productionTip = false;
 
 // Plugin declaration
 Vue.use(VueClipboard);
+
+Vue.use(VueExpandableImage);
 
 Vue.use(lineClamp, {
   textOverflow: "-",
