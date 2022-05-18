@@ -56,7 +56,7 @@
               <v-col
                 sm="12"
               >
-                <v-img src="~@/assets/screenshots/dashboard.png" />
+                <v-img src="~@/assets/screenshots/Dashboard.png" />
               </v-col>
             </v-row>
           </v-card>
