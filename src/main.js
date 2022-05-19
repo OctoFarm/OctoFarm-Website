@@ -5,6 +5,7 @@ import VueClipboard from "vue-clipboard2";
 
 // Vue
 import VueExpandableImage from "vue-expandable-image";
+import VueCarousel from "vue-carousel";
 import App from "./App.vue";
 import "./registerServiceWorker";
 import router from "./router";
@@ -17,6 +18,8 @@ Vue.config.productionTip = false;
 Vue.use(VueClipboard);
 
 Vue.use(VueExpandableImage);
+
+Vue.use(VueCarousel);
 
 Vue.use(lineClamp, {
   textOverflow: "-",

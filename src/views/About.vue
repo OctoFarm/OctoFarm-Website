@@ -61,25 +61,25 @@
                         elevation="24"
                         class="mx-auto"
                       >
-                        <v-carousel
-                          :continuous="true"
-                          :show-arrows="area.image_url.length > 1"
-                          hide-delimiter-background
-                          delimiter-icon="mdi-minus"
+                        <carousel
+                          carousel
+                          :per-page="1"
+                          :loop="true"
+                          :autoplay="true"
+                          :mouse-drag="true"
                         >
-                          <v-carousel-item
+                          <slide
                             v-for="(url, i) in area.image_url"
                             :key="i"
                           >
                             <expandable-image
                               v-if="url.length !== 0"
-                              height="100%"
                               :aspect-ratio="16/9"
                               :src="get_img_url(url)"
                               class="ma-5"
                             />
-                          </v-carousel-item>
-                        </v-carousel>
+                          </slide>
+                        </carousel>
                       </v-card>
                     </v-col>
                   </v-row>
