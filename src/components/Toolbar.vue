@@ -23,14 +23,6 @@
         >{{ nav.name }}</v-tab>
       </v-tabs>
       <div class="text-center d-inline-flex">
-        <v-btn
-          icon
-          color="primary"
-          href="https://status.octofarm.net"
-          target="_blank"
-        >
-          <v-icon>mdi-server</v-icon>
-        </v-btn>
         <div class="text-center d-inline-flex">
           <v-btn
             icon
