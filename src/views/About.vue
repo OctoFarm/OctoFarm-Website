@@ -30,7 +30,7 @@
                 :key="area.tab"
               >
                 <v-card
-                  class="ma-15"
+                  class="ma-10"
                   flat
                 >
                   <v-row
@@ -40,7 +40,7 @@
                     <v-col
                       lg="3"
                       md="6"
-                      sm="12"
+                      cols="12"
                     >
                       <v-card-title class="d-inline-flex">
                         {{ area.title }}
@@ -55,7 +55,7 @@
                     <v-col
                       lg="9"
                       md="6"
-                      sm="12"
+                      cols="12"
                     >
                       <v-card
                         elevation="24"
@@ -73,6 +73,7 @@
                           >
                             <expandable-image
                               v-if="url.length !== 0"
+                              height="100%"
                               :aspect-ratio="16/9"
                               :src="get_img_url(url)"
                               class="ma-5"
@@ -91,7 +92,7 @@
                       :key="feat.title"
                       lg="4"
                       md="6"
-                      sm="12"
+                      cols="12"
                       class="text-center"
                     >
                       <expandable-image
@@ -148,9 +149,12 @@
                     <span v-if="feat.title">
                       <v-list-item dense>
                         <v-list-item-content>
-                          <v-list-item-title v-html="feat.title" />
+                          <v-list-item-title
+                            class="text-wrap"
+                            v-html="feat.title"
+                          />
                           <v-list-item-subtitle
-                            class="font-weight-thin"
+                            class="text-wrap font-weight-thin"
                             v-html="feat.description"
                           />
                         </v-list-item-content>
