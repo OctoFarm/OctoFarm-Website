@@ -136,7 +136,7 @@
                 <v-card-text>
                   OctoFarm is a single pane of glass that combines multiple OctoPrint instances into a single interface.
                   It utilises the OctoPrint API and websocket systems to allow you to monitor and manage all of your 3d printer farm.
-                  OctoFarm brings together a large feature set from OctoPrint and also many of it's own rolled on top that help makers running and
+                  OctoFarm brings together a large feature set from OctoPrint and also many of it's own rolled on top that help makers running an
                   OctoPrint 3D printer farm to get full control from a single place. Check out the About page for more information on area's and features.
                 </v-card-text>
               </v-col>
