@@ -198,8 +198,6 @@
                   OctoFarm is being actively developed all the time and
                   new features are always on the horizon. <br>
                   Some of those plans are listed below and already in the works.
-                  <br>
-                  Some of these features below require a sponsorship goal to be reached before I will work on them. More information on the sponsorship page!
                 </v-card-text>
               </v-col>
             </v-row>
