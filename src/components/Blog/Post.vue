@@ -282,9 +282,10 @@ li {
   font-size: 1.2em !important;
 }
 .kg-image {
+  display: block;
   margin-right: auto;
   margin-left: auto;
-  width:100%;
+  max-width:100%;
   height:100%;
 }
 
