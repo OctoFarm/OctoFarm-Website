@@ -247,6 +247,11 @@ code {
   border-radius: 3px;
 }
 
+h2 {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
 hr {
   position: relative;
   margin-right: auto;
