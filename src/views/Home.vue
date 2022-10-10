@@ -32,13 +32,13 @@
             style="text-shadow: 1px 0 0 #331D5BFF, 0 -1px 0 #331D5BFF, 0 1px 0 #331D5BFF, -1px 0 0 #331D5BFF;"
             class="subheading font-weight-regular"
           >
-            OctoFarm is a single pane of glass that combines multiple OctoPrint instances into a single interface.
+            New Website Currently Under Construction!
           </h3>
           <h4
             style="text-shadow: 1px 0 0 #331D5BFF, 0 -1px 0 #331D5BFF, 0 1px 0 #331D5BFF, -1px 0 0 #331D5BFF;"
             class="font-weight-light mt-3"
           >
-            A free and open source makers farm management software originally created by James Mackay
+            Will be live in due time. This one is currently a wee bit broken. Check the links and information below for more about OctoFarm until this is ready
           </h4>
           <v-btn
             class="mt-5"
@@ -52,7 +52,7 @@
             color="secondary"
             href="https://github.com/OctoFarm/OctoFarm/releases"
           >
-            Latest Release: {{ octofarmLatestVersion }}
+            Latest Release: 1.7.3
           </v-btn>
         </v-col>
       </v-row>
